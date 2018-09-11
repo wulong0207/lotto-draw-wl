@@ -1,0 +1,188 @@
+<#assign pokerMap={"1":"spade", "2":"heart", "3":"club", "4":"diamond"}/>
+<#assign logoMap={"1":"sd11x5", "2":"cqssc", "3":"jsk3", "4":"kl10", "99":"sdpk"}/>
+<#include "/pc/common/common.html">
+<#include "/pc/common/data-kj-url.html">
+<#import "/pc/common/macro-layout-html.html" as layout/>
+<#assign htmlTitle="地方彩开奖结果查询_地方彩中奖号码_地方彩开奖公告-2N彩票网">
+<#assign htmlKeywords="地方彩开奖，地方彩开奖结果">
+<#assign htmlDescription="2N彩票地方彩开奖频道，所有地方彩开奖时间、开奖公告、开奖结果与官方同步，让您第一时间了解最新地方彩开奖信息，买彩票查开奖结果到2N彩票。">
+<@layout.header title=htmlTitle keywords=htmlKeywords description=htmlDescription>
+</@layout.header>
+<@layout.body>
+<div class="layout">
+    <div class="lottery-list-top">
+        <div class="tit-tab fl">
+            <a class="tab-col" href="${contextPath}/index.html">全国开奖彩种</a>
+            <a class="tab-col"  href="${contextPath}/index/high.html">高频彩种</a>
+            <a class="tab-col cur" href="${contextPath}/index/local.html">地方彩种</a>
+        </div>
+        <div class="lottery-list-top-r"><i class="ui-icon ex-grange"></i> 数据来源于彩票中心官方网站，请以彩票中心官方网站公布数据为准</div>
+    </div>
+    <!--地方彩种-->
+    <div class="content-section">
+        <!--彩种快捷入口start-->
+        <div class="fast-map">
+            <!--彩种链接-->
+            <div class="fast-map-link">
+                <ul>
+                    <li><a class="a-link" href="javascript:void(0)">全部</a>
+                    <#assign areaCount=1>
+                    <#list drawLocalLotteryBOList as drawLocalLottery>
+                        <#if (areaCount%10==0)>
+                            <li>
+                        </#if>
+                        <a class="a-link" href="javascript:void(0)" data-area-id="${drawLocalLottery.area}">${drawLocalLottery.areaName}</a>
+                        <#if (areaCount%10==9 || !drawLocalLottery_has_next)>
+                            </li>
+                        </#if>
+                        <#assign areaCount=areaCount+1>
+                    </#list>
+                </ul>
+            </div>
+            <!--开奖查询-->
+            <div class="search-lotto">
+                <strong>开奖查询</strong>
+                <select id="lotteryTypeSelect">
+                    <option value="">选择彩种</option>
+                    <#list lotteryList as lottery>
+                        <option data-key="${lotteryKeyJson[lottery.lotteryCode?string]}" value="${lottery.lotteryCode}">${lottery.lotteryName}</option>
+                    </#list>
+                </select>
+                <select id="issueSelect">
+                    <option value="">选择日期</option>
+                </select>
+                <button id="lotterySearchBtn" class="searchBtn">查询</button>
+            </div>
+        </div>
+        <!--彩种快捷入口end-->
+        <div class="lotto-list-main mt20 difang">
+            <div class="list-head">
+                <span class="col list-wid0">省市</span>
+                <span class="col list-wid1">彩种</span>
+                <span class="col list-wid2">期号</span>
+                <span class="col list-wid3">开奖时间</span>
+                <span class="col list-wid4">开奖号码</span>
+                <span class="col list-wid5">开奖日</span>
+                <span class="col list-wid6">奖池滚存</span>
+                <span class="col list-wid7">详情</span>
+            </div>
+            <div class="list-body">
+                <#list drawLocalLotteryBOList as drawLocalLottery>
+                    <div id="area-${drawLocalLottery.area}" class="lottery-section">
+                        <div class="col list-wid0">
+                            <em>${drawLocalLottery.areaName}</em>
+                        </div>
+                        <div class="list-wid-box">
+                            <#list drawLocalLottery.list as drawLottery>
+                                <div class="list-lottery-box">
+                                    <div class="col list-wid1">
+                                        <div class="fl lotto-info">
+                                            <div class="lottery-name-num"><a href="${contextPath}/${drawLottery.lotteryKey}/" target="_blank"><strong class="lt-name">${drawLottery.lotteryName?replace(drawLocalLottery.areaName, "")}</strong></a></div>
+                                        </div>
+                                    </div>
+                                    <div class="col list-wid2"><span class="lt-num">${drawLottery.issueCode}期</span></div>
+                                    <div class="col list-wid3 tac">${drawLottery.lotteryTime?string("yyyy-MM-dd")}</div>
+                                    <div class="col list-wid4">
+                                        <#if drawLottery.drawCodeArr2??>
+                                            <div class="opened ml30">
+                                                <div class="balls-list">
+                                                    <#assign drawCodeArr=drawLottery.drawCodeArr2/>
+                                                    
+                                                      <div class="ball-list fl">
+                                                        <#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+                                                          <#list drawCodeArr[0] as code>
+                                                            <span class="ui-icon redBall-30">${code}</span>
+                                                          </#list>
+                                                        </#if>
+                                                        <#if (drawCodeArr?size>1 && drawCodeArr[1]??)>
+                                                          <#list drawCodeArr[1] as code>
+                                                            <span class="ui-icon blueBall-30">${code}</span>
+                                                          </#list>
+                                                        </#if>
+                                                      </div>
+                                                </div>
+                                            </div>
+                                        <#else>
+                                            <div class="open-loading ml30">
+                                                <em class="fs16 mr10">等待开奖...</em>   
+                                            </div>
+                                        </#if>
+                                    </div>
+                                    <div class="col list-wid5 tac"><em>${drawLottery.lotteryDrawText!}</em></div>
+                                    <div class="col list-wid6 tac">
+                                        <em>${(drawLottery.jackpotAmount!string("#,###.#"))!0}</em>                                      
+                                    </div>
+                                    <div class="col list-wid7 tac"><a class="blue" target="_blank" href="${contextPath}/${drawLottery.lotteryKey}/${drawLottery.issueCode}.html">详情</a></div>
+                                </div>
+                            </#list>
+                        </div>
+                    </div>
+                </#list>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</@layout.body>
+<@layout.footer>
+    <script type="text/javascript">
+        // 彩种彩期下拉联动
+        $(function() {
+            var emptyIssueHtml = $("#issueSelect:first").html();
+            // 彩种查询
+            $("#lotteryTypeSelect").change(function() {
+                $("#issueSelect").empty();
+                var lotteryCode = $(this).val();
+                if(lotteryCode == "") {
+                    $("#issueSelect").append(emptyIssueHtml);
+                    return
+                }
+                var qryFlag = 1;// 2高频查日期，其它查期号
+                var url = baseData.apiPath + "/pc/v1.0/draw/lottery/issue/list";
+                var data = {"lotteryCode":lotteryCode, "currentIssue" : 2, "qryFlag" : qryFlag};
+                $.ajax({
+                    "url" : url,
+                    "type" : "GET",
+                    "headers" : yicai.CONSTANTS.HEADERS,
+                    "data" : data,
+                    "dataType" : "json",
+                    "success" : function(result) {
+                        if(!result || result.success != 1){
+                            console.error("彩期查询失败, errorCode:" + result.errorCode +" , message:" + result.message);
+                            return;
+                        }
+                        var $issueSelect = $("#issueSelect");
+                        var issueCodeArr = result.data ? result.data : [];
+                        for(var i = 0; i < result.data.length; i++) {
+                            var issueCode = result.data[i];
+                            $issueSelect.append("<option value=\"" + issueCode+"\">" + issueCode + "</option>");
+                        }
+                    }
+                });
+            });
+            // 查询按钮
+            $("#lotterySearchBtn").click(function() {
+                var lotteryKey = $("#lotteryTypeSelect option:selected").attr("data-key");
+                if($.trim(lotteryKey) == "") {
+                    return
+                }
+                var issueCode = $("#issueSelect option:selected").val();
+                if($.trim(issueCode) == "") {
+                    return;
+                }
+                window.open(baseData.contextPath + "/" + lotteryKey + "/" + issueCode.replace(/-/g, "") + ".html", "_target");
+            });
+            // 隐藏显示地区
+            $(".fast-map-link li a").click(function(event) {
+                var area = $.trim($(this).attr("data-area-id"));
+                if(area == "") {
+                    $(".lotto-list-main .lottery-section").show();
+                }else{
+                    $(".lotto-list-main .lottery-section").hide();
+                    $("#area-"+area).show();
+                }
+                event.preventDefault();
+            });
+        })
+    </script>
+</@layout.footer>

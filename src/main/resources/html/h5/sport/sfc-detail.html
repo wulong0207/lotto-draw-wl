@@ -1,0 +1,133 @@
+<#include "/h5/common/top.html">
+  <title>${issue.issueCode}期胜负彩(任选9场)开奖结果查询_${issue.issueCode}期体彩胜负彩(任选9场)中奖信息-2N彩票触屏版</title>
+  <meta name="keywords" content="${issue.issueCode}期胜负彩，${issue.issueCode}期14场胜负彩" />
+  <meta name="description" content="2N彩票网为您提供胜负彩${issue.issueCode}期开奖结果,中国体育足球彩票胜负彩${issue.issueCode}期开奖结果、时间、中奖查询、开奖公告、数据分析等服务，买彩票查开奖结果到2N彩票。" />
+  <link rel="canonical"href="${webKjUrl}/sfc/${issue.issueCode}.html" >
+</head>
+<body>
+<header class="header">
+  <section class="kj-h-title">
+    <a href="javascript:history.go(-1);" class="icons h-back"></a>
+    <h1>胜负彩(任选九)开奖详情</h1>
+  </section>
+</header>
+<section class="kj-content">
+  <div class="kj-detail-mode sfc">
+    <div class="kj-issue-item">
+      <div class="date-time"><span class="issue">${issue.issueCode}期</span><em>${(issue.lotteryTime?string('MM-dd'))!}</em><em>${(issue.lotteryTime?string('HH:mm'))!}(${week(issue.lotteryTime)})</em></div>
+      <div class="bottom-result">
+        <#if issue.drawCodeArr??>
+          <#assign drawCodeArr=issue.drawCodeArr/>
+          <div class="square-list">
+            <i class="i-square">${drawCodeArr[0]!}</i>
+            <i class="i-square">${drawCodeArr[1]!}</i>
+            <i class="i-square">${drawCodeArr[2]!}</i>
+            <i class="i-square">${drawCodeArr[3]!}</i>
+            <i class="i-square">${drawCodeArr[4]!}</i>
+            <i class="i-square">${drawCodeArr[5]!}</i>
+            <i class="i-square">${drawCodeArr[6]!}</i>
+            <i class="i-square">${drawCodeArr[7]!}</i>
+            <i class="i-square">${drawCodeArr[8]!}</i>
+            <i class="i-square">${drawCodeArr[9]!}</i>
+            <i class="i-square">${drawCodeArr[10]!}</i>
+            <i class="i-square">${drawCodeArr[11]!}</i>
+            <i class="i-square">${drawCodeArr[12]!}</i>
+            <i class="i-square">${drawCodeArr[13]!}</i>
+          </div>
+          <#else>
+            <em class="fs14 c666">等待开奖</em>
+        </#if>
+      </div>
+    </div>
+    <div class="jackpot-mode">
+      <div class="jackpot-main">
+        <ul class="jackpot-money">
+          <li>
+            <span>本期销量(元)</span>
+            <b>${issue.salesAmount!}</b>
+          </li>
+          <li>
+            <span>奖池滚存(元)</span>
+            <b>${issue.jackpotAmount!}</b>
+          </li>
+        </ul>
+        <#if !(issue.salesAmount??) && !(issue.jackpotAmount??)>
+          <p class="c666">等待官方公布数据</p>
+        </#if>
+      </div>
+    </div>
+    <div class="jackpot-list">
+      <div class="jackpot-list-title">奖金详情</div>
+      <table class="table-primary">
+        <tr><th>十四场</th><th>单注奖金(元)</th><th>中奖注数(注)</th></tr>
+        <#list issue.drawDetailList as drawDetail>
+          <tr>
+          <#if drawDetail.money?? && (drawDetail.num>0)>
+            <td>${drawDetail.prize}</td>
+            <td><em class="red">${drawDetail.money}</em></td>
+            <td>${drawDetail.num}</td>
+          <#elseif drawDetail.num==0>
+            <td>${drawDetail.prize}</td>
+            <td><em>无人中奖</em></td>
+            <td>-</td>
+          <#else>
+            <td>${drawDetail.prize}</td>
+            <td><em>等待开奖</em></td>
+            <td>-</td>
+          </#if>
+          </tr>
+        </#list>
+      </table>
+      <table class="table-primary">
+        <tr><th>任选九</th><th>单注奖金(元)</th><th>中奖注数(注)</th></tr>
+        <#list issue.drawDetailNineList as drawDetailNine>
+          <tr>
+            <#if drawDetailNine.money?? && (drawDetailNine.num>0)>
+              <td>${drawDetailNine.prize}</td>
+              <td><em class="red">${drawDetailNine.money}</em></td>
+              <td>${drawDetailNine.num}</td>
+            <#elseif drawDetailNine.num==0>
+              <td>${drawDetailNine.prize}</td>
+              <td><em>无人中奖</em></td>
+              <td>-</td>
+            <#else>
+              <td>${drawDetailNine.prize}</td>
+              <td><em>等待开奖</em></td>
+              <td>-</td>
+            </#if>
+          </tr>
+        </#list>
+      </table>
+    </div>
+    <#if (issue.againsts?? && issue.againsts?size> 0)>
+    <div class="jackpot-list">
+      <div class="jackpot-list-title">对阵详情</div>
+      <table class="table-primary bd-table">
+        <tr><th>场次</th><th>主队</th><th>比分</th><th>客队</th><th>赛果</th></tr>
+        <#list issue.againsts as against>
+        <tr>
+          <td>${against_index+1}</td>
+          <#if against.fullScore?? && against.fullScore!="" && against.halfScore?? && against.halfScore!="">
+            <td>${against.homeTeamName}</td>
+            <td><em>${against.fullScore}</em><em class="c666 block">(${against.halfScore})</em></td>
+            <td>${against.guestTeamName}</td>
+            <td>${against.fullWdf}</td>
+          <#elseif against.matchStatus == 5>
+            <td>${against.homeTeamName}</td>
+            <td class="c999">*</td>
+            <td>${against.guestTeamName}</td>
+            <td>*</td>
+          <#else>
+            <td>${against.homeTeamName}</td>
+            <td class="c999">——</td>
+            <td>${against.guestTeamName}</td>
+            <td>-</td>
+          </#if>
+        </tr>
+        </#list>
+      </table>
+    </div>
+    </#if>
+  </div>
+</section>
+<#include "/h5/common/footer.html">

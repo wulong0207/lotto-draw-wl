@@ -1,0 +1,82 @@
+<#include "/h5/common/top.html">
+  <title>足彩胜负彩(任选9场)开奖结果查询_14场胜负彩任选9场开奖信息丨时间丨公告-2N彩票触屏版</title>
+  <meta name="keywords" content="胜负彩开奖结果，14场胜负彩开奖信息" />
+  <meta name="description" content="2N彩票胜负彩开奖结果栏目，为您提供最新胜负彩开奖信息查询，包括中国足球彩票14场胜负彩任选9场开奖结果，胜负彩开奖时间，开奖公告，开奖信息，买彩票查开奖结果到2N彩票。" />
+  <link rel="canonical"href="${webKjUrl}/sfc/" >
+</head>
+<body>
+<header class="header">
+  <section class="kj-h-title">
+    <a href="${contextPath}/index.html" class="icons h-back"></a>
+    <h1>胜负彩(任选九)</h1>
+  </section>
+</header>
+<section class="kj-content">
+  <div class="kj-issue-mode sfc">
+    <#if lastIssue.issueCode??>
+    <div class="kj-issue-item">
+      <a href="${contextPath}/sfc/${lastIssue.issueCode}.html">
+        <div class="date-time"><span class="issue">${lastIssue.issueCode!}期</span><em>${(lastIssue.lotteryTime?string('MM-dd'))!}</em><em>${(lastIssue.lotteryTime?string('HH:mm'))!}(${week(lastIssue.lotteryTime)})</em></div>
+        <div class="bottom-result">
+        <#if lastIssue.drawCodeArr??>
+          <#assign drawCodeArr=lastIssue.drawCodeArr/>
+          <div class="square-list">
+            <i class="i-square">${drawCodeArr[0]!}</i>
+            <i class="i-square">${drawCodeArr[1]!}</i>
+            <i class="i-square">${drawCodeArr[2]!}</i>
+            <i class="i-square">${drawCodeArr[3]!}</i>
+            <i class="i-square">${drawCodeArr[4]!}</i>
+            <i class="i-square">${drawCodeArr[5]!}</i>
+            <i class="i-square">${drawCodeArr[6]!}</i>
+            <i class="i-square">${drawCodeArr[7]!}</i>
+            <i class="i-square">${drawCodeArr[8]!}</i>
+            <i class="i-square">${drawCodeArr[9]!}</i>
+            <i class="i-square">${drawCodeArr[10]!}</i>
+            <i class="i-square">${drawCodeArr[11]!}</i>
+            <i class="i-square">${drawCodeArr[12]!}</i>
+            <i class="i-square">${drawCodeArr[13]!}</i>
+          </div>
+          <#else>
+            <em class="fs14 c666">等待开奖</em>
+        </#if>
+        </div>
+      </a>
+    </div>
+    </#if>
+    <!--历史彩期开奖列表-->
+    <#if (issueList && issueList?size> 0)>
+    <ul class="kj-issue-list">
+      <#list issueList as issue>
+      <li class="kj-issue-item">
+        <a href="${contextPath}/sfc/${issue.issueCode}.html">
+          <div class="date-time"><span class="issue">${issue.issueCode}期</span><em>${(issue.lotteryTime?string('MM-dd'))!}</em><em>${(issue.lotteryTime?string('HH:mm'))!}(${week(issue.lotteryTime)})</em></div>
+          <div class="bottom-result">
+          <#if issue.drawCodeArr??>
+            <#assign drawCodeArr=issue.drawCodeArr/>
+            <div class="square-list">
+              <i class="i-square">${drawCodeArr[0]!}</i>
+              <i class="i-square">${drawCodeArr[1]!}</i>
+              <i class="i-square">${drawCodeArr[2]!}</i>
+              <i class="i-square">${drawCodeArr[3]!}</i>
+              <i class="i-square">${drawCodeArr[4]!}</i>
+              <i class="i-square">${drawCodeArr[5]!}</i>
+              <i class="i-square">${drawCodeArr[6]!}</i>
+              <i class="i-square">${drawCodeArr[7]!}</i>
+              <i class="i-square">${drawCodeArr[8]!}</i>
+              <i class="i-square">${drawCodeArr[9]!}</i>
+              <i class="i-square">${drawCodeArr[10]!}</i>
+              <i class="i-square">${drawCodeArr[11]!}</i>
+              <i class="i-square">${drawCodeArr[12]!}</i>
+              <i class="i-square">${drawCodeArr[13]!}</i>
+            </div>
+          </#if>
+          </div>
+        </a>
+      </li>
+      </#list>
+    </ul>
+    </#if>
+    <p class="pt10 pb10 fs14 c999 tac">已经到底了，没有更多数据加载</p>
+  </div>
+</section>
+<#include "/h5/common/footer.html">

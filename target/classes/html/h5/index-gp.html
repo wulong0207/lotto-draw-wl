@@ -1,0 +1,81 @@
+  <#include "/h5/common/top.html">
+  <link href="${contextPath}/resources/css/index.css?v=${_VERSION_}" rel="stylesheet" type="text/css"/>
+  <title>高频彩开奖结果查询_高频彩中奖号码_高频彩开奖公告-2N彩票触屏版</title>
+  <meta name="keywords" content="高频彩开奖，高频彩开奖结果" />
+  <meta name="description" content="2N彩票高频彩开奖频道，所有高频开奖时间、开奖公告、开奖结果与官方同步，让您第一时间了解最新高频开奖信息，买彩票查开奖结果到2N彩票。" />
+</head>
+<body>
+<header class="header">
+  <section class="kj-h-title">
+    <a href="${isYicaiWapDomain?string(wapCpUrl,'/')}" class="icons h-back"></a>
+    <div class="h-tab white">
+      <a href="${contextPath}/index.html">全国</a>
+      <a class="active" href="${contextPath}/index/high.html">高频</a>
+      <a href="${contextPath}/index/local.html">地方</a>
+    </div>
+  </section>
+</header>
+<section class="kj-content">
+  <div class="h-tab-content">
+    <!--高频-->
+    <div class="h-tab-item">
+      <ul class="hight-list">
+        <#list homeHighLotteryBOList as homeHighLotteryBO>
+          <li class="hight-item">
+            <div class="place-head">
+              <em class="fl">${homeHighLotteryBO.childCategoryName}</em><span class="fr"><i class="arrow-r-g rotate90"></i></span>
+            </div>
+            <ul class="kj-list">
+              <#list homeHighLotteryBO.drawLotteryList as drawLottery>
+                <li class="kj-list-item">
+                  <a href="${contextPath}/${drawLottery.lotteryKey}/">
+                    <div class="lot-detail">
+                      <p>
+                        <em class="lot-name">${drawLottery.lotteryName}</em>
+                        <em class="lot-issue">${drawLottery.issueCode}期 ${(drawLottery.lotteryTime?string('MM-dd HH:mm'))!}</em>
+                      </p>
+                      <div class="lot-ball">
+                        <#assign drawCodeArr=drawLottery.drawCodeArr/>
+                        <#if homeHighLotteryBO.childCategoryId==3>
+                          <div class="dice-group fl">
+                            <#if drawCodeArr??>
+                              <i class="i-dice dice${drawCodeArr[0]!}"></i>
+                              <i class="i-dice dice${drawCodeArr[1]!}"></i>
+                              <i class="i-dice dice${drawCodeArr[2]!}"></i>
+                            </#if>
+                          </div>
+                          <div class="dice-des fl fs14">
+                            <span>和值: <em><#if drawLottery.other??>${drawLottery.other.sum!}</#if></em></span>
+                            <span>形态: <em><#if drawLottery.other??>${drawLottery.other.bsText!}${drawLottery.other.sdText!}</#if></em></span>
+                          </div>
+                        <#elseif drawLottery.lotteryCode == '225'><#--山东快乐扑克3-->
+                          <div class="pk-group">
+                            <#if drawCodeArr??>
+                              <i class="i-bd-pk pk${drawCodeArr[0]!}"><em>${drawCodeArr[1]!}</em></i>
+                              <i class="i-bd-pk pk${drawCodeArr[2]!}"><em>${drawCodeArr[3]!}</em></i>
+                              <i class="i-bd-pk pk${drawCodeArr[4]!}"><em>${drawCodeArr[5]!}</em></i>
+                            </#if>
+                          </div>
+                          <div class="dice-des">
+                            <span>形态: <em><#if drawLottery.other??>${drawLottery.other.typeText!}</#if></em></span>
+                          </div>
+                        <#else>
+                          <div class="ball-list fl">
+                            <#list drawCodeArr as code>
+                              <i class="i-ball red">${code}</i>
+                            </#list>
+                          </div>
+                        </#if>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </#list>
+            </ul>
+          </li>
+        </#list>
+      </ul>
+    </div>
+  </div>
+</section>
+<#include "/h5/common/footer.html">

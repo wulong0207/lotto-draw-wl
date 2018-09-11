@@ -1,0 +1,175 @@
+<#include "/pc/common/common.html">
+<#include "/pc/common/data-kj-url.html">
+<#import "/pc/common/macro-layout-html.html" as layout/>
+<#assign htmlTitle="彩票开奖结果查询_福利彩票中奖号码查询_体育彩票开奖结果公告-2N彩票网">
+<#assign htmlKeywords="彩票开奖，彩票开奖结果">
+<#assign htmlDescription="2N彩票开奖频道：第一时间更新福彩、体彩、足彩和高频彩的开奖结果.包括双色球、超级大乐透、竞彩足球、竞彩篮球、排列三、排列五等多种彩票,买彩票查开奖结果到2N彩票。">
+<@layout.header title=htmlTitle keywords=htmlKeywords description=htmlDescription>
+	<link rel="alternate" media="only screen and (max-width: 640px)" href="${wapKjUrl}" >
+</@layout.header>
+<@layout.body>
+<div class="layout">
+	<div class="lottery-list-top">
+		<div class="tit-tab fl">
+			<a class="tab-col cur" href="${contextPath}/index.html">全国开奖彩种</a>
+			<a class="tab-col"  href="${contextPath}/index/high.html">高频彩种</a>
+            <a class="tab-col" href="${contextPath}/index/local.html">地方彩种</a>
+		</div>
+		<div class="lottery-list-top-r"><i class="ui-icon ex-grange"></i> 数据来源于彩票中心官方网站，请以彩票中心官方网站公布数据为准</div>
+	</div>
+	<!--全国彩种-->
+	<div class="content-section">
+		<!--彩种快捷入口start-->
+		<div class="fast-map">
+			<!--彩种链接-->
+			<div class="fast-map-link">
+				<ul>
+					<li>
+						<a class="a-link" target="_blank" href="${contextPath}/ssq/">双色球 </a>
+						<a class="a-link" target="_blank" href="${contextPath}/f3d/">福彩3D</a>
+						<a class="a-link" target="_blank" href="${contextPath}/qlc/">七乐彩</a>
+						<a class="a-link" target="_blank" href="${contextPath}/dlt/">大乐透</a>
+						<a class="a-link" target="_blank" href="${contextPath}/pl3/">排列三</a>
+						<a class="a-link" target="_blank" href="${contextPath}/pl5/">排列五</a>
+						<a class="a-link" target="_blank" href="${contextPath}/qxc/">七星彩</a>
+					</li>
+					<li>
+						<a class="a-link" target="_blank" href="${contextPath}/sfc/">足彩胜负</a>
+						<a class="a-link" target="_blank" href="${contextPath}/jq4/">4场进球</a>
+						<a class="a-link" target="_blank" href="${contextPath}/zc6/">6场半全场</a>
+						<a class="a-link" target="_blank" href="${contextPath}/fb/">竞彩足球</a>
+						<a class="a-link" target="_blank" href="${contextPath}/bb/">竞彩篮球</a>
+						<a class="a-link" target="_blank" href="${contextPath}/bj/">北京单场</a>
+						<a class="a-link" target="_blank" href="${contextPath}/wf/">胜负过关</a>
+					</li>
+				</ul>
+			</div>
+			<!--开奖查询-->
+			<div class="search-lotto">
+				<strong>开奖查询</strong>
+				<select id="lotteryTypeSelect">
+					<option value="">选择彩种</option>
+					<option data-key="ssq" value="100">双色球</option>
+					<option data-key="qlc" value="101">七乐彩</option>
+					<option data-key="pl5" value="103">排列5</option>
+					<option data-key="pl3" value="104">排列3</option>
+					<option data-key="f3d" value="105">福彩3D</option>
+					<option data-key="qxc" value="107">七星彩</option>
+					<option data-key="zc6" value="302">6场半全场</option>
+					<option data-key="jq4" value="303">4场进球</option>
+					<option data-key="sfc" value="304">胜负彩</option>
+					<option data-key="rx9" value="305">任选九场</option>
+					<option data-key="bj" value="306">北京单场</option>
+					<option data-key="wf" value="307">胜负过关</option>
+				</select>
+				<select id="issueSelect">
+					<option value="">选择期号</option>
+				</select>
+				<button id="lotterySearchBtn">查询</button>
+			</div>
+		</div>
+		<!--彩种快捷入口end-->
+		<div class="lotto-list-main mt20">
+			<div class="list-head">
+				<span class="col list-wid1">彩种描述</span>
+				<span class="col list-wid2">开奖时间</span>
+				<span class="col list-wid3">开奖详情</span>
+				<span class="col list-wid4">走势</span>
+				<span class="col list-wid5">预测</span>
+				<span class="col list-wid6">购彩</span>
+			</div>
+			<div class="list-body">
+				<#import "/pc/home/macro-layout-num.html" as homeNumLayout/>
+				<#import "/pc/home/macro-layout-sport.html" as homeSportLayout/>
+				<#import "/pc/home/macro-layout-sport-old.html" as homeSportOldLayout/>
+				<#list drawLotteryBOList as drawLottery>
+					<#if drawLottery.lotteryCode! == '100'><#--双色球-->
+						<@homeNumLayout.drawSection drawLottery=drawLottery blueNum=1 jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}" trendUrl="${trendUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '101'><#--七乐彩-->
+						<@homeNumLayout.drawSection drawLottery=drawLottery blueNum=1 jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}" trendUrl="${trendUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '102'><#--大乐透-->
+						<@homeNumLayout.drawSection drawLottery=drawLottery blueNum=2 jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}" trendUrl="${trendUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '103'><#--排列5-->
+						<@homeNumLayout.drawSection drawLottery=drawLottery blueNum=0 jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}" trendUrl="${trendUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '104'><#--排列3-->
+						<@homeNumLayout.drawSection drawLottery=drawLottery blueNum=0 jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}" trendUrl="${trendUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '105'><#--福彩3D-->
+						<@homeNumLayout.drawSection drawLottery=drawLottery blueNum=0 jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}" trendUrl="${trendUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '107'><#--七星彩-->
+						<@homeNumLayout.drawSection drawLottery=drawLottery blueNum=0 jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}" trendUrl="${trendUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '300'><#--竞彩足球-->
+						<@homeSportLayout.drawSection drawLottery=drawLottery jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '301'><#--竞彩篮球-->
+						<@homeSportLayout.drawSection drawLottery=drawLottery jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '302'><#--6场半全场-->
+						<@homeSportOldLayout.drawSection drawLottery=drawLottery jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '303'><#--4场进球-->
+						<@homeSportOldLayout.drawSection drawLottery=drawLottery jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '304'><#--胜负彩-->
+						<@homeSportOldLayout.drawSection drawLottery=drawLottery jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '305'><#--任9-->
+						<@homeSportOldLayout.drawSection drawLottery=drawLottery jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '306'><#--北京单场-->
+						<@homeSportLayout.drawSection drawLottery=drawLottery jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}"/>
+					<#elseif drawLottery.lotteryCode! == '307'><#--胜负过关-->
+						<@homeSportLayout.drawSection drawLottery=drawLottery jczxUrl="${jczxUrlMap[drawLottery.lotteryCode?string]}"/>
+					</#if>
+				</#list>
+			</div>
+		</div>
+		
+	</div>
+	<!--全国彩种END-->
+</div>
+</@layout.body>
+<@layout.footer>
+	<script type="text/javascript">
+		// 彩种彩期下拉联动
+		$(function() {
+			var emptyIssueHtml = $("#issueSelect:first").html();
+			// 彩种查询
+			$("#lotteryTypeSelect").change(function() {
+				$("#issueSelect").empty();
+				var lotteryCode = $(this).val();
+				if(lotteryCode == "") {
+					$("#issueSelect").append(emptyIssueHtml);
+					return
+				}
+				var qryFlag = lotteryCode.charAt(0) === "2" ? 2 : 1;// 2高频查日期，其它查期号
+				var url = baseData.apiPath + "/pc/v1.0/draw/lottery/issue/list";
+				var data = {"lotteryCode":lotteryCode, "currentIssue" : 2, "qryFlag" : qryFlag};
+				$.ajax({
+					"url" : url,
+					"type" : "GET",
+					"headers" : yicai.CONSTANTS.HEADERS,
+					"data" : data,
+					"dataType": "json",
+					"success" : function(result) {
+						if(!result || result.success != 1){
+							console.error("彩期查询失败, errorCode:" + result.errorCode +" , message:" + result.message);
+							return;
+						}
+						var $issueSelect = $("#issueSelect");
+						var issueCodeArr = result.data ? result.data : [];
+						for(var i = 0; i < result.data.length; i++) {
+							var issueCode = result.data[i];
+							$issueSelect.append("<option value=\"" + issueCode+"\">" + issueCode + "</option>");
+						}
+					}
+				});
+			});
+			// 查询按钮
+			$("#lotterySearchBtn").click(function() {
+				var lotteryKey = $("#lotteryTypeSelect option:selected").attr("data-key");
+				if($.trim(lotteryKey) == "") {
+					return
+				}
+				var issueCode = $("#issueSelect option:selected").val();
+				if($.trim(issueCode) == "") {
+					return;
+				}
+				window.open(baseData.contextPath + "/" + lotteryKey + "/" + issueCode + ".html", "_target");
+			});
+		})
+	</script>
+</@layout.footer>

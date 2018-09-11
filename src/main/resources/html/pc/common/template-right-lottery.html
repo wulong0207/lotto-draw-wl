@@ -1,0 +1,17 @@
+<#if !(cpLotteryMap[lotteryType.lotteryCode?string]??)>
+<div class="whiteBg mt20">
+    <div class="det-sec-head">
+        <strong class="det-title">快速投注</strong>
+    </div>
+    <div class="lot-bet-list">
+        <ul>
+            <li><a href="${webCpUrl}/${cpLotteryMap['100']}"><img src="${contextPath}/resources/img/notice/lotteryLogo/logo-ssq.png" alt="双色球"/><em>双色球</em></a></li>
+            <li><a href="${webCpUrl}/${cpLotteryMap['102']}"><img src="${contextPath}/resources/img/notice/lotteryLogo/logo-dlt.png" alt="大乐透"/><em>大乐透</em></a></li>
+            <li><a href="${webCpUrl}/${cpLotteryMap['105']}"><img src="${contextPath}/resources/img/notice/lotteryLogo/logo-fc3d.png" alt="福彩3D"/><em>福彩3D</em></a></li>
+            <li><a href="${webCpUrl}/${cpLotteryMap['210']}"><img src="${contextPath}/resources/img/notice/lotteryLogo/logo-gd11x5.png" alt="广东11选5"/><em>广东11选5</em></a></li>
+            <li><a href="${webCpUrl}/${cpLotteryMap['233']}"><img src="${contextPath}/resources/img/notice/lotteryLogo/logo-jsk3.png" alt="江苏快3"/><em>江苏快3</em></a></li>
+            <li><a href="${webCpUrl}/${cpLotteryMap['300']}"><img src="${contextPath}/resources/img/notice/lotteryLogo/logo-jczq.png" alt="竞彩足球"/><em>竞彩足球</em></a></li>
+        </ul>
+    </div>
+</div>
+</#if>

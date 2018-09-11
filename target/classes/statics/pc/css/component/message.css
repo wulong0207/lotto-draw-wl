@@ -1,0 +1,161 @@
+
+.message {
+  position:relative;
+  z-index:99999;
+  color:#333;
+  font-size:14px;
+  word-break:break-all
+}
+.message a:hover {
+  text-decoration:none
+}
+.message-overlay {
+  position:fixed;
+  z-index:99999;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-color:#000;
+  background-color:rgba(0,0,0,.7);
+  filter:Alpha(opacity=70);
+  opacity:.7
+}
+.message-loading .message-overlay {
+  background-color:transparent;
+  filter:Alpha(opacity=0);
+  opacity:0
+}
+.message-main {
+  width:420px;
+  margin:-125px 0 0 -210px;
+  border-radius:3px;
+  background-color:#fff
+}
+.message-main,.message .info-loading {
+  position:fixed;
+  z-index:999999;
+  top:50%;
+  left:50%
+}
+.message .info-loading {
+  display:inline-block;
+  width:36px;
+  height:36px;
+  margin:-18px 0 0 -18px;
+  background:url(../../img/icons-bg.png) no-repeat 50%
+}
+.message-head {
+  position:relative;
+  padding:0 20px;
+  height:46px;
+  line-height:46px;
+  font-size:16px;
+  font-weight:700
+}
+.message-head .icon-close {
+  position:absolute;
+  cursor:pointer;
+  top:12px;
+  right:14px;
+  width:20px;
+  height:20px;
+  background-position:-165px -312px!important;
+}
+.message-body {
+  padding:10px 30px 30px
+}
+.message-content {
+  padding:15px 0 40px
+}
+.message-btns {
+  zoom:1
+}
+.message-btns:after {
+  content:" ";
+  font-size:0;
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+  overflow:hidden
+}
+.message-btns a {
+  float:left;
+  display:inline-block;
+  margin-right:10px;
+  min-width:90px;
+  height:36px;
+  line-height:36px;
+  padding:0 10px;
+  color:#fff;
+  text-align:center;
+  background-color:#2095f2;
+  border-radius:2px
+}
+.message-btns a:hover {
+  background-color:#1e8fe9
+}
+.message-btns a.cancel {
+  color:#333;
+  background-color:#fff;
+  border:1px solid #dce1e5
+}
+.message-btns a.cancel:hover {
+  background-color:#f7f7f7
+}
+.message-btns a.gray {
+  color:#999;
+  background-color:#fff;
+  border:1px solid #dce1e5
+}
+.message-btns a.gray:hover {
+  background-color:#f7f7f7
+}
+.message .message-error,.message .message-info,.message .message-loading,.message .message-success,.message .message-warn {
+  position:relative;
+  min-height:40px;
+  line-height:40px;
+  padding-left:50px
+}
+.message .message-error>div,.message .message-error>span,.message .message-info>div,.message .message-info>span,.message .message-loading>div,.message .message-loading>span,.message .message-success>div,.message .message-success>span,.message .message-warn>div,.message .message-warn>span {
+  line-height:1.7
+}
+.message .message-error:after,.message .message-info:after,.message .message-loading:after,.message .message-success:after,.message .message-warn:after {
+  content:"";
+  position:absolute;
+  display:block;
+  top:1px;
+  left:4px;
+  width:38px;
+  height:38px;
+  background-image:url(../../img/icons-bg.png);
+  background-position-y:-303px
+}
+.message .message-error:after {
+  background-position-x:0
+}
+.message .message-success:after {
+  background-position-x:-40px
+}
+.message .message-info:after {
+  background-position-x:-81px
+}
+.message .message-warn:after {
+  background-position-x:-122px
+}
+.message .message-loading:after {
+  background:url(../../img/loading.gif) no-repeat 50%
+}
+.message-text {
+  min-height:40px;
+  line-height:40px
+}
+.message-text>div,.message-text>span {
+  line-height:1.4
+}
+.message-middle {
+  margin-top:-5px;
+  display:inline-block;
+  vertical-align:middle
+}

@@ -1,0 +1,171 @@
+<#import "/pc/sport/common/macro-layout-sp-up-down.html" as spLayout/>
+<@compress single_line=true>
+<div class="det-tabbox">
+	<div class="tab-head">
+		<a class="tab cur">胜负固定奖金</a>
+		<a class="tab lineNone">让分胜负固定奖金</a>
+		<a class="tab">大小分固定奖金</a>
+		<a class="tab">胜分差固定奖金</a>
+	</div>
+	<div class="tab-body">
+		<!--胜负固定奖金-->
+		<div class="tab-content">
+			<div class="caiguo">
+				<strong>彩果：<i class="red">${match.fullWdfText!}</i></strong>
+			</div>
+			<div class="caiguo-det">
+				<table class="caiguo-table caiguo1" width="100%" border="0" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<td width="372">发布时间</td>
+							<td width="372">主负</td>
+							<td width="372">主胜</td>
+						</tr>
+					</thead>
+					<tbody>
+						<#list match.sportDataWdfs as data>
+							<#if data_has_next>
+								<#assign preData=match.sportDataWdfs[data_index+1]>
+							<#else>
+								<#assign preData=data>
+							</#if>
+							<tr>
+								<td class="c999">${data.releaseTime?string("yyyy-MM-dd HH:mm:ss")}</td>
+								<td><@spLayout.html data preData "spFail"/></td>
+								<td><@spLayout.html data preData "spWin"/></td>
+							</tr>
+						</#list>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--让分胜负固定奖金-->
+		<div class="tab-content" style="display: none">
+			<div class="caiguo">
+				<strong>彩果：<i class="red">${match.letWdfAllText!}</i></strong>
+			</div>
+			<div class="caiguo-det">
+				<table class="caiguo-table caiguo2" width="100%" border="0" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<td width="279">发布时间</td>
+							<td width="279">胜</td>
+							<td width="279">让分</td>
+							<td width="279">负</td>
+						</tr>
+					</thead>
+					<tbody>
+						<#list match.sportDataLetWdfs as data>
+							<#if data_has_next>
+								<#assign preData=match.sportDataLetWdfs[data_index+1]>
+							<#else>
+								<#assign preData=data>
+							</#if>
+							<tr>
+								<td class="c999">${data.releaseTime?string("yyyy-MM-dd HH:mm:ss")}</td>
+								<td><@spLayout.html data preData "spFail"/></td>
+								<td>
+									<#if (data.letNum>0)>
+										+${data.letNum}
+									<#elseif (data.letNum<=0)>
+										${data.letNum}
+									</#if>
+								</td>
+								<td><@spLayout.html data preData "spWin"/></td>
+							</tr>
+						</#list>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--大小分固定奖金-->
+		<div class="tab-content" style="display: none">
+			<div class="caiguo">
+				<strong>彩果：<i class="red">${match.sizeScoreAllText!}</i></strong>
+			</div>
+			<div class="caiguo-det">
+				<table class="caiguo-table caiguo3" width="100%" border="0" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<td width="279">发布时间</td>
+							<td width="279">大分</td>
+							<td width="279">总分</td>
+							<td width="229">小分</td>
+						</tr>
+					</thead>
+					<tbody>
+						<#list match.sportDataSizeScores as data>
+							<#if data_has_next>
+								<#assign preData=match.sportDataSizeScores[data_index+1]>
+							<#else>
+								<#assign preData=data>
+							</#if>
+							<tr>
+								<td class="c999">${data.releaseTime?string("yyyy-MM-dd HH:mm:ss")}</td>
+								<td><@spLayout.html data preData "spBig"/></td>
+								<td>${data.presetScore!}</td>
+								<td><@spLayout.html data preData "spSmall"/></td>
+							</tr>
+						</#list>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--胜分差固定奖金-->
+		<div class="tab-content" style="display: none">
+			<div class="caiguo">
+				<strong>彩果：<i class="red">${match.winScoreText!}</i></strong>
+			</div>
+			<div class="caiguo-det">
+				<table class="caiguo-table caiguo4" width="100%" border="0" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<td width="216" rowspan="2">发布时间</td>
+							<td width="450" colspan="6">客胜</td>
+							<td width="450" colspan="6">主胜</td>
+						</tr>
+						<tr>
+							<td width="75">1-5</td>
+							<td width="75">6-10</td>
+							<td width="75">11-15</td>
+							<td width="75">16-20</td>
+							<td width="75">21-25</td>
+							<td width="75">26+</td>
+							<td width="75">1-5</td>
+							<td width="75">6-10</td>
+							<td width="75">11-15</td>
+							<td width="75">16-20</td>
+							<td width="75">21-25</td>
+							<td width="75">26+</td>
+						</tr>
+					</thead>
+					<tbody>
+						<#list match.sportDataWinScores as data>	
+							<#if data_has_next>
+								<#assign preData=match.sportDataWinScores[data_index+1]>
+							<#else>
+								<#assign preData=data>
+							</#if>
+							<tr>
+								<td class="c999">${data.releaseTime?string("yyyy-MM-dd HH:mm:ss")}</td>
+								<td><@spLayout.html data preData "spFail0105"/></td>
+								<td><@spLayout.html data preData "spFail0610"/></td>
+								<td><@spLayout.html data preData "spFail1115"/></td>
+								<td><@spLayout.html data preData "spFail1620"/></td>
+								<td><@spLayout.html data preData "spFail2125"/></td>
+								<td><@spLayout.html data preData "spFail26"/></td>
+								<td><@spLayout.html data preData "spWin0105"/></td>
+								<td><@spLayout.html data preData "spWin0610"/></td>
+								<td><@spLayout.html data preData "spWin1115"/></td>
+								<td><@spLayout.html data preData "spWin1620"/></td>
+								<td><@spLayout.html data preData "spWin2125"/></td>
+								<td><@spLayout.html data preData "spWin26"/></td>
+							</tr>
+						</#list>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</@compress>

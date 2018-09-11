@@ -1,0 +1,1 @@
+${r'<#include'} "/h5/high/common/template-high-detail-default.html"/>

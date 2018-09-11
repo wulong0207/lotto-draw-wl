@@ -1,0 +1,37 @@
+<#import "/pc/high/common/macro-layout-high-detail.html" as detailLayout>
+<#import "/pc/high/common/macro-layout-high-list.html" as highListLayout/>
+<#include "/pc/high/common/template-high-detail-title.html">
+<@detailLayout.htmlDraw cssKey="sd11x5" title=htmlTitle keywords=htmlKeywords description=htmlDescription alternate=htmlAlternate;position,drawCodeArr>
+	<#if position=="last">
+		<#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+			<#list drawCodeArr[0] as code>
+				<span class="ui-icon redBall-34">${code}</span>
+			</#list>
+		</#if>
+	<#elseif position="list">
+		<@highListLayout.head>
+			<ul class="data-item">
+				<li>彩期</li>
+				<li class="w2">开奖号码</li>
+				<li>奇偶</li>
+				<li>大小</li>
+			</ul>
+		</@highListLayout.head>
+		<@highListLayout.body ;drawIssue,drawCodeArr,issueDisplayNum>
+			<ul class="data-item">
+				<li>${drawIssue.issueCode?substring(drawIssue.issueCode?length-issueDisplayNum)}</li>
+				<li class="w2">
+					<span class="num-item">
+						<#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+							<#list drawCodeArr[0] as code>
+								<b class="red">${code}</b>
+							</#list>
+						</#if>
+					</span>
+				</li>
+				<li>${(drawIssue.drawCodeType.oeRatio)!}</li>
+				<li>${(drawIssue.drawCodeType.bsRatio)!}</li>
+			</ul>
+		</@highListLayout.body>
+	</#if>
+</@detailLayout.htmlDraw>

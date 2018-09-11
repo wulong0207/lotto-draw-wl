@@ -1,0 +1,601 @@
+/*
+ * @Author: daijingjing
+ * @Date: 2017-10-10 14:51:01
+ * Desc: 开奖公告
+ */
+
+/************************************** 首页 start **************************************/
+.h-tab-content{
+  margin-top:2.26rem;
+}
+.kj-list-item {
+  background: #fff;
+  padding: 0.9rem 0.5rem;
+  overflow: auto;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.kj-list-item .lot-logo {
+  width: 17%;
+  float: left;
+  min-width: 2.51rem;
+}
+
+.kj-list-item .lot-logo img {
+  width: 2.51rem;
+  height: 2.51rem;
+  border-radius: 100%;
+  display: block;
+}
+
+.kj-list-item .lot-detail {
+  float: left;
+  width: 83%;
+}
+
+.kj-list-item .lot-detail p {
+  line-height:1;
+}
+.kj-list-item .lot-detail p em{
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.kj-list-item .lot-detail .lot-name {
+  font-size: 0.85rem;
+  color: #333;
+  float: left;
+}
+
+.kj-list-item .lot-detail .lot-issue {
+  font-size: 0.7rem;
+  color: #999;
+  margin-left: 10px;
+}
+
+.kj-list-item .lot-detail .lot-ball {
+  margin-top: 0.3rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.kj-list-item .lot-detail .lot-ball .arrow-r-g {
+  position: absolute;
+  right: 0;
+}
+
+/***********首页（地方）***********/
+.place-list .kj-list, .hight-list .kj-list {
+  display: none;
+  padding-bottom: 0.5rem;
+}
+
+.place-head {
+  height: 2.26rem;
+  line-height: 2.26rem;
+  background: #fff;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.place-head em {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.place-head i {
+  -webkit-transition: transform .2s ease-in;
+  -moz-transition: -moz-transform .2s ease-in;
+  -o-transition: -o-transform .2s ease-in;
+  transition: transform .2s ease-in;
+}
+
+/***********首页（高频）************/
+.hight-list .kj-list-item .lot-detail {
+  width: 100%;
+}
+
+.hight-list .kj-list-item .lot-detail .dice-des {
+  color: #999;
+  display: inline-block;
+  vertical-align: middle;
+  line-height:1.9rem;
+}
+
+.hight-list .kj-list-item .lot-detail .dice-des span {
+  margin-left: 0.5rem;
+}
+
+.hight-list .kj-list-item .lot-detail .dice-des em {
+  color: #2a2a2a;
+}
+
+/****************************************** 首页 end ****************************************/
+
+/********************** 双色球 start ********************************/
+.kj-issue-mode,.kj-detail-mode{
+  margin-bottom: 2.6rem;
+  margin-top: 2.26rem;
+}
+.kj-issue-item {
+  padding: 0.8rem;
+  background: #fff;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.kj-issue-item .date-time {
+  font-size: 0.7rem;
+  margin-bottom: 0.6rem;
+}
+
+.kj-issue-item .date-time .issue {
+  color: #333;
+  margin-right: 0.7rem;
+}
+
+.kj-issue-item .date-time em {
+  color: #999;
+  margin-right: 0.5rem;
+}
+
+.kj-issue-item .bottom-result {
+  line-height: 1.25rem;
+}
+
+/*官方公布开奖数据*/
+.jackpot-mode {
+  font-size: 0.85rem;
+  background: #ECECEC;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.jackpot-mode .jackpot-main {
+  padding: 0.7rem 0;
+  text-align: center;
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+.jackpot-money {
+  width: 100%;
+}
+
+.jackpot-money li {
+  width: 49%;
+  display: inline-block;
+}
+
+.jackpot-money li b {
+  display: block;
+  color: #F01614;
+  padding-top: 0.2rem;
+}
+
+.jackpot-mode .jackpot-info {
+  border-top: 1px solid #E6E6E6;
+  padding: 0.7rem 0.8rem;
+  overflow: hidden;
+}
+
+.kj-issue-list .ball-list .i-ball {
+  background: transparent;
+}
+
+.kj-issue-list .ball-list .i-ball.red {
+  color: #F01614;
+}
+
+.kj-issue-list .ball-list .i-ball.blue {
+  color: #00A6E4;
+}
+
+/*开奖详情页*/
+
+.kj-detail-mode .kj-issue-item{
+  border-bottom:none;
+}
+.kj-detail-mode .bottom-result {
+  text-align: center;
+  padding-top:0.5rem;
+}
+.kj-detail-mode .bottom-result .ball-list{
+  display: inline-block;
+  vertical-align: middle;
+}
+.kj-detail-mode .jackpot-mode{
+  background:#fff;
+}
+.jackpot-list{
+  background:#fff;
+  border-top:1px solid #e6e6e6;
+}
+.jackpot-list .jackpot-list-title{
+  line-height: 2.3rem;
+  font-size: 0.85rem;
+  height: 2.3rem;
+  overflow: hidden;
+}
+.jackpot-list .jackpot-list-title:before{
+  content: '';
+  width:3px;
+  height:2.3rem;
+  background: #F01614;
+  float: left;
+  margin-right:0.8rem;
+}
+/************************ 双色球 end **************************************/
+
+
+/*********************** 竞彩足球 start ***********************************/
+/**时间选择下拉**/
+.date-down{
+  position: absolute;
+  right: 0.5rem;
+  top: 0;
+  line-height: 2.23rem;
+}
+.date-down .cur em{
+  color: #fff;
+  font-size: 0.8rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right:0.2rem;
+}
+.date-down .cur i{
+  width:0.85rem;
+  height:0.85rem;
+  background: url("../images/ic_date_down.png") no-repeat right center;
+  background-size: 100% 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.date-down-list{
+  width: 7.5rem;
+  position: absolute;
+  right: -0.3rem;
+  top: 2rem;
+  background-color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0.1rem 0.4rem rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 0.1rem 0.4rem rgba(0,0,0,0.3);
+  box-shadow: 0 0.1rem 0.4rem rgba(0,0,0,0.3);
+  z-index: 99;
+  display: none;
+}
+.date-down-list i{
+  width: 0;
+  height:0;
+  border-bottom: 0.5rem solid #fff;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  display: inline-block;
+  position: absolute;
+  right: 0.2rem;
+  top: -0.4rem;
+}
+.date-down-list ul{
+  width:100%;
+}
+.date-down-list ul li{
+  text-align: center;
+  border-top:1px solid #e6e6e6;
+}
+.date-down-list ul li:first-child{
+  border-top:none;
+}
+.date-down-list ul li a{
+  color: #333;
+}
+.date-down-list ul li a.blue{
+  color: #00A6E4;
+}
+.date-down ul li:hover a{
+  color: #00A6E4;
+}
+
+
+/**搜索输入框**/
+.search-mode{
+  background-color: #fff;
+  padding:0.45rem 0;
+}
+.search-mode .search-input{
+  width:85%;
+  padding:0 0.5rem;
+  background:#e6e6e6;
+  display: block;
+  margin:0 auto;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+.search-mode .search-input input{
+  line-height:1.6rem;
+  width:100%;
+  display: block;
+  padding: 0 1rem;
+  font-size:0.7rem;
+  color: #666;
+}
+.search-mode .search-input label{
+  position: absolute;
+  top: 0;
+  left:0;
+  text-align: center;
+  width:94%;
+  line-height:1.6rem;
+  color: #7A797B ;
+  padding: 0 0.5rem;
+}
+.search-mode .search-input label em{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.2rem;
+}
+.search-mode .search-input .ic-delete{
+  position: absolute;
+  right: 0.5rem;
+  top:50%;
+  margin-top:-0.35rem;
+  display: none;
+}
+/*暂时没有搜索的赛事*/
+.kj-sport-list.no-result{
+  padding:5.5rem 0;
+  text-align: center;
+  font-size:0.6rem;
+  color: #999;
+  background: url("../images/ic_ball_gate.png") no-repeat center 2rem;
+  background-size: 20%;
+}
+
+/**赛事**/
+.kj-sport-item{
+  padding:0 0.5rem;
+  border-top:1px solid #e6e6e6;
+  border-bottom:1px solid #e6e6e6;
+  background: #fff;
+}
+.kj-sport-item .kj-sport-top,.kj-sport-item .kj-sport-bottom{
+  overflow: hidden;
+  text-align: center;
+  font-size:0.6rem;
+}
+.kj-sport-item .kj-sport-top{
+  padding: 0.6rem 0;
+  display: table;
+  width:100%;
+}
+.kj-sport-item .kj-sport-top>span{
+  display:table-cell;
+  vertical-align: middle;
+  line-height: 1.2rem;
+  padding:0 0.2rem;
+}
+.kj-sport-item .kj-sport-top .match-info{
+  width:22%;
+  color: #999;
+}
+.kj-sport-item .kj-sport-top .match-team{
+  width:27%;
+  color: #333;
+  font-size:0.75rem;
+}
+.kj-sport-item .kj-sport-top .match-result{
+  width:24%;
+  color: #666;
+}
+.kj-sport-item .kj-sport-top .match-result b{
+  font-size:0.85rem;
+  color: #F01614;
+}
+.kj-sport-item .kj-sport-bottom{
+  border-top:1px solid #e6e6e6;
+  padding:0.2rem 0;
+}
+.kj-sport-item .kj-sport-bottom ul{
+  display: table;
+  width:100%;
+}
+.kj-sport-item .kj-sport-bottom li{
+  width:20%;
+  display: table-cell;
+  border-left:1px solid #e6e6e6;
+  padding:0.4rem 0.2rem;
+  vertical-align: middle;
+  line-height: 1.2rem;
+  color: #333;
+}
+.kj-sport-item .kj-sport-bottom li:first-child{
+  border-left:none;
+}
+.kj-sport-item .kj-sport-bottom li em{
+  display: block;
+}
+
+/*********开奖详情**************/
+/** 头部tab **/
+.kj-detail-tab{
+  height: 2.26rem;
+  line-height: 2.26rem;
+  background:#1E88D2;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  position: fixed;
+  top: 2.26rem;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+.kj-detail-tab ul{
+  text-align: center;
+  white-space: nowrap;
+  display: table;
+  width:100%;
+}
+.kj-detail-tab ul li{
+  color: #D3E8FA;
+  display: table-cell;
+  padding:0 0.2rem;
+}
+.kj-detail-tab ul li.cur{
+  color: #fff;
+  font-weight: bold;
+}
+/** 主体 content **/
+.kj-detail-content{
+  padding-top:2.26rem;
+}
+.kj-detail-item{
+  width: 100%;
+  overflow: hidden;
+  display: none;
+}
+.kj-detail-item.cur{
+  display: block;
+}
+/*彩果*/
+.kj-detail-item .kj-detail-result{
+  padding: 0.5rem;
+  line-height: 1.5;
+  background-color: #fafafa;
+  font-size:0.8rem;
+  display: table;
+  width:100%;
+}
+.kj-detail-item .kj-detail-result>span{
+  display: table-cell;
+}
+.kj-detail-item .kj-detail-result>span.th{
+  width:15%;
+}
+.kj-detail-item .kj-detail-result>span>em{
+  display: inline-block;
+}
+/*开奖数据列表*/
+.kj-detail-table{
+  width:100%;
+  overflow-x: auto;
+}
+.kj-detail-table table{
+  min-width:100%;
+  text-align: center;
+  font-size: 0.7rem;
+}
+.kj-detail-table table th,.kj-detail-table table td{
+  padding:0.6rem 0.5rem;
+  line-height:1.5;
+  background-color: #fff;
+  border-top:1px solid #e6e6e6;
+  border-bottom:1px solid #e6e6e6;
+  border-left:1px solid #e6e6e6;
+  white-space: nowrap;
+}
+.kj-detail-table table th:first-child,.kj-detail-table table td:first-child{
+  border-left:none;
+}
+.kj-detail-table table th{
+  font-size: 0.8rem;
+  font-weight:normal;
+}
+.kj-detail-table table td{
+  color: #666;
+}
+.kj-detail-table table td em{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/****************** 竞彩足球 end *****************************/
+
+
+/***************** 胜负过关 start ***************************/
+.kj-issue-mode.sfgg .kj-sport-item .kj-sport-bottom{
+  border-top:none;
+}
+/******************* 胜负过关  end **************************/
+
+
+
+/****************** 胜负彩（任选九） start ******************/
+.kj-issue-list .square-list .i-square {
+  background: transparent;
+  color: #53AC48;
+}
+.kj-detail-mode .bottom-result .square-list{
+  display: inline-block;
+  vertical-align: middle;
+}
+.kj-issue-mode.sfgg .kj-sport-item .m-date{
+  width:24%;
+}
+.kj-issue-mode.sfgg .kj-sport-item .m-type{
+  width:16%;
+}
+.kj-issue-mode.sfgg .kj-sport-item .m-name{
+  width:22%;
+}
+.kj-issue-mode.sfgg .kj-sport-item .m-result{
+  width:16%;
+}
+  /**************** 胜负彩（任选九） end **********************/
+
+
+/************************ 广东11选5 start**********************/
+.kj-h-title .h-jackpot{
+  right:2rem;
+  height: 100%;
+  background: url(../images/ic_lottery.png) no-repeat left center;
+  background-size: 53%;
+}
+/*奖金详情*/
+.bg-jackpot{
+}
+.bg-jackpot:before{
+  content: '';
+  width:100%;
+  height:5rem;
+  background-color: #1e88d2;
+  position: fixed;
+  left: 0;
+  top: 2.26rem;
+  z-index: -1;
+}
+.kj-jackpot-page{
+  width: 95%;
+  margin: 0 auto;
+  padding-bottom:0.5rem;
+}
+.jackpot-table{
+  background: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+.table-th-white{
+  width:100%;
+  line-height:1.5;
+  text-align: center;
+}
+.table-th-white th,.table-th-white td{
+  padding:0.5rem;
+  white-space: nowrap;
+}
+.table-th-white th{
+  font-weight:normal;
+  font-size: 0.85rem;
+  color: #666;
+  border-bottom:3px solid #F5F5F5 ;
+}
+.table-th-white td{
+  border-top:1px solid #e6e6e6;
+}
+.table-th-white td.bd-right,.table-th-white th.bd-right{
+  border-right:1px solid #e6e6e6;
+}
+
+/********************** 广东11选5 end **************************/

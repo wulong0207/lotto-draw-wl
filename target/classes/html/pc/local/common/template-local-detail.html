@@ -1,0 +1,13 @@
+<#import "/pc/local/common/macro-layout-local-detail.html" as localLayout/>
+<@localLayout.htmlDraw ;drawCodeArr>
+	<#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+		<#list drawCodeArr[0] as code>
+			<span class="ui-icon redBall-34">${code}</span>
+		</#list>
+	</#if>
+	<#if (drawCodeArr?size>1 && drawCodeArr[1]??)>
+		<#list drawCodeArr[1] as code>
+			<span class="ui-icon blueBall-34">${code}</span>
+		</#list>
+	</#if>
+</@localLayout.htmlDraw>

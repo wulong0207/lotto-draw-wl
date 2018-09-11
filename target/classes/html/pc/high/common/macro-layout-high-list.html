@@ -1,0 +1,99 @@
+<#include "/pc/common/data-kj-url.html">
+<#macro head rowHead=false>
+	<div class="data-head ${(rowHead=='true')?string('row-head', '')}">
+		<div class="overflow clearfix">
+			<#nested>
+			<#nested>
+			<#nested>
+		</div>
+	</div>
+</#macro>
+<#macro body>
+	<!--历史开奖-->
+	<div class="data-body">
+		<div class="overflow clearfix">
+			<#local totalIssueNum=lotteryType.totalIssueNum!3 /><#--每天总期数-->
+			<#local tomorrowIssueNum=lotteryType.tomorrowIssueNum!0 /><#--第二天开奖彩期数-->
+			<#local issueDisplayNum=totalIssueNum?string?length /><#--彩期显示位数-->
+			<#local issueDisplayFormat="">
+			<#local cpLotteryKey=cpLotteryMap[lotteryType.lotteryCode?string]>
+			<#list 1..issueDisplayNum as i>
+				<#local issueDisplayFormat = issueDisplayFormat + "0">
+			</#list>
+			<#--当前最大彩期数-->
+			<#local queryDateLong = queryDateStr?date('yyyy-MM-dd')?long />
+			<#if (curIssue??)>
+				<#local curIssueCode=curIssue.issueCode?substring(curIssue.issueCode?length-issueDisplayNum)/>
+				<#local maxIssueCodeNum = curIssueCode?number -1/>
+			<#elseif (queryDateLong < .now?string('yyyy-MM-dd')?date('yyyy-MM-dd')?long && lotteryType.minDrawDate?? && queryDateLong >= lotteryType.minDrawDate?long)>
+				<#local maxIssueCodeNum = (totalIssueNum-tomorrowIssueNum)/>
+			<#elseif (lastIssue??)>
+				<#local maxIssueCodeNum = (lastIssue.issueCode?substring(lastIssue.issueCode?length-issueDisplayNum)?number)/>
+			</#if>
+			<#if (maxIssueCodeNum??)>
+				<#if (tomorrowIssueNum?? && tomorrowIssueNum>0)>
+					<#if (maxIssueCodeNum > totalIssueNum - tomorrowIssueNum)>
+						<#local maxIndex = maxIssueCodeNum - totalIssueNum + tomorrowIssueNum - 1/>
+					<#else>
+						<#local maxIndex = maxIssueCodeNum-1 + tomorrowIssueNum />
+					</#if>
+				<#else>
+					<#local maxIndex = maxIssueCodeNum-1 />
+				</#if>
+				<#local maxIndex = maxIndex + 1 />
+			</#if>
+			<#local drawIndex = 0/>
+			<#local totalRow=((totalIssueNum+2)/3)?int/>
+			<#list 1..totalRow as rownum>
+				<#list 1..3 as colnum>
+					<#local index=totalRow*(colnum-1)+rownum-1/>
+					<#--当前格子的彩期编号-->
+					<#if (tomorrowIssueNum?? && tomorrowIssueNum>0)>
+						<#if (index < tomorrowIssueNum)>
+							<#local thisIssueCode = (totalIssueNum - tomorrowIssueNum + 1 + index)?string/>
+						<#else>
+							<#local thisIssueCode = (index - tomorrowIssueNum + 1)?string(issueDisplayFormat)/>
+						</#if>
+					<#else>
+						<#local thisIssueCode = (index + 1)?string(issueDisplayFormat)/>
+					</#if>
+					<#if (maxIndex?? && index < maxIndex)>
+						<#local drawIssue=drawIssueMap[thisIssueCode] />
+						<#if (drawIssueMap[thisIssueCode]?? && drawIssue.drawCodeArr2??)>
+							<#local drawCodeArr = drawIssue.drawCodeArr2/>
+							<#nested drawIssue drawCodeArr issueDisplayNum>
+						<#else>
+							<ul class="data-item open-loading">
+								<li>${thisIssueCode}</li>
+								<li class="w2">获取号码中...</li>
+							</ul>
+						</#if>
+					<#elseif (curIssue?? && thisIssueCode == curIssueCode && cpLotteryKey?? && cpLotteryKey != "")>
+						<ul class="data-item open-loading">
+							<li>${thisIssueCode}</li>
+							<li class="w2">
+								<span>投注剩余时间&nbsp;</span>
+								<b id="curIssueEndTime" class="red fs16">00:00</b>
+								<#if (cpLotteryKey?? && cpLotteryKey != "")>
+									<a href="${webCpUrl}/${cpLotteryKey}.html" target="_blank" class="handle-btn redbg">投注</a>
+								</#if>
+							</li>
+						</ul>
+					<#elseif (index>=totalIssueNum)>
+						<ul class="data-item open-loading">
+							<li></li>
+							<li class="w2"></li>
+						</ul>
+					<#else>
+						<ul class="data-item open-loading">
+							<li>${thisIssueCode}</li>
+							<li class="w2"></li>
+						</ul>
+					</#if>
+				</#list>
+			</#list>
+		</div>
+	</div>
+	<!--历史开奖END-->
+</#macro>
+

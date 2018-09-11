@@ -1,0 +1,115 @@
+<#macro htmlDraw cssKey title="" keywords = "" description="" alternate="" fastMessage="">
+<#include "/pc/common/common.html">
+<#include "/pc/common/data-kj-url.html">
+<#import "/pc/common/macro-layout-html.html" as layout/>
+<#assign cpLotteryKey=cpLotteryMap[lotteryType.lotteryCode?string]>
+<@layout.header title=title keywords=keywords description=description alternate=alternate>
+	<link rel="stylesheet" href="${contextPath}/resources/css/details/details.css" />
+  	<link rel="stylesheet" href="${contextPath}/resources/css/details/gaopin.css" />
+</@layout.header>
+<@layout.body>
+	<!-- 主体内容 start -->
+	<div class="det-body gaopin">
+		<!--主体左-->
+		<div class="det-left">
+			<!--开奖公告 start-->
+			<div class="whiteBg mt20">
+				<div class="det-sec-head det-menu">
+					<div class="det-menu-box">
+						<strong class="det-title">${lotteryType.lotteryName}开奖公告</strong>
+						<#include "/pc/common/template-det-lotto-menu.html"/>
+					</div>
+					<div class="fr c333 fs12">
+						<i class="ui-icon ex-gray-s"></i>
+						<span class="ib-va">本开奖数据由${(lotteryType.adminCategory==1)?string("福彩", "体彩")}中心提供</span>
+					</div>
+				</div>
+				<div class="det-section">
+					<!--开奖信息-->
+					<div class="open-award clearfix">
+						<!--是否有加奖显隐下方DIV
+						<div class="ui-icon jiajiang"></div>
+						-->
+						<div class="award-src">
+							<div class="fl dt">
+								<img class="award-logo" src="${lotteryType.lotteryLogoUrl!}" alt="${lotteryType.lotteryName}"/>
+							</div>
+							<div class="fl dd">
+								<div class="mt20 clearfix">
+									<div class="search-lotto">
+										<#if lastIssue??>
+											<strong>第${(lastIssue.issueCode)!}期</strong>
+											<span>开奖时间：${(lastIssue.lotteryTime?string("MM-dd HH:mm"))!}</span>
+										</#if>
+									</div>
+									<div class="fr award-link mr10">
+										<#if (trendUrlMap[lotteryType.lotteryCode?string]??)>
+											<a target="_blank" href="${webCpUrl?replace('https', 'http')}/database?url=${urlEncoder(trendUrlMap[lotteryType.lotteryCode?string])}">走势图</a>
+										</#if>
+										<#if (introduceUrlMap[lotteryType.lotteryCode?string]??)>
+											<span class="link-line">|</span>
+											<a target="_blank" href="${webCpUrl?replace('https', 'http')}/database?url=${urlEncoder(introduceUrlMap[lotteryType.lotteryCode?string])}">玩法</a>
+										</#if>
+									</div>
+								</div>
+								<div class="mt20 balls-list">
+									<#if lastIssue??>
+										<span class="text-val">开奖号 :</span>
+										<#if (lastIssue?? && lastIssue.drawCodeArr2??)>
+											<#local drawCodeArr = lastIssue.drawCodeArr2/>
+											<#nested "last" drawCodeArr>
+										<#elseif lastIssue??>
+											<span class="text-val">预计 <b class="red">${lastIssue.lotteryTime?string("HH:mm")}</b> 开出号码，请稍后</span>
+										</#if>
+									</#if>
+									<#if (cpLotteryKey?? && cpLotteryKey != "")>
+										<a class="handle-btn redbg" href="${webCpUrl}/${cpLotteryKey}" target="_blank">立即投注</a>
+									</#if>
+								</div>
+							</div>
+						</div>
+						<div class="clear"></div>
+						<!--查询-->
+						<div class="chaxun">
+							<div class="fl">
+								<span class="ml10">${queryDateStr}${(week(queryDateStr?date("yyyy-MM-dd")))!} 开奖</span>
+								<#include "/pc/high/common/template-day-tab.html">
+							</div>
+							<div class="fr">
+								<span>按日期查询 &nbsp;</span>
+								<span class="laydateBox">
+									<input class="laydate-icon" id="theDay" value="${queryDateStr}" readonly />
+								</span>
+							</div>
+						</div>
+						<!--查询END-->
+					</div>
+					<!--本期中奖详情-->
+					<div class="award-info ${cssKey}">
+						<div class="open-data">
+							<#nested "list">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="det-right">
+			<#--快投-->
+			<#include "/pc/high/common/template-high-fast.html"/>
+			<#--中奖排行-->
+			<#include "/pc/num/common/template-user-win-info.html"/>
+			<#--快速投注彩种-->
+			<#include "/pc/common/template-right-lottery.html"/>
+			<#--最新中奖-->
+			<#include "/pc/common/template-right-newwin.html"/>
+		</div>
+		<!--主体左end-->
+		<div class="clear"></div>
+	</div>
+	<!-- 主体内容 end -->
+</@layout.body>
+<@layout.footer>
+	<script src="${contextPath}/resources/js/laydate/laydate.js"></script>
+	<#include "/pc/high/common/template-timer-cur-issue.html" >
+</@layout.footer>
+</#macro>

@@ -1,0 +1,216 @@
+/*高频*/
+.gaopin .open-award{
+  min-height: 130px;
+}
+.gaopin .award-src .award-logo{
+  margin: 20px 30px;
+}
+
+.award-src .balls-list .handle-btn{
+   margin-left: 25px;
+  vertical-align: middle;
+}
+
+.gaopin  .award-info{
+  width: 790px;
+  overflow: hidden;
+}
+.open-data{
+  background-color: #f5f5f5;
+  padding-bottom: 5px;
+}
+.open-data .data-body{
+  background-image: url("../../img/notice/open-data-bg.png");
+  background-repeat:repeat;
+}
+.data-head,.data-body{
+  width: 780px;
+  box-sizing: content-box;
+}
+
+.data-head{
+  padding: 0 5px;
+  border-bottom: 1px solid #eaeaea;
+}
+.data-body{
+  margin: 0 5px;
+}
+.data-item{
+  float: left;
+  text-align: center;
+  font-size: 0;
+}
+.open-data .overflow{
+  width: 790px;
+}
+.data-item li{
+  display: inline-block;
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+}
+.data-head .data-item li{
+  height: 36px;
+  line-height: 36px;
+  background-color: #f5f5f5;
+}
+.data-head .data-item li{
+  overflow: hidden;
+}
+
+.data-item{
+  width: 262px;
+  border-right:1px solid #eaeaea;
+}
+.sd11x5 .data-item li{
+  width: 50px;
+}
+.sd11x5 .data-item .w2{
+  width: 115px;
+}
+.open-loading .w2{
+  width: 215px !important;
+}
+.data-item li:first-child{
+  width: 45px;
+}
+/*重庆时时彩*/
+.cqssc .data-item li{
+  width: 45px;
+}
+.cqssc .data-item .w2{
+  width: 80px;
+}
+.open-loading  .handle-btn{
+  width: 40px;
+  height: 26px;
+  line-height: 24px;
+}
+/*表头多行*/
+.data-head.row-head .data-item li{
+    line-height: 50px;
+    height:50px;
+}
+.data-head.row-head .data-item li .row{
+    line-height:25px;
+
+}
+.data-head.row-head .data-item li .row dt{
+    border-left: 1px solid #eaeaea;
+}
+.data-head.row-head .data-item li .row dd em{
+    width:45px;
+    float: left;
+    border-top: 1px solid #eaeaea;
+    border-left: 1px solid #eaeaea;
+}
+
+/*快3*/
+.jsk3 .data-item .w2{
+  width: 85px;
+}
+.jsk3 .data-item li{
+  width: 65px;
+}
+.jsk3 .data-item li:first-child{
+  width: 45px;
+}
+/*快乐10分*/
+.kl10 .data-item li ,.pk3 .data-item li{ width: 60px}
+
+.kl10 .data-item .w2{
+  width: 215px;
+}
+.kl10 .data-item li:first-child,.pk3 .data-item li:first-child{
+  width: 45px;
+}
+.pk3 .data-item .w2{
+  width: 155px;
+}
+/*上海时时乐*/
+.shssl .data-item li {
+    width: 45px;
+}
+
+.shssl .data-item .w2 {
+    width: 170px;
+}
+
+/*游泳夺金,河南快赢481*/
+
+.yydj .data-item li,.hnky481 .data-item li {
+    width: 45px;
+}
+.yydj .data-item .w2,.hnky481 .data-item .w2 {
+    width: 180px;
+}
+
+.yydj .data-item li:first-child,.hnky481 .data-item li:first-child{
+    width: 80px;
+}
+.yydj .open-loading .w2,.hnky481 .open-loading .w2{
+    width:180px!important;
+}
+/*北京快乐8*/
+.bjkl8 .data-item{
+    width:100%
+}
+.bjkl8  .data-item li:first-child{
+    width:80px;
+    border-right:1px solid #eaeaea;
+}
+.bjkl8 .data-item .w2{
+    width:120px;
+    border-right:1px solid #eaeaea;
+}
+.bjkl8 .data-item .w3 {
+    width: 580px;
+}
+/*北京PK拾*/
+.pk10 .data-item .w2{
+  width: 200px;
+}
+.pk10 .data-item li:first-child{
+  width: 60px;
+}
+.pk10 .open-loading .w2{
+  width: 200px !important;
+}
+/*重庆百变王牌*/
+.cqbbwp .data-item li:first-child{
+    width: 45px;
+}
+.cqbbwp .data-item .w2{
+    width: 215px;
+}
+
+.balls-list .card-item{
+  width: 40px;
+  height: 26px;
+  border: 1px solid #ddd;
+  line-height: 24px;
+  border-radius: 3px;
+  font-size: 16px;
+  background-color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.award-src  .balls-list .card-item .ui-icon{
+  margin: 5px 2px 5px 4px;
+  vertical-align: top;
+  
+}
+
+.data-item .card-item{
+  width: 40px;
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.data-item .card-item .ui-icon{
+  margin: 0 2px 0 4px;
+}
+
+/*高频 end********/

@@ -1,0 +1,289 @@
+.ui-icon{ 
+	background-image: url(../../img/notice/lottery-info-ui.png);
+	display: inline-block;
+}
+/*橘色叹号*/
+.ex-grange{
+	width: 14px;
+	height: 14px;
+	background-position: -80px -1px;
+	vertical-align: middle;
+}
+/*灰色大叹号*/
+.ex-gray{
+	width: 36px;
+	height: 36px;
+	background-position: -220px -65px;
+	vertical-align: middle;
+}
+/*灰色小叹号*/
+.ex-gray-s{
+  width: 12px;
+  height: 12px;
+  background-position: -265px -65px;
+  vertical-align: middle;
+}
+/*蓝球手机图标*/
+.blue-phone{
+	width: 10px;
+	height: 18px;
+	background-position: 0 0;
+	vertical-align: middle;
+}
+/*开奖查询menu图标*/
+.menu-blue{
+	width: 16px;
+	height: 14px;
+	background-position: -14px 0;
+}
+
+/*白色钟图标*/
+.clock{
+	width: 12px;
+	height: 12px;
+	background-position: -65px -1px;
+}
+
+/*摇奖把手*/
+.handle-node{
+	width: 6px;
+	height: 27px;
+	background-position: -205px -20px;
+}
+.handle-right{
+	width: 18px;
+	height: 43px;
+}
+.handle-ball{
+	width: 18px;
+	height: 18px;
+	background-position: -185px -20px;
+}
+
+.handle-bar{
+	width: 18px;
+	height: 25px;
+	background-position: -187px -38px;
+}
+/*开奖红球*/
+.redBall-24{
+	width: 24px;
+	height: 24px;
+	line-height: 24px;
+	background-position: -80px -65px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+}
+.redBall-30{
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	background-position: -5px -65px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}
+
+.redBall-34{
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	background-position: -140px -65px;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+}
+/*开奖百变王牌*/
+.bbwpBall-24{
+	padding:0 10px;
+	height: 24px;
+	line-height: 24px;
+	background:#ED1C24;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	-webkit-border-radius: 24px;
+	-moz-border-radius: 24px;
+	border-radius: 24px;
+}
+.bbwpBall-30{
+	padding:0 10px;
+	height: 30px;
+	line-height: 30px;
+	background:#ED1C24;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+.bbwpBall-34{
+	padding:0 10px;
+	height: 34px;
+	line-height: 34px;
+	background:#ED1C24;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+	-webkit-border-radius: 34px;
+	-moz-border-radius: 34px;
+	border-radius: 34px;
+}
+
+
+/*开奖蓝球*/
+.blueBall-24{
+	width: 24px;
+	height: 24px;
+	line-height: 24px;
+	background-position: -110px -65px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+}
+
+.blueBall-30{
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	background-position: -40px -65px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}
+.blueBall-34{
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	background-position: -180px -65px;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+}
+/*蓝色走势图标*/
+.blue-trend{
+	width: 16px;
+	height: 16px;
+	background-position: -100px 0;
+}
+
+/*蓝色预测图标*/
+.blue-search{
+	width: 15px;
+	height: 15px;
+	background-position: -120px -1px;
+}
+
+/*骰子30x30*/
+.dice301,.dice302,.dice303,.dice304,.dice305,.dice306{
+	width: 30px;
+	height: 30px;
+}
+.dice301{
+	background-position: 0px -25px;
+}
+.dice302{
+	background-position: -30px -25px;
+}
+.dice303{
+	background-position: -60px -25px;
+}
+.dice304{
+	background-position: -90px -25px;
+}
+.dice305{
+	background-position: -120px -25px;
+}
+.dice306{
+	background-position: -150px -25px;
+}
+
+/*扑克花色*/
+.o-card{
+	width: 40px;
+	height: 26px;
+	line-height: 24px;
+	margin-right: 8px;
+	display: inline-block;
+	vertical-align: middle;
+	border: 1px solid #ddd;
+	color: #333;
+	font-size: 16px;
+	border-radius: 3px;
+	background-color: #f5f5f5;	
+}
+
+.o-card .spade,.o-card .heart,.o-card .club,.o-card .diamond{
+	background-image: url(../../img/notice/lottery-info-ui.png);
+	content: "";
+	width: 13px;
+	height: 13px;
+	display: inline-block;
+	margin-left:4px;
+}
+.o-card .spade{
+	background-position: -144px 0px;
+}
+.o-card .heart{
+	background-position: -159px 0px;
+}
+.o-card .club{
+	background-position: -175px 0px;
+}
+.o-card .diamond{
+	background-position: -189px 0px;
+}
+.o-card .tx-w{ 
+	width:20px; 
+	text-align: center; 
+	display: inline-block;
+}
+
+.rise,.drop{
+  width:9px;
+  height: 12px;
+  display: inline-block;
+  margin-right: -9px;
+  margin-left: 5px;
+  margin-bottom: -1px;
+}
+.rise{
+  background-position: -260px  -80px;
+}
+
+.drop{
+  background-position: -270px  -80px;
+}
+
+
+.card-item{}
+.card-item .ui-icon{
+  width:13px;
+  height: 13px;
+  display: inline-block;
+  font-size: 16px;
+  color: #333;
+}
+.card-t1,.card-t3{
+  color: #333;
+}
+.card-t2,.card-t4{
+  color: #ed1c24;
+}
+.card-t1 .ui-icon{
+  background-position: -145px 0;
+}
+.card-t2 .ui-icon{
+  background-position: -160px 0;
+}
+
+.card-t3 .ui-icon{
+  background-position: -175px 0;
+}
+.card-t4 .ui-icon{
+  background-position: -189px 0;
+}
+

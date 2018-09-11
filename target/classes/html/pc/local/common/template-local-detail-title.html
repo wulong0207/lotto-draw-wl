@@ -1,0 +1,27 @@
+<#if (queryIssueCode??)>
+	<#if !(htmlTitle??)>
+		<#assign htmlTitle="${drawLotteryIssue.issueCode!}期${lotteryType.lotteryName}开奖结果查询_${drawLotteryIssue.issueCode!}期${lotteryType.lotteryName}中奖号码-2N彩票">
+	</#if>
+	<#if !(htmlKeywords??)>
+		<#assign htmlKeywords="${drawLotteryIssue.issueCode!}期${lotteryType.lotteryName}开奖号码，${drawLotteryIssue.issueCode!}期${lotteryType.lotteryName}开奖信息">
+	</#if>
+	<#if !(htmlDescription??)>
+		<#assign htmlDescription="2N彩票网为您提供${drawLotteryIssue.issueCode!}期${lotteryType.lotteryName}开奖结果, ${drawLotteryIssue.issueCode!}期${lotteryType.lotteryName}中奖号码、时间、开奖公告、号码分析等服务，买彩票查开奖结果到2N彩票。">
+	</#if>
+	<#if !(htmlAlternate??)>
+		<#assign htmlAlternate="${wapKjUrl}/${lotteryType.lotteryKey}/${queryIssueCode}.html">
+	</#if>
+<#else>
+	<#if !(htmlTitle??)>
+		<#assign htmlTitle="${lotteryType.lotteryName}开奖结果查询_${lotteryType.lotteryName}中奖号码_${lotteryType.lotteryName}开奖时间与公告-2N彩票">
+	</#if>
+	<#if !(htmlKeywords??)>
+		<#assign htmlKeywords="${lotteryType.lotteryName}开奖结果，${lotteryType.lotteryName}中奖号码">
+	</#if>
+	<#if !(htmlDescription??)>
+		<#assign htmlDescription="2N彩票${lotteryType.lotteryName}开奖结果栏目，为您提供${lotteryType.lotteryName}开奖结果查询、${lotteryType.lotteryName}开奖时间、${lotteryType.lotteryName}开奖号码、中奖号码、开奖公告、奖池、奖金计算器等服务！买彩票查开奖结果到2N彩票。">
+	</#if>
+	<#if !(htmlAlternate??)>
+		<#assign htmlAlternate="${wapKjUrl}/${lotteryType.lotteryKey}/">
+	</#if>
+</#if>

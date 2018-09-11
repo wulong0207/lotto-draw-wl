@@ -1,0 +1,39 @@
+<!--本期更精彩 start-->
+<div class="whiteBg mt20">
+	<div class="det-sec-head">
+		<strong class="det-title">本期更精彩</strong>
+	</div>
+	<div class="det-news-list clearfix">
+		<dl class="news-list-dl listLeft">
+			<dt>
+			<#if lotteryType.lotteryCode == 302 || lotteryType.lotteryCode == 303>
+				<span class="news-list-head">${lotteryType.lotteryName}推荐分析</span>
+			<#else>
+				<span class="news-list-head">${lotteryType.lotteryName}专家预测</span>
+			</#if>
+			</dt>
+			<#list articelAnalyzeList as articel>
+				<dd>
+					<a target="_blank" href="${webCpUrl}/jczx/czzx/detail?type=${(articel.typeCode?substring(0, articel.typeCode?index_of('.', 2)))!}&detail=${urlEncoder(articel.articleUrl)}">${articel.articleTitle}</a>
+					<span class="news-time">${articel.releaseTime?string("MM-dd")}</span>
+				</dd>
+			</#list>
+		</dl>
+		<dl class="news-list-dl">
+			<dt>
+			<#if lotteryType.lotteryCode == 302 || lotteryType.lotteryCode == 303>
+				<span class="news-list-head">${lotteryType.lotteryName}最新资讯</span>
+			<#else>
+				<span class="news-list-head">${lotteryType.lotteryName}大奖资讯</span>
+			</#if>
+			</dt>
+			<#list articelPrizeList as articel>
+				<dd>
+					<a target="_blank" href="${webCpUrl}/jczx/czzx/detail?type=${(articel.typeCode?substring(0, articel.typeCode?index_of('.', 2)))!}&detail=${urlEncoder(articel.articleUrl)}">${articel.articleTitle}</a>
+					<span class="news-time">${articel.releaseTime?string("MM-dd")}</span>
+				</dd>
+			</#list>
+		</dl>
+	</div>
+</div>
+<!--本期更精彩 end-->	

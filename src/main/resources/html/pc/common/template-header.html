@@ -1,0 +1,121 @@
+		<div class="header">
+			<div class="header-toptray-box">
+				<div class="header-toptray">
+					<div class="toptray clearfix layout">
+						<div class="toptray-left clearfix fl">
+							<ul>
+								<#-- 未登录 -->
+								<li class="login_before_li">欢迎来到2N彩票</li>
+								<li class="login_before_li">
+									<span class="toptray-not-login">
+										<a href="${webCpUrl}/login?backUrl=${urlEncoder(requestFullURL)}" class="black">[登录]</a>
+										<a href="${webCpUrl}/register?backUrl=${urlEncoder(requestFullURL)}" class="colorRed">[免费注册]</a>
+									</span>
+								</li>
+								<#-- 登录后 -->
+								<li class="login_after_li" style="display:none;margin-right:20px;">
+									<a href="${webCpUrl}"><img alt="2N彩票" src="${contextPath}/resources/img/LOGO2.png"></a>
+								</li>
+								<li class="login_after_li" style="display:none;">
+									<span class="down-hover account-box">
+										<a href="${webCpUrl}/uc" class="afterArrow"></a>
+										<div class="down-box">
+											<div class="money">
+												<div class="money-detail">可用资金：<p class="c999 mt5"><em class="num red fs16"></em>元</p></div>
+												<a class="hideMoney" id="hideMoney">隐藏</a>
+											</div>
+											<div class="safe">
+												<p class="mb10">我的安全：<em class="safe-bar-tip"></em></p>
+												<div class="clearfix">
+													<span class="safe-bar-bg fl">
+														<span class="safe-bar"></span>
+														<em class="num"><i></i>/100</em>
+													</span>
+												</div>
+											</div>
+											<div class="bottom">
+												<a href="${webCpUrl}/uc" class="fl">进入用户中心&gt;</a>
+												<a class="fr c666 logout">退出</a>
+											</div>
+										</div>
+									</span>
+								</li>
+								<li class="login_after_li" style="display:none;"><a class="btn_topup" href="${webCpUrl}/recharge">充值</a></li>
+							</ul>
+						</div>
+						<div class="toptray-right clearfix fr">
+							<ul class="toptray-right-list">
+								<li><a href="${webCpUrl}">首页</a></li>
+								<li>
+									<span class="down-hover">
+										<a class="afterArrow">我的彩票</a>
+										<div class="down-box">
+											<#-- 未登录 -->
+											<div class="mylottery_nologin">
+												<a class="avatar fl"><img src="${contextPath}/resources/img/component/touxiang.png" alt="头像"></a>
+												<div class="txt">
+													你好，请先登录<br>
+													<a href="${webCpUrl}/login?backUrl=${urlEncoder(requestFullURL)}" class="red">[登录]</a>
+													<a href="${webCpUrl}/register?backUrl=${urlEncoder(requestFullURL)}" class="black">[注册]</a>
+												</div>
+											</div>
+											<#-- 没有订单 -->
+											<div class="mylottery_nogoods" style="display:none;">
+												<div class="c666 pb10">最近一周您没有购彩，买注 <a href="${webCpUrl}/ssq" class="blue"><b>双色球</b></a> 试试手气吧！</div>
+												<div class="total_goods">
+													<a href="${webCpUrl}/uc/record" class="fr">查看全部&gt;</a>
+													最近7天投注 <em class="red"></em> 注，中奖 <em class="red"></em> 次
+												</div>
+											</div>
+											<#-- 我的订单 -->
+											<div class="mylottery_goods" style="display:none;">
+												<div class="tab"><span class="cur tab-a">未完成订单</span><span class="tab-a">已完成订单</span></div>
+												<div class="tab_content">
+													
+												</div>
+												<div class="total_goods">
+													<a href="${webCpUrl}/uc/record" class="fr">查看全部&gt;</a>
+													最近7天投注 <em class="red"></em> 注，中奖 <em  class="red"></em> 次
+												</div>
+											</div>
+										</div>
+									</span>
+								</li>
+								<li><a target="_blank" href="${webCpUrl}/help">帮助</a></li>
+								<li><a target="_blank" href="${webCpUrl}/jczx">资讯</a></li>
+								<li><a target="_blank" href="${webCpUrl?replace('https', 'http')}/database?url=${urlEncoder(ybfLiveUrl)}">比分</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-navbar clear">
+				<div class="layout clearfix">
+					<div class="lotterys fl">
+						<h2 class="on-lotter">
+							<#if (lotteryType?? && lotteryType.lotteryName??)>
+								${(lotteryType.lotteryName)}
+							<#else>
+								<a href="${webCpUrl}/lottery-hall">购彩大厅</a>
+							</#if>
+							<i class="icon arrow deg"></i>
+						</h2>
+						<div class="lotterys-list-box">
+						</div>
+					</div>
+					<div class="navPlus fl clearfix">
+						<ul>
+							<li><a href="${webCpUrl}">首页</a></li>
+							<#if (lotteryType?? && lotteryType.lotteryName??)>
+								<li><a href="${webCpUrl}/lottery-hall">购彩大厅</a></li>
+							</#if>
+							<li><a target="_blank" href="${webCpUrl}/jczx">彩票资讯</a></li>
+							<li><a href="${httpPath}${contextPath}/index.html">开奖公告</a></li>
+							<li><a target="_blank" href="${webCpUrl?replace('https', 'http')}/database?url=${urlEncoder(ybfLiveUrl)}">比分直播</a></li>
+							<li><a target="_blank" href="${webCpUrl?replace('https', 'http')}/database?url=${urlEncoder(ybfOddsUrl)}">指数中心</a></li>
+							<li><a target="_blank" href="${webCpUrl?replace('https', 'http')}/database?url=${urlEncoder(ybfDataUrl)}">资料库</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>

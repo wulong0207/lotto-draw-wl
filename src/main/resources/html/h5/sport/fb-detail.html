@@ -1,0 +1,273 @@
+<#include "/h5/sport/macro-sport-sp-up-down.html">
+<#include "/h5/common/top.html">
+  <title>${fbData.homeTeamName}VS${fbData.guestTeamName}_${fbData.raceName}_${fbData.matchTime?string("yyyyMMdd")}竞彩足球开奖数据详情丨分析-2N彩票触屏版</title>
+  <meta name="keywords" content="${fbData.homeTeamName}VS${fbData.guestTeamName}开奖数据详情" />
+  <meta name="description" content="2N彩票网为您提供体彩竞彩足球${fbData.raceName} ${fbData.matchTime?string('yyyyMMdd')}赛事${fbData.homeTeamName}VS${fbData.guestTeamName}开奖结果详情查询,比赛开奖数据分析。买彩票查开奖结果到2N彩票。" />
+</head>
+<body>
+<header class="header">
+  <section class="kj-h-title">
+    <a href="javascript:history.go(-1);" class="icons h-back"></a>
+    <h1>竞彩足球开奖详情</h1>
+  </section>
+</header>
+
+<section class="kj-content">
+  <div class="kj-detail-mode jczq">
+    <div class="kj-detail-tab">
+      <ul class="kj-detail-tab-list">
+        <li class="cur">胜平负</li>
+        <li>让球胜平负</li>
+        <li>全场比分</li>
+        <li>总进球</li>
+        <li>半场胜平负</li>
+      </ul>
+    </div>
+    <div class="kj-detail-content swiper-wrapper">
+      <div class="kj-detail-item cur">
+        <p class="kj-detail-result">
+          <span class="th">彩果：</span>
+          <span class="red"><em>${(fbData.fullWdfText)!}</em></span>
+        </p>
+        <div class="kj-detail-table">
+          <table>
+            <tr>
+              <th width="40%">发布时间</th>
+              <th>胜</th>
+              <th>平</th>
+              <th>负</th>
+            </tr>
+            <#if (fbData?? && fbData.sportDataWdfs??)>
+              <#assign sportDataWdfs=fbData.sportDataWdfs>
+              <#list sportDataWdfs as data>
+                <#if data_has_next>
+                  <#assign preData=sportDataWdfs[data_index+1]>
+                <#else>
+                  <#assign preData=data>
+                </#if>
+                <tr>
+                  <td><em>${data.releaseTime?string("yyyy-MM-dd HH:mm:ss")}</em></td>
+                  <td><@spHtmlDraw data preData "spWin"/></td>
+                  <td><@spHtmlDraw data preData "spDraw"/></td>
+                  <td><@spHtmlDraw data preData "spFail"/></td>
+                </tr>
+              </#list>
+            </#if>
+          </table>
+        </div>
+        <p class="pt10 pb10 fs14 c999 tac">已经到底了，没有更多数据加载</p>
+      </div>
+      <div class="kj-detail-item">
+        <p class="kj-detail-result">
+          <span class="th">彩果：</span>
+          <span class="red"><em><#if (fbData.letNum?? && fbData.letNum >0)>+${fbData.letNum}<#else>${fbData.letNum}</#if>|${(fbData.letWdfText)!}</em></span>
+        </p>
+        <div class="kj-detail-table">
+          <table>
+            <tr>
+              <th width="40%">发布时间</th>
+              <th>胜</th>
+              <th>平</th>
+              <th>负</th>
+            </tr>
+            <#if (fbData?? && fbData.sportDataLetWdfs??)>
+              <#assign sportDataLetWdfs=fbData.sportDataLetWdfs>
+              <#list sportDataLetWdfs as data>
+                <#if data_has_next>
+                  <#assign preData=sportDataLetWdfs[data_index+1]>
+                <#else>
+                  <#assign preData=data>
+                </#if>
+                <tr>
+                  <td><em>${data.releaseTime?string("yyyy-MM-dd HH:mm:ss")}</em></td>
+                  <td><@spHtmlDraw data preData "spWin"/></td>
+                  <td><@spHtmlDraw data preData "spDraw"/></td>
+                  <td><@spHtmlDraw data preData "spFail"/></td>
+                </tr>
+              </#list>
+            </#if>
+          </table>
+        </div>
+        <p class="pt10 pb10 fs14 c999 tac">已经到底了，没有更多数据加载</p>
+      </div>
+      <div class="kj-detail-item">
+        <p class="kj-detail-result">
+          <span class="th">彩果：</span>
+          <span class="red"><em>${(fbData.scoreText)!}</em></span>
+        </p>
+        <div class="kj-detail-table">
+          <table>
+            <tr>
+              <th width="40%">发布时间</th>
+              <th>胜其他</th>
+              <th>1:0</th>
+              <th>2:0</th>
+              <th>2:1</th>
+              <th>3:0</th>
+              <th>3:1</th>
+              <th>3:2</th>
+              <th>4:0</th>
+              <th>4:1</th>
+              <th>4:2</th>
+              <th>5:0</th>
+              <th>5:1</th>
+              <th>5:2</th>
+              <th>平其他</th>
+              <th>0:0</th>
+              <th>1:1</th>
+              <th>2:2</th>
+              <th>3:3</th>
+              <th>负其他</th>
+              <th>0:1</th>
+              <th>0:2</th>
+              <th>1:2</th>
+              <th>0:3</th>
+              <th>1:3</th>
+              <th>2:3</th>
+              <th>0:4</th>
+              <th>1:4</th>
+              <th>2:4</th>
+              <th>0:5</th>
+              <th>1:5</th>
+              <th>2:5</th>
+            </tr>
+            <#if (fbData?? && fbData.sportDataScores??)>
+              <#assign sportDataScores=fbData.sportDataScores?sort_by("releaseTime")?reverse>
+              <#list sportDataScores as data>
+                <#if data_has_next>
+                  <#assign preData=sportDataScores[data_index+1]>
+                <#else>
+                  <#assign preData=data>
+                </#if>
+                <tr>
+                  <td><em>${data.releaseTime?string("yyyy-MM-dd HH:mm:ss")}</em></td>
+                  <td><@spHtmlDraw data preData "spWinOther"/></td>
+                  <td><@spHtmlDraw data preData "sp10"/></td>
+                  <td><@spHtmlDraw data preData "sp20"/></td>
+                  <td><@spHtmlDraw data preData "sp21"/></td>
+                  <td><@spHtmlDraw data preData "sp30"/></td>
+                  <td><@spHtmlDraw data preData "sp31"/></td>
+                  <td><@spHtmlDraw data preData "sp32"/></td>
+                  <td><@spHtmlDraw data preData "sp40"/></td>
+                  <td><@spHtmlDraw data preData "sp41"/></td>
+                  <td><@spHtmlDraw data preData "sp42"/></td>
+                  <td><@spHtmlDraw data preData "sp50"/></td>
+                  <td><@spHtmlDraw data preData "sp51"/></td>
+                  <td><@spHtmlDraw data preData "sp52"/></td>
+                  <td><@spHtmlDraw data preData "spDrawOther"/></td>
+                  <td><@spHtmlDraw data preData "sp00"/></td>
+                  <td><@spHtmlDraw data preData "sp11"/></td>
+                  <td><@spHtmlDraw data preData "sp22"/></td>
+                  <td><@spHtmlDraw data preData "sp33"/></td>
+                  <td><@spHtmlDraw data preData "spFailOther"/></td>
+                  <td><@spHtmlDraw data preData "sp01"/></td>
+                  <td><@spHtmlDraw data preData "sp02"/></td>
+                  <td><@spHtmlDraw data preData "sp12"/></td>
+                  <td><@spHtmlDraw data preData "sp03"/></td>
+                  <td><@spHtmlDraw data preData "sp13"/></td>
+                  <td><@spHtmlDraw data preData "sp23"/></td>
+                  <td><@spHtmlDraw data preData "sp04"/></td>
+                  <td><@spHtmlDraw data preData "sp14"/></td>
+                  <td><@spHtmlDraw data preData "sp24"/></td>
+                  <td><@spHtmlDraw data preData "sp05"/></td>
+                  <td><@spHtmlDraw data preData "sp15"/></td>
+                  <td><@spHtmlDraw data preData "sp25"/></td>
+                </tr>
+              </#list>
+            </#if>
+          </table>
+        </div>
+        <p class="pt10 pb10 fs14 c999 tac">已经到底了，没有更多数据加载</p>
+      </div>
+      <div class="kj-detail-item">
+        <p class="kj-detail-result">
+          <span class="th">彩果：</span>
+          <span class="red"><em>${(fbData.goalNum)!}</em></span>
+        </p>
+        <div class="kj-detail-table">
+          <table>
+            <tr>
+              <th width="40%">发布时间</th>
+              <th>0</th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+              <th>6</th>
+              <th>7+</th>
+            </tr>
+            <#if (fbData?? && fbData.sportDataGoals??)>
+              <#assign sportDataGoals=fbData.sportDataGoals>
+              <#list sportDataGoals as data>
+                <#if data_has_next>
+                  <#assign preData=sportDataGoals[data_index+1]>
+                <#else>
+                  <#assign preData=data>
+                </#if>
+                <tr>
+                  <td><em>${data.releaseTime?string("yyyy-MM-dd HH:mm:ss")}</em></td>
+                  <td><@spHtmlDraw data preData "spGoal0"/></td>
+                  <td><@spHtmlDraw data preData "spGoal1"/></td>
+                  <td><@spHtmlDraw data preData "spGoal2"/></td>
+                  <td><@spHtmlDraw data preData "spGoal3"/></td>
+                  <td><@spHtmlDraw data preData "spGoal4"/></td>
+                  <td><@spHtmlDraw data preData "spGoal5"/></td>
+                  <td><@spHtmlDraw data preData "spGoal6"/></td>
+                  <td><@spHtmlDraw data preData "spGoal7"/></td>
+                </tr>
+              </#list>
+            </#if>
+          </table>
+        </div>
+        <p class="pt10 pb10 fs14 c999 tac">已经到底了，没有更多数据加载</p>
+      </div>
+      <div class="kj-detail-item" >
+        <p class="kj-detail-result">
+          <span class="th">彩果：</span>
+          <span class="red"><em>${(fbData.hfWdfText)!}</em></span>
+        </p>
+        <div class="kj-detail-table">
+          <table>
+            <tr>
+              <th width="40%">发布时间</th>
+              <th>胜胜</th>
+              <th>胜平</th>
+              <th>胜负</th>
+              <th>平胜</th>
+              <th>平平</th>
+              <th>平负</th>
+              <th>负胜</th>
+              <th>负平</th>
+              <th>负负</th>
+            </tr>
+            <#if (fbData?? && fbData.sportDataHfWdfs??)>
+              <#assign sportDataHfWdfs=fbData.sportDataHfWdfs>
+              <#list sportDataHfWdfs as data>
+                <#if data_has_next>
+                  <#assign preData=sportDataHfWdfs[data_index+1]>
+                <#else>
+                  <#assign preData=data>
+                </#if>
+                <tr>
+                  <td><em>${data.releaseTime?string("yyyy-MM-dd HH:mm:ss")}</em></td>
+                  <td><@spHtmlDraw data preData "spWinWin"/></td>
+                  <td><@spHtmlDraw data preData "spWinDraw"/></td>
+                  <td><@spHtmlDraw data preData "spWinFail"/></td>
+                  <td><@spHtmlDraw data preData "spDrawWin"/></td>
+                  <td><@spHtmlDraw data preData "spDrawDraw"/></td>
+                  <td><@spHtmlDraw data preData "spDrawFail"/></td>
+                  <td><@spHtmlDraw data preData "spFailWin"/></td>
+                  <td><@spHtmlDraw data preData "spFailDraw"/></td>
+                  <td><@spHtmlDraw data preData "spFailFail"/></td>
+                </tr>
+              </#list>
+            </#if>
+          </table>
+        </div>
+        <p class="pt10 pb10 fs14 c999 tac">已经到底了，没有更多数据加载</p>
+      </div>
+    </div>
+  </div>
+</section>
+<#include "/h5/common/footer.html">

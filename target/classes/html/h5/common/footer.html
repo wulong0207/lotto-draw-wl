@@ -1,0 +1,19 @@
+<#if (lotteryType??)>
+<#include "/h5/common/data-kj-url.html">
+<footer class="kj-footer">
+  <div class="bottom-btn">
+    <#if (cpLotteryMap[lotteryType.lotteryCode?string]??)>
+      <#assign wapCpLotteryKey = cpLotteryMap[lotteryType.lotteryCode?string]/>
+      <a href="${isYicaiWapDomain?string(wapCpUrl,'')}/${wapCpLotteryKey}" class="btn-primary btn-blue">去中奖</a>
+    <#else>
+      <a class="btn-bd-primary">去中奖</a>
+    </#if>
+  </div>
+</footer>
+</#if>
+<script src="${contextPath}/common/resources/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+<script src="${contextPath}/resources/js/swiper/js/swiper-3.4.2.jquery.min.js?v=${_VERSION_}" type="text/javascript"></script>
+<script src="${contextPath}/resources/js/index.js?v=${_VERSION_}" type="text/javascript"></script>
+<#include "/h5/common/seo.html">
+</body>
+</html>

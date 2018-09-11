@@ -1,0 +1,447 @@
+address, cite, dfn, em, var, i {
+  font-style: normal;
+}
+
+/*公共样式*/
+.pay-order .i-radio{
+  width: 24px;
+  height: 24px;
+  background:url("../img/icons-bg.png") no-repeat -74px -199px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.pay-order .i-radio.active{
+  background-position: -49px -199px;
+}
+.pay-order .i-checkbox{
+  width: 24px;
+  height: 24px;
+  background:url("../img/icons-bg.png") no-repeat -24px -199px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.pay-order .i-checkbox.active{
+  background-position:0px -199px;
+}
+.pay-order .i-close{
+  width:15px;
+  height:14px;
+  background:url("../img/icons-bg.png") no-repeat -205px 0;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.pay-order .green{
+  color: #40af36;
+}
+.pay-order .blue{
+  color: #2095f2;
+}
+.pay-order .red{
+  color: #de2526;
+}
+/*start*/
+#payOrder{
+  font-size:14px;
+  color: #666;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+  z-index: 99999;
+}
+#payOrder .pay-content{
+  position: absolute;
+  width: 500px;
+  height: 440px;
+  padding-bottom: 20px;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -220px;
+  background: #fff;
+  overflow: hidden;
+}
+.pay-content .pay-head{
+  height: 40px;
+  line-height: 40px;
+  border-bottom:1px solid #eee;
+  padding:0 20px;
+  background: #f6f6f6;
+}
+.pay-content .pay-head .title{
+  font-size: 16px;
+  color: #333;
+}
+
+.pay-content .pay-main{
+  padding:0 20px;
+}
+.pay-main .pay-info{
+  height: 50px;
+  line-height: 50px;
+  border-bottom: solid 1px #eee;
+  overflow: hidden;
+}
+.pay-main .pay-info strong{
+  font-size:16px;
+  color: #333;
+}
+.pay-main .pay-info i{
+  margin:0 2px;
+}
+.pay-main .pay-info .price{
+  float: right;
+}
+.pay-main .pay-info .price em{
+  color: #de2526;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+/*红包选择*/
+.pay-main .pay-hb{
+
+}
+.pay-main .pay-hb .pay-hb-default{
+  height: 50px;
+  line-height: 50px;
+  padding:0 30px 0 20px;
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+  position: relative;
+}
+.pay-main .pay-hb .pay-hb-default .title{
+  width:80px;
+  color: #333;
+  float: left;
+}
+.pay-main .pay-hb .pay-hb-default .des{
+  float: left;
+}
+.pay-main .pay-hb .pay-hb-default .des em{
+  margin-left:10px;
+  color: #999;
+  font-size:12px;
+}
+.pay-main .pay-hb .pay-hb-default .i-arrow{
+  width: 15px;
+  height: 10px;
+  background: url("../img/icons-bg.png") no-repeat  -150px -10px;
+  position: absolute;
+  right:5px;
+  top:20px;
+}
+.pay-main .pay-hb .pay-hb-default .i-arrow.active{
+  background-position: -150px 0;
+}
+.pay-main .pay-hb .pay-hb-more{
+  height: 280px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #f6f6f6;
+  clear: both;
+}
+/*无可用红包*/
+.pay-main .pay-hb .pay-hb-no{
+  height: 280px;
+  line-height: 280px;
+  text-align: center;
+  overflow: hidden;
+}
+.pay-main .pay-hb .pay-hb-no i{
+  width:48px;
+  height:48px;
+  background:url("../img/icons-bg.png") no-repeat -130px -120px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.pay-main .pay-hb .pay-hb-no span{
+  color: #999;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left:10px;
+}
+.pay-main .pay-list li{
+  font-size:12px;
+  height: 50px;
+  line-height: 50px;
+  padding:0 20px;
+  border-top: solid 1px #e9e9e9;
+  cursor: pointer;
+  overflow: hidden;
+}
+.pay-main .pay-list li.pay-methods-no{
+  background-color: #d2d2d2;
+}
+/*红包列表*/
+.pay-main .pay-list li:first-child{
+  border-top:none;
+}
+.pay-main .pay-list li:not(.pay-methods-no):hover,.pay-main .pay-list li.selected{
+  background:#e9e9e9;
+}
+.pay-main .pay-list li .hb-type,.pay-main .pay-list li .hb-tip,.pay-main .pay-list li .i-radio{
+  margin-left:10px;
+}
+.pay-main .pay-list li .hb-tip{
+  color: #de2526;
+}
+.pay-main .pay-list li .hb-type{
+  color: #999;
+}
+.pay-main .pay-list li .i-radio{
+  margin-top:-4px;
+}
+.pay-main .pay-list li.selected .i-radio{
+  background-position: -49px -199px;
+}
+
+/*支付方式选择*/
+.pay-methods .pay-methods-default{
+  height: 70px;
+  line-height: 70px;
+  padding:0 5px 0 20px;
+  cursor: pointer;
+  clear: both;
+}
+.pay-methods .pay-methods-default .title{
+  width:80px;
+  color: #333;
+  float: left;
+}
+.pay-methods .pay-methods-default .des{
+  width:330px;
+  float: left;
+}
+.pay-methods .pay-methods-default .des-list{
+  width:100%;
+  display: inline-block;
+  vertical-align: middle;
+  line-height:1;
+}
+.pay-methods .pay-methods-default .des .des-item{
+  margin:10px 0;
+}
+.pay-methods .pay-methods-default .des .des-item .price{
+  float: right;
+}
+.pay-methods .pay-methods-default .i-arrow{
+  width: 15px;
+  height: 10px;
+  background: url("../img/icons-bg.png") no-repeat  -150px -10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.pay-methods .pay-methods-default .i-arrow.active{
+  background-position: -150px 0;
+}
+.pay-methods .pay-methods-more{
+  height: 210px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #f6f6f6;
+}
+.pay-main .pay-list li .methods-icon{
+  width:40px;
+  float: left;
+}
+.pay-main .pay-list li .methods-icon i,.pay-main .pay-list li .methods-icon img{
+  width:20px;
+  height:20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -4px;
+}
+.pay-main .pay-list li .methods-icon .i-count{
+  width:18px;
+  height:20px;
+  background:url("../img/pay-icons.png") no-repeat -4px -2px;
+}
+.pay-main .pay-list li .methods-icon .i-addCard{
+  width:27px;
+  height:20px;
+  background:url("../img/newcard.png") no-repeat;
+  margin-top:0;
+}
+.pay-main .pay-list li .i-checkbox{
+  margin-top:-4px;
+}
+.pay-main .pay-list li.selected .i-checkbox{
+  background-position: 0 -199px;
+}
+
+/*支付模块*/
+.pay-confirm{
+  margin-top: 20px;
+  background: #f6f6f6;
+  padding-top: 50px;
+  height: 190px;
+  text-align: center;
+}
+.pay-confirm .pay-btn a{
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  font-weight: bolder;
+  font-size: 16px;
+  background: #2095f2;
+  display: inline-block;
+  cursor: pointer;
+}
+.pay-confirm .pay-btn a:hover{
+  background: #127ec9;
+  text-decoration: none;
+}
+.pay-confirm .pay-tip{
+  font-size:12px;
+  margin:10px 0 20px;
+}
+.pay-confirm .pay-tip input,.pay-confirm .pay-tip span{
+  display: inline-block;
+  vertical-align: middle;
+}
+.pay-confirm .pay-time{
+  margin-top:20px;
+}
+.pay-confirm .pay-time em{
+  color: #de2526;
+  margin:0 5px;
+}
+
+/*扫码支付弹窗*/
+#payOrder .pay-qrcode{
+  width: 500px;
+  height: 280px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -140px;
+  background: #fff;
+  padding:20px;
+}
+.pay-qrcode .i-close{
+  position: absolute;
+  right:15px;
+  top:15px;
+}
+.pay-qrcode .pay-title{
+  padding:20px 30px;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #333;
+}
+
+.pay-qrcode .pay-code{
+  padding: 20px 0 0 175px;
+  position: relative;
+  margin: 0 30px;
+  min-height:133px;
+  overflow: hidden;
+}
+.pay-qrcode .pay-code img{
+  width: 133px;
+  height: 133px;
+  border: 2px solid #40af36;
+  position: absolute;
+  left:0;
+  top:0;
+}
+.pay-qrcode .pay-code span{
+  color: #333;
+}
+.pay-qrcode .pay-code p{
+  margin:5px 0 0 0;
+}
+.pay-qrcode .pay-time{
+  margin:20px 30px 0;
+}
+.pay-qrcode .pay-time em{
+  color: #de2526;
+  margin:0 5px;
+}
+
+/*支付成功弹窗*/
+#payOrder .pay-success{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 500px;
+  height: 250px;
+  margin-left: -250px;
+  margin-top: -125px;
+  background: #fff;
+}
+#payOrder .pay-success .i-close{
+  position: absolute;
+  right:15px;
+  top:15px;
+}
+#payOrder .pay-success .pay-head{
+  height: 40px;
+  line-height: 40px;
+  color: #333;
+  font-size: 16px;
+  padding-left: 20px;
+}
+#payOrder .pay-success .pay-body{
+  padding:20px;
+  text-align: center;
+  line-height:100px;
+}
+#payOrder .pay-success .pay-body .i-success{
+  width:36px;
+  height:36px;
+  background: url("../img/icons-bg.png") no-repeat -5px -120px;
+  display: inline-block;
+  vertical-align: middle;
+}
+#payOrder .pay-success .pay-body .text{
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  padding-left:10px;
+  line-height:1.5;
+}
+#payOrder .pay-success .pay-body .text b{
+  display: block;
+  font-size: 16px;
+}
+#payOrder .pay-success .pay-bottom{
+  text-align: center;
+}
+#payOrder .pay-success .pay-bottom a{
+  width: 100px;
+  height: 34px;
+  line-height: 34px;
+  font-size:12px;
+  margin:0 10px;
+  display: inline-block;
+}
+#payOrder .pay-success .pay-bottom a.btn-grey{
+  border:1px solid #eee;
+}
+#payOrder .pay-success .pay-bottom a.btn-grey:hover{
+   background-color: #f5f5f5;
+ }
+
+#payOrder .pay-success .pay-bottom a.btn-blue{
+  border:1px solid #2095f2;
+  background-color: #2095f2;
+  color: #fff;
+}
+#payOrder .pay-success .pay-bottom a.btn-blue:hover{
+  border-color: #127ec9;
+  background-color: #127ec9;
+}
+.pay-overflow{
+  overflow: hidden;
+}

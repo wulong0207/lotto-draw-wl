@@ -1,0 +1,60 @@
+<#if (cpLotteryMap[lotteryType.lotteryCode?string]??)>
+<!--右侧上部开奖信息及摇号-->
+<div class="whiteBg mt20" id="fastbet" style="display:none">
+	<div class="det-lotto-info">
+		<div class="open-today-icon">今日开奖</div>
+		<div>
+			<p>${fastMessage}</p>
+			<p><em class="issue-code"></em>期 投注截止
+				<span class="countdown">
+					<span class="clockBox"><i class="ui-icon clock"></i></span>
+					<em class="end-time"></em>
+				</span>
+			</p>
+		</div>
+	</div>
+	<div class="det-betbox">
+		<div class="tac lottoy-child-name"></div>
+		<div class="draw-lottery">
+			<div class="draw-lotto-box">
+				<div class="box-out">
+					<div class="box-in-border">
+						<div class="box-in">
+							
+						</div>
+					</div>
+					<div class="handle-node ui-icon">
+						<div class="handle-right" id="handleright">
+							<span class="ui-icon handle-ball"></span>
+							<span class="ui-icon handle-bar"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="handle-ct">
+				<div class="tac mt10">
+					<a class="handle-random">开始摇号</a>
+				</div>
+				<div class="handle-text-h">
+					<div class="multiple-div">
+						<span class="add-subtract">
+							<a class="icon-minus"><i class="ui-icon"></i></a>
+							<input class="multiple-input" value="1" />
+							<a class="icon-add"><i class="ui-icon"></i></a>
+						</span>
+					</div>
+				</div>
+				<div class="handle-btn-div mb30">
+					<a class="handle-btn redbg handle-submit">投注<em class="total-price">0</em>元</a>
+					<#if (cpLotteryKey?? && cpLotteryKey != "")>
+						<a class="handle-btn" href="${webCpUrl}/${cpLotteryKey}" target="_blank">手动选号</a>
+					<#else>
+						<a class="handle-btn off-btn" target="_blank">手动选号</a>
+					</#if>
+				</div>
+			</div>
+			<div class="c333 tac">注册2N彩票，开启大奖之旅</div>
+		</div>
+	</div>
+</div>
+</#if>

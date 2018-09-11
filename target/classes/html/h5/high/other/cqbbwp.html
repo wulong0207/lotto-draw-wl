@@ -1,0 +1,11 @@
+<#import "/h5/high/common/macro-layout-high-list.html" as listLayout/>
+<#include "/h5/high/common/template-high-list-title.html"/>
+<@listLayout.htmlDraw title=htmlTitle keywords=htmlKeywords description=htmlDescription canonical=htmlCanonical;drawCodeArr>
+	<div class="ball-list">
+	<#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+		<#list drawCodeArr[0] as code>
+			<i class="i-ball red ${code?contains('(')?string('bbwp','')}">${code}</i>
+		</#list>
+	</#if>
+	</div>
+</@listLayout.htmlDraw>

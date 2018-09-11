@@ -1,0 +1,16 @@
+<#assign contextPath = Request["Header-Context-Path"]?default(request.contextPath + "/h5") />
+<#assign _VERSION_="1.8.0.1"/>
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1,minimum-scale=1, maximum-scale=1"/>
+  <meta name="x5-orientation" content="portrait" />
+  <meta name="applicable-device" content="mobile">
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <script src="${contextPath}/resources/js/deviceWidth2.js?v=${_VERSION_}" type="text/javascript"></script>
+  <link rel="shortcut icon" href="${contextPath}/favicon.ico" type="image/x-icon" />
+  <link href="${contextPath}/resources/css/common/common.css" rel="stylesheet" type="text/css"/>
+  <link href="${contextPath}/resources/js/swiper/css/swiper-3.4.1.min.css" rel="stylesheet" type="text/css"/>
+  <link href="${contextPath}/resources/css/index.css?v=${_VERSION_}" rel="stylesheet" type="text/css"/>

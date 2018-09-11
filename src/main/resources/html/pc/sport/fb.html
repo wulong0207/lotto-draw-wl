@@ -1,0 +1,282 @@
+<#include "/pc/common/common.html">
+<#include "/pc/common/data-kj-url.html">
+<#import "/pc/common/macro-layout-html.html" as layout/>
+<#import "/pc/common/macro-layout-page.html" as pageLayout/>
+<#import "/pc/sport/common/macro-layout-sp-up-down.html" as spLayout/>
+<#assign cpLotteryKey=cpLotteryMap[lotteryType.lotteryCode?string]>
+<#if (queryVO.startTime?? || queryVO.endTime?? || queryVO.raceId??)>
+	<#if (queryVO.raceId?? && raceList??)>
+		<#list raceList as race>
+			<#if queryVO.raceId==race.id>
+				<#assign queryRaceName=race.matchName/>
+			</#if>
+		</#list>
+	</#if>
+	<#assign htmlTitle="竞彩足球${(queryStartTime?string('yyyyMMdd'))!}${(queryEndTime?string('-yyyyMMdd'))!}号${queryRaceName!}开奖结果丨赛果丨时间丨公告查询-2N彩票">
+	<#assign htmlKeywords="竞彩足球${(queryStartTime?string('yyyyMMdd'))!}${(queryEndTime?string('至yyyyMMdd'))!}号${queryRaceName!}开奖结果查询">
+	<#assign htmlDescription="2N彩票网为您提供体彩竞彩足球${(queryStartTime?string('yyyyMMdd'))!}${(queryEndTime?string('至yyyyMMdd'))!}号${queryRaceName!}开奖结果查询,中国体育彩票竞彩足球${(queryStartTime?string('yyyy-MM-dd'))!}${(queryEndTime?string('至yyyy-MM-dd'))!}号${queryRaceName!}开奖结果、时间、中奖查询、开奖公告、数据分析等服务，买彩票查开奖结果到2N彩票。">
+	<#assign htmlAlternate="${wapKjUrl}/${lotteryType.lotteryKey}/${queryIssueCode}.html">
+	<#if (queryVO.startTime?? && noPageParam?? && noPageParam)>
+		<#assign htmlAlternate="${wapKjUrl}/${lotteryType.lotteryKey}/s${queryVO.startTime?string('yyyyMMdd')}.html">
+	</#if>
+<#else>
+	<#assign htmlTitle="竞彩足球开奖结果_竞彩足球赛程赛果_竞彩足球开奖信息丨时间丨公告查询-2N彩票">
+	<#assign htmlKeywords="竞彩足球开奖结果，竞彩足球赛果">
+	<#assign htmlDescription="2N彩票竞彩足球开奖结果栏目，为您提供最新、最准确、最全面的体彩竞彩足球开奖信息查询，与彩票官方网站开奖结果。包括中国体育彩票竞彩足球开奖结果，竞彩足球开奖时间，开奖公告，开奖信息，买彩票查开奖结果到2N彩票。">
+	<#assign htmlAlternate="${wapKjUrl}/${lotteryType.lotteryKey}/">
+</#if>
+<@layout.header title=htmlTitle keywords=htmlKeywords description=htmlDescription alternate=htmlAlternate>
+	<link rel="stylesheet" href="${contextPath}/resources/css/details/details.css" />
+</@layout.header>
+<@layout.body>
+	<div class="det-body jingjicai">
+		<!--竞彩足球开奖公告 start-->
+		<div class="whiteBg mt20">
+			<div class="det-sec-head det-menu">
+				<div class="det-menu-box">
+					<strong class="det-title">${lotteryType.lotteryName}开奖公告</strong>
+					<#include "/pc/common/template-det-lotto-menu.html"/>
+				</div>
+				<div class="fr c333 fs12">
+					<i class="ui-icon ex-gray-s"></i>
+					<span class="ib-va">本开奖数据由${(lotteryType.adminCategory==1)?string("福彩", "体彩")}中心提供</span>
+				</div>
+			</div>
+			<div class="det-section">
+				<!--开奖信息-->
+				<div class="open-award clearfix">
+					<!--是否有加奖显隐下方DIV
+					<div class="ui-icon jiajiang"></div>
+					-->
+					<div class="award-src">
+						<div class="award-src-list award-col1">
+							<div class="fl dt">
+								<img class="award-logo" src="${lotteryType.lotteryLogoUrl!}" alt="${lotteryType.lotteryName}"/>
+								<span class="lotto-name ib-va">${lotteryType.lotteryName}</span>
+							</div>
+							<div class="fl"></div>
+						</div>
+						<div class="award-src-list">
+							<div class="handle-btn-div mb30 mt20">
+								<a class="handle-btn redbg" href="${webCpUrl}/${cpLotteryKey}" target="_blank">手动选号</a>
+								<!-- <a class="handle-btn off-btn">去合买</a> -->
+							</div>
+						</div>
+					</div>
+					<!--查询-->
+					<div class="chaxun">
+						<label class="ib-va">时间选择</label>
+						<div class="ib-va">
+							<span class="laydateBox">
+								<input class="laydate-icon"  id="start" type="text" value="${(queryStartTime?string('yyyy-MM-dd'))!}" placeholder="选择日期" readonly />
+								&nbsp;至&nbsp;
+								<input class="laydate-icon" id="end" type="text" value="${(queryEndTime?string('yyyy-MM-dd'))!}" placeholder="选择日期" readonly />
+							</span>
+						</div>
+						<label class="ib-va ml10">赛事选择</label>
+						<select id="raceSelect" class="select24">
+							<option value="">全部</option>
+							<#list raceList as race>
+								<option value="${(race.id?c)!}" ${(queryVO.raceId==race.id)?string("selected", "")}>${race.matchName}</option>
+							</#list>
+						</select>
+						<a class="ib-va searchBtn ml10" id="sportSearchBtn">查询</a>
+					</div>
+					<!--查询END-->
+				</div>
+				<#if (pageData.data?? && pageData.data?size>0)>
+					<!--本期开奖详情-->
+					<div class="award-info mt20">
+						<div class="jjc-table fs14">
+							<div class="match-list-box jclq">
+								<div class="listThead">
+									<div class="item td01">赛事</div>
+									<div class="item td02">赛事编号</div>
+									<div class="item td03">比赛时间</div>
+									<div class="item td04">
+										<div class="colspan3 fs0 vs-team">
+											<span class="col h-team">主队</span>
+											<span class="col vs">(让球)</span>
+											<span class="col v-team">客队</span>
+										</div>	
+									</div>
+									<div class="item td05">(半场)比分</div>
+									<div class="item td06">让球胜平负</div>
+									<div class="item td07">胜平负</div>
+									<div class="item td08">总进球</div>
+									<div class="item td09">半全场</div>
+									<div class="item td10">开奖公告</div>
+								</div>
+								<div class="listTbody">
+									<#list pageData.data as match>
+										<div class="listTr">
+											<div class="item td01 c999">${match.raceName!}</div>
+											<div class="item td02 c999">${match.week!}${match.num!}</div>
+											<div class="item td03 c999">${(match.matchTime?string('yyyy-MM-dd HH:mm'))!}</div>
+											<div class="item td04">
+												<div class="colspan3 fs0 vs-team">
+													<span class="col h-team">${match.homeTeamName!}</span>
+													<span class="col vs">
+														<em class="green">
+															<#if (match.letNum>0)>
+																+${match.letNum}
+															<#elseif (match.letNum<=0)>
+																${match.letNum}
+															</#if>
+														</em>
+													</span>
+													<span class="col v-team">${match.guestTeamName!}</span>
+												</div>
+											</div>
+											<#if (match.matchStatus?? && (match.matchStatus == 14 || match.matchStatus == 13))>
+												<div class="item td05 red">${match.matchStatusText!}</div>
+												<div class="item td06">*</div>
+												<div class="item td07">*</div>
+												<div class="item td08">*</div>
+												<div class="item td09">*</div>
+												<div class="item td10">${match.matchStatusText!}</div>
+											<#elseif (match.matchStatus?? && (match.matchStatus != 15 && match.matchStatus != 16) )>
+												<div class="item td05 red">--</div>
+												<div class="item td06">--</div>
+												<div class="item td07">--</div>
+												<div class="item td08">--</div>
+												<div class="item td09">--</div>
+												<div class="item td10">等待开奖</div>
+											<#else>
+												<div class="item td05 red">
+													<i class="c666">(${match.halfScore})</i>
+													<b>${match.fullScore}</b>
+												</div>
+												<div class="item td06">${match.letWdfText!"--"}</div>
+												<div class="item td07">${match.fullWdfText!"--"}</div>
+												<div class="item td08">${match.goalNum!"--"}</div>
+												<div class="item td09">${match.hfWdfText!"--"}</div>
+												<div class="item td10">
+													<span class="showMore" data-match-id="${match.matchId?c}">
+														展开详情<i class="arrow"></i>
+													</span>
+												</div>
+											</#if>
+											
+										</div>
+										<!--展开详情-->
+										<div class="match-det">
+											<#if (match.matchStatus?? && (match.matchStatus == 15 || match.matchStatus == 16) )>
+												<div class="mb10">开奖结果及单注浮动奖金：</div>
+												
+											</#if>
+										</div>
+									</#list>
+								</div>
+							</div>
+						</div>
+						<#assign queryString=""/>
+						<#if queryVO.startTime??>
+							<#assign queryString = queryString + "_s${queryVO.startTime?string('yyyyMMdd')}"/>
+						</#if>
+						<#if queryVO.endTime??>
+							<#assign queryString = queryString + "_e${queryVO.endTime?string('yyyyMMdd')}"/>
+						</#if>
+						<#if queryVO.raceId??>
+							<#assign queryString = queryString + "_r${queryVO.raceId?c}"/>
+						</#if>
+						<#if (queryString?length > 0)>
+							<@pageLayout.page total=pageData.total pageIndex=queryVO.pageIndex pageSize=queryVO.pageSize url="${contextPath}/${lotteryType.lotteryKey!}/${queryString?substring(1)}.html?pageIndex={pageIndex}"/>							
+						<#else>
+							<@pageLayout.page total=pageData.total pageIndex=queryVO.pageIndex pageSize=queryVO.pageSize url="${contextPath}/${lotteryType.lotteryKey!}?pageIndex={pageIndex}"/>
+						</#if>
+					</div>
+					<!--本期开奖详情END-->
+				<#else>
+					<!--无数据-->
+					<div class="not-data">
+						<span class="ui-icon ex-gray">
+						</span>
+						<span class="text-display">
+							您查询的时间内没有开奖结果<br/>
+							<a class="blue" href="${webCpUrl}">返回购彩大厅</a>
+						</span>
+					</div>
+					<!--无数据 end-->
+				</#if>
+			</div>
+		</div>
+		<!--竞彩足球开奖公告end-->
+	</div>
+</@layout.body>
+<@layout.footer>
+	<script src="${contextPath}/resources/js/laydate/laydate.js"></script>
+	<script>
+		var start = {
+			elem: '#start',
+			format: 'YYYY-MM-DD',
+			min: '2007-01-01',
+			//设定最小日期为当前日期
+			max: laydate.now(),
+			//最大日期
+			istime: false,
+			istoday: true,
+			choose: function(datas) {
+				end.min = datas; //开始日选好后，重置结束日的最小日期
+				end.start = datas //将结束日的初始值设定为开始日
+			}
+		};
+		var end = {
+			elem: '#end',
+			format: 'YYYY-MM-DD',
+			min: '2007-01-01',
+			max: laydate.now(),
+			istime: false,
+			istoday: true,
+			choose: function(datas) {
+				start.max = datas; //结束日选好后，重置开始日的最大日期
+			}
+		};
+		laydate(start);
+		laydate(end);
+		//查询
+		$(function() {
+			//竞彩公告-展示详情
+			$(".showMore").click(function () {
+				if($(this).parent().parent().next(".match-det").find(".det-tabbox").length > 0) {
+					$(this).toggleClass("slide").parent().parent().next(".match-det").slideToggle().siblings(".match-det").slideUp();
+					$(this).siblings().removeClass("slide");
+					return;
+				}
+				var matchId = $(this).attr("data-match-id");
+				var $this = $(this);
+				$.get(baseData.contextPath + "/fb/detail.html", {matchId: matchId}, function(html) {
+					var $matchDet = $this.parent().parent().next(".match-det");
+					$matchDet.append(html);
+					$matchDet.find(".caiguo-table tbody tr:nth-child(even)").css("background-color", "#f5f5f5");
+					$this.toggleClass("slide").parent().parent().next(".match-det").slideToggle().siblings(".match-det").slideUp();
+					$this.siblings().removeClass("slide");
+				}, "html");
+			});
+			$("#sportSearchBtn").click(function(event) {
+				var queryArr = [];
+				//startTime
+				var startTime = $.trim($("#start").val());
+				if(startTime != ""){
+					queryArr.push("s" + startTime.replace(/-/g, ""));
+				}
+				//endTime
+				var endTime = $.trim($("#end").val());
+				if(endTime != ""){
+					queryArr.push("e" + endTime.replace(/-/g, ""));
+				}
+				//raceId
+				var raceId = $.trim($("#raceSelect").val());
+				if(raceId != "") {
+					queryArr.push("r" + raceId);
+				}
+				var queryStr = queryArr.length > 0 ? queryArr.join("_") + ".html" : "";
+				window.location.href="${contextPath}/fb/" + queryStr;
+				event.stopPropagation();
+			});
+		})
+		$(function() {
+			new YiCai.page();
+		})
+	</script>
+</@layout.footer>

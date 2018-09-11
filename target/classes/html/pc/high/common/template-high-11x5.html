@@ -1,0 +1,49 @@
+<#import "/pc/high/common/macro-layout-high-detail.html" as detailLayout>
+<#import "/pc/high/common/macro-layout-high-list.html" as highListLayout/>
+<#if (queryDate??)>
+	<#assign queryDateIssue=queryDate?string("yyyyMMdd")/>
+	<#assign htmlTitle="${queryDateIssue}期${lotteryName1!lotteryType.lotteryName}开奖号码_${queryDateIssue}期${lotteryName2!lotteryType.lotteryName}开奖信息丨结果查询-2N彩票">
+	<#assign htmlKeywords="${queryDateIssue}期${lotteryName1!lotteryType.lotteryName}开奖号码，${queryDateIssue}期${lotteryName2!lotteryType.lotteryName}开奖信息">
+	<#assign htmlDescription="2N彩票${queryDateIssue}期${lotteryName1!lotteryType.lotteryName}开奖号码，${queryDateIssue}${lotteryName2!lotteryType.lotteryName}开奖信息，并提供${lotteryName3!lotteryType.lotteryName}走势预测等服务，买彩票查开奖结果到2N彩票。">
+	<#assign htmlAlternate="${wapKjUrl}/${lotteryType.lotteryKey}/${queryDateIssue}.html">
+<#else>
+	<#assign htmlTitle="${lotteryName1!lotteryType.lotteryName}开奖号码_体彩${lotteryName2!lotteryType.lotteryName}开奖信息丨时间丨结果查询-2N彩票">
+	<#assign htmlKeywords="${lotteryName1!lotteryType.lotteryName}开奖号码，${lotteryName2!lotteryType.lotteryName}开奖信息">
+	<#assign htmlDescription="2N彩票${lotteryName1!lotteryType.lotteryName}开奖号码栏目，为您提供最新、最准确、最全面的体彩${lotteryName2!lotteryType.lotteryName}开奖信息，开奖时间，开奖公告，数据分析等服务。买彩票查开奖结果到2N彩票。">
+	<#assign htmlAlternate="${wapKjUrl}/${lotteryType.lotteryKey}/">
+</#if>
+<#assign fastMessage="2元最高可中540"/>
+<@detailLayout.htmlDraw cssKey="sd11x5" title=htmlTitle keywords=htmlKeywords description=htmlDescription alternate=htmlAlternate fastMessage=fastMessage;position,drawCodeArr>
+	<#if position=="last">
+		<#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+			<#list drawCodeArr[0] as code>
+				<span class="ui-icon redBall-34">${code}</span>
+			</#list>
+		</#if>
+	<#elseif position="list">
+		<@highListLayout.head>
+			<ul class="data-item">
+				<li>彩期</li>
+				<li class="w2">开奖号码</li>
+				<li>奇偶</li>
+				<li>大小</li>
+			</ul>
+		</@highListLayout.head>
+		<@highListLayout.body ;drawIssue,drawCodeArr,issueDisplayNum>
+			<ul class="data-item">
+				<li>${drawIssue.issueCode?substring(drawIssue.issueCode?length-issueDisplayNum)}</li>
+				<li class="w2">
+					<span class="num-item">
+						<#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+							<#list drawCodeArr[0] as code>
+								<b class="red">${code}</b>
+							</#list>
+						</#if>
+					</span>
+				</li>
+				<li>${(drawIssue.drawCodeType.oeRatio)!}</li>
+				<li>${(drawIssue.drawCodeType.bsRatio)!}</li>
+			</ul>
+		</@highListLayout.body>
+	</#if>
+</@detailLayout.htmlDraw>

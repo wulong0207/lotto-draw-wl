@@ -1,0 +1,198 @@
+<#macro htmlDraw>
+
+<#include "/pc/common/common.html">
+<#include "/pc/common/data-kj-url.html">
+<#import "/pc/common/macro-layout-html.html" as layout/>
+<#include "/pc/local/common/template-local-detail-title.html">
+<@layout.header title=htmlTitle keywords=htmlKeywords description=htmlDescription alternate=htmlAlternate>
+	<link rel="stylesheet" href="${contextPath}/resources/css/details/details.css" />
+</@layout.header>
+<@layout.body>
+	<div class="det-body difang">
+		<!--开奖公告 start-->	
+		<div class="whiteBg mt20">
+			<div class="det-sec-head det-menu">
+				<div class="det-menu-box">
+					<strong class="det-title">${lotteryType.lotteryName}开奖公告</strong>
+					<#include "/pc/common/template-det-lotto-menu.html"/>
+				</div>
+				<div class="fr c333 fs12">
+					<i class="ui-icon ex-gray-s"></i>
+					<span class="ib-va">本开奖数据由${(lotteryType.adminCategory==1)?string("福彩", "体彩")}中心提供</span>
+				</div>
+			</div>
+			<div class="det-section">
+				<!--开奖信息-->
+				<div class="open-award clearfix">
+					<#--是否有加奖显隐下方DIV
+					<div class="ui-icon jiajiang"></div>
+					-->
+					<div class="award-src">
+						<div class="fl dt">
+							<img class="award-logo" src="${lotteryType.lotteryLogoUrl!}" alt="${lotteryType.lotteryName}"/>
+						</div>
+						<div class="fl dd">
+							<div class="mt20 clearfix">
+								<div class="search-lotto">
+									<div class="selectDiv">
+										<span class="periods">${drawLotteryIssue.issueCode!}期</span>
+										<ul class="periodsSelect" style="display: none;">
+											<#list issueCodeList as issueCode>
+												<li><a href="${contextPath}/${lotteryType.lotteryKey}/${issueCode}.html">${issueCode}期</a></li>
+											</#list>
+										</ul>
+									</div>
+									<span class="open-the-day">${drawLotteryIssue.lotteryTime?string("MM-dd")} (${week(drawLotteryIssue.lotteryTime)}) 开奖</span>
+									<span>${lotteryType.lotteryDrawText!}</span>
+								</div>
+								<div class="fr award-link mr10">
+									<#if (trendUrlMap[lotteryType.lotteryCode?string]??)>
+										<a target="_blank" href="${webCpUrl?replace('https', 'http')}/database?url=${urlEncoder(trendUrlMap[lotteryType.lotteryCode?string])}">走势图</a>
+									</#if>
+									<#if (introduceUrlMap[lotteryType.lotteryCode?string]??)>
+										<span class="link-line">|</span>
+										<a target="_blank" href="${webCpUrl?replace('https', 'http')}/database?url=${urlEncoder(introduceUrlMap[lotteryType.lotteryCode?string])}">玩法</a>
+									</#if>
+								</div>
+							</div>
+							<div class="mt20 balls-list">
+								<span class="text-val">开奖号 :</span>
+								<#if drawLotteryIssue.drawCodeArr2??>
+									<#local drawCodeArr = drawLotteryIssue.drawCodeArr2/>
+									<#nested drawCodeArr>
+								<#else>
+									<span class="text-val">预计 <b class="red">${drawLotteryIssue.lotteryTime?string("HH:mm")}</b> 开出号码，请稍后</span>
+								</#if>
+							</div>
+							<div class="winning-info">
+								<span>全国销量：
+									<#if drawLotteryIssue.salesAmount??>
+										<i class="red">${drawLotteryIssue.salesAmount!}</i>元
+									<#else>
+										<i>等待官方公布</i>
+									</#if>
+								</span>&nbsp;
+								<span>奖池滚存：
+									<#if drawLotteryIssue.jackpotAmount??>
+										<i class="red">${drawLotteryIssue.jackpotAmount!}</i>元
+									<#else>
+										<i>等待官方公布</i>
+									</#if>
+								</span>
+							</div>
+						</div>
+						
+						
+					</div>
+				</div>
+				<div class="dfc-det-left">
+					<!--本期中奖详情-->
+					<div class="award-info">
+						<div class="award-top">
+							<em class="c333 fs16">
+								本期中奖详情
+							</em>
+
+							<div class="fast-look blue">
+								<span><i class="ui-icon blue-phone"></i>下载手机彩票，开奖中奖早知道</span>
+								<div class="det-down-code">
+									<div><img width="100" height="100" src="${contextPath}/resources/img/notice/downCode.png"/></div>
+									<div class="c333 mt10">扫码下载客户端</div>
+								</div>
+							</div>
+						</div>
+							<!--中奖详情-->
+							<div class="lotto-award-table">
+								<table class="tac award-table" width="100%" cellpadding="0" cellspacing="0">
+									<thead>
+										<tr>
+											<td width="190">奖项</td>
+											<td width="200">单注奖金(元)</td>
+											<td width="200">中奖注数(注)</td>
+										</tr>
+									</thead>
+									<tbody>
+										<#if (drawLotteryIssue.drawDetailList?? && drawLotteryIssue.drawDetailList?size>0 && drawLotteryIssue.drawDetailList[0].money??)>
+											<#list drawLotteryIssue.drawDetailList as drawDetail>
+												<tr class="${(drawDetail_index%2==0)?string('whiteBg','bgf5')}">
+													<td>${drawDetail.prize!}</td>
+													<td><span class="red">${drawDetail.money!}</span></td>
+													<td>${drawDetail.num!}</td>
+												</tr>
+											</#list>
+										<#else>
+											<#list drawLotteryIssue.drawDetailList as drawDetail>
+												<tr class="${(drawDetail_index%2==0)?string('whiteBg','bgf5')}">
+													<td>${drawDetail.prize}</td>
+													<#if (drawDetail_index==0)>
+														<td rowspan="${drawLotteryIssue.drawDetailList?size}" colspan="2">
+															<span class="ui-icon ex-gray"></span>
+															<span class="text-display">
+																等待官方公布详情<br/>
+																预计 <i class="red">${drawLotteryIssue.lotteryTime?string("HH:mm")}</i> 可公布，请稍后...
+															</span>
+														</td>
+													</#if>
+													<td>${drawDetail.condition}</td>
+												</tr>
+											</#list>
+										</#if>
+									</tbody>
+								</table>
+							</div>
+							<!--中奖详情 end-->
+					</div>
+				</div>
+				<div class="dfc-det-right">
+						<!--往期开奖-->
+						<div class="dfc-det-head">
+							<strong class="det-title fl">往期开奖</strong>
+							<a id="prevPast" class="fr" href="javascript:void(0);">下五期</a>
+							<a id="nextPast" class="fr mr10" href="javascript:void(0);">上五期</a>
+						</div>
+						<div class="dfc-det-table">
+							<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+								<thead>
+									<tr>
+										<th>期数</th>
+										<th>号码</th>
+										<th>详情</th>
+									</tr>
+								</thead>
+								<tbody>
+									<#list pastDrawLotteryList as pastDrawLottery>
+										<tr class="${(pastDrawLottery_index%2==0)?string('whiteBg','bgf5')}">
+											<td>${pastDrawLottery.issueCode}</td>
+											<td>
+												<span class="num-list">
+													<#if pastDrawLottery.drawCodeArr2??>
+														<#local drawCodeArr=pastDrawLottery.drawCodeArr2>
+														<#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+															<#list drawCodeArr[0] as code>
+																<b class="red">${code}</b>
+															</#list>
+														</#if>
+														<#if (drawCodeArr?size>1 && drawCodeArr[1]??)>
+															<#list drawCodeArr[1] as code>
+																<b class="blue">${code}</b>
+															</#list>
+														</#if>
+													<#else>
+														号码获取中...
+													</#if>
+												</span>
+											</td>
+											<td><a href="${contextPath}/${lotteryType.lotteryKey}/${pastDrawLottery.issueCode}.html">查看</a></td>
+										</tr>
+									</#list>
+								</tbody>
+							</table>
+						</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</@layout.body>
+<@layout.footer></@layout.footer>
+</#macro>

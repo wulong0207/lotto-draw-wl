@@ -1,0 +1,22 @@
+<#import "/h5/high/common/macro-layout-high-detail.html" as detailLayout/>
+<#if !(htmlTitle??)>
+	<#assign htmlTitle="${lotteryName1!lotteryType.lotteryName}奖金详情_${lotteryName2!lotteryType.lotteryName}中奖规则_玩法_奖金介绍-2N彩票触屏版">
+</#if>
+<#if !(htmlKeywords??)>
+	<#assign htmlKeywords="${lotteryName1!lotteryType.lotteryName}奖金详情，${lotteryName2!lotteryType.lotteryName}中奖规则">
+</#if>
+<#if !(htmlDescription??)>
+	<#assign htmlDescription="2N彩票${lotteryName1!lotteryType.lotteryName}奖金详情，详细介绍${lotteryName2!lotteryType.lotteryName}中奖规则，彩票玩法等内容。买彩票查开奖结果到2N彩票。">
+</#if>
+<@detailLayout.htmlDraw title=htmlTitle keywords=htmlKeywords description=htmlDescription;drawDetailList>
+  <tr>
+    <th width="50%">奖项名称</th>
+    <th width="50%">每注奖金(元)</th>
+  </tr>
+  <#list drawDetailList as drawDetail>
+    <tr>
+      <td><em class="c999">${drawDetail.prize?default("-")}</em></td>
+      <td><em class="fs16">${drawDetail.money?default("-")}</em></td>
+    </tr>
+  </#list>
+</@detailLayout.htmlDraw>

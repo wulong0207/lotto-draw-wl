@@ -1,0 +1,177 @@
+<#assign iconMap={"0":"", "1":"tag_new", "2":"tag_hot", "3":"tag_jiang", "4":"", "5": ""}>
+<#function formatUrl param="">
+	<#if param?? && param?starts_with("http")>
+		<#return param>
+	<#else>
+		<#return webCpUrl+param>
+	</#if>
+</#function>
+<@compress single_line=true>
+<div class="lottery_nav_box">
+	<ul class="lottery_list">
+		<#assign topSize = 6/>
+		<#if (operLotteryList?size < 6)>
+			<#assign topSize = operLotteryList?size />
+		</#if>
+		<#list 0..(topSize-1) as i>
+			<#assign operLottery=operLotteryList[i] />
+			<#assign target = (operLottery.target==1)?string("_self", "_blank")/>
+			<li class="clearfix">
+				<div class="topLi">
+					<a class="lottery_icon" href="${operLottery.typeUrl}" target="${target}">
+						<img src="${(operLottery.operUrl?default(operLottery.lotteryLogoUrl))!}" width="36px" />
+					</a><strong class="lottery_tit">
+						<a target="${target}" style="color:${operLottery.color!"#000000"};" class="${(iconMap[(operLottery.icon?string)!])!}" href="${formatUrl(operLottery.typeUrl)!}">${operLottery.typeAlias!}</a>
+					</strong>
+					<#if (operLottery.typeKey?? && operLottery.typeKey?trim != "")>
+						<#if (operLottery.icon?? && operLottery.icon != 0)>
+							<span class="tag_orange">
+								<a href="${formatUrl(operLottery.typeKeyUrl!operLottery.typeUrl)!}" target="${target}" title="${operLottery.typeKey!}">${operLottery.typeKey!}</a>
+							</span>
+						<#else>
+							<a class="type_key" href="${formatUrl(operLottery.typeKeyUrl!operLottery.typeUrl)!}" target="${target}" title="${operLottery.typeKey!}">${operLottery.typeKey!}</a>
+						</#if>
+					</#if>
+				</div>
+			</li>
+		</#list>
+	</ul>
+	<div class="menuShow">
+		<ul class="lottery_list listMenu">
+			<li class="clearfix nav_li">
+				<dl class="lottery_dl clearfix" style="height:48px;line-height:48px;">
+					<dt><span>竞技</span></dt>
+					<dd>
+						<ul>
+							<#assign topSize = 0>
+							<#list 6..(operLotteryList?size-1) as i>
+								<#assign operLottery=operLotteryList[i] />
+								<#if operLottery.categoryId == 3>
+									<li><a class="${(iconMap[(operLottery.icon?string)!])!}" style="color: ${operLottery.color!"#000000"};" href="${formatUrl(operLottery.typeUrl)!}" target="${(operLottery.target==1)?string('_self', '_blank')}">${operLottery.typeAlias!}</a></li>
+									<#assign topSize = topSize + 1>
+									<#if (topSize>=4)>
+										<#break>
+									</#if>
+								</#if>
+							</#list>
+						</ul>
+					</dd>
+				</dl>
+				<i class="sprites arrow_blue"> </i>
+			</li>
+			<li class="clearfix nav_li">
+				<dl class="lottery_dl clearfix" style="height:72px;line-height:72px;"">
+					<dt><span>高频</span></dt>
+					<dd>
+						<ul>
+							<#assign topSize = 0>
+							<#list 6..(operLotteryList?size-1) as i>
+								<#assign operLottery=operLotteryList[i] />
+								<#if operLottery.categoryId == 2>
+									<li><a class="${(iconMap[(operLottery.icon?string)!])!}" style="color: ${operLottery.color!"#000000"};" href="${formatUrl(operLottery.typeUrl)!}" target="${(operLottery.target==1)?string('_self', '_blank')}">${operLottery.typeAlias!}</a></li>
+									<#assign topSize = topSize + 1>
+									<#if (topSize>=6)>
+										<#break>
+									</#if>
+								</#if>
+							</#list>
+						</ul>
+					</dd>
+				</dl>
+				<i class="sprites arrow_blue"> </i>
+			</li>
+			<li class="clearfix nav_li">
+				<dl class="lottery_dl clearfix" style="height:42px;line-height:42px;">
+					<dt><span>数字</span></dt>
+					<dd>
+						<ul>
+							<#assign topSize = 0>
+							<#list 6..(operLotteryList?size-1) as i>
+								<#assign operLottery=operLotteryList[i] />
+								<#if operLottery.categoryId == 1>
+									<li><a class="${(iconMap[(operLottery.icon?string)!])!}" style="color: ${operLottery.color!"#000000"};" href="${formatUrl(operLottery.typeUrl)!}" target="${(operLottery.target==1)?string('_self', '_blank')}">${operLottery.typeAlias!}</a></li>
+									<#assign topSize = topSize + 1>
+									<#if (topSize>=2)>
+										<#break>
+									</#if>
+								</#if>
+							</#list>
+						</ul>
+					</dd>
+				</dl>
+				<i class="sprites arrow_blue"> </i>
+			</li>
+		</ul>
+		<div class="navLi_hover" id="navLihover">
+			<div class="navLi_content" style="vertical-align: top; display: none">
+				<dl>
+					<dt><a href="${webCpUrl}/jczq.html#ggtz" target="_blank">竞彩足球&gt;</a></dt>
+					<dd>
+						<ul>
+							<#list operLotteryList as operLottery>
+								<#if (operLottery.lotteryChildCode?? && (operLottery.lotteryChildCode?starts_with("300") || operLottery.lotteryChildCode?starts_with("308") || operLottery.lotteryChildCode?starts_with("309")))>
+									<li><a class="${(iconMap[(operLottery.icon?string)!])!}" style="color: ${operLottery.color!"#000000"};" href="${formatUrl(operLottery.typeUrl)!}" target="${(operLottery.target==1)?string('_self', '_blank')}">${operLottery.typeAlias!}</a></li>
+								</#if>
+							</#list>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="${webCpUrl}/jclq.html" target="_blank">竞彩篮球&gt;</a></dt>
+					<dd>
+						<ul>
+							<#list operLotteryList as operLottery>
+								<#if (operLottery.lotteryChildCode?? && operLottery.lotteryChildCode?starts_with("301"))>
+									<li><a class="${(iconMap[(operLottery.icon?string)!])!}" style="color: ${operLottery.color!"#000000"};" href="${formatUrl(operLottery.typeUrl)!}" target="${(operLottery.target==1)?string('_self', '_blank')}">${operLottery.typeAlias!}</a></li>
+								</#if>
+							</#list>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="${webCpUrl}/bjdc.html" target="_blank">北京单场&gt;</a></dt>
+					<dd>
+						<ul>
+							<#list operLotteryList as operLottery>
+								<#if (operLottery.lotteryChildCode?? && operLottery.lotteryChildCode?starts_with("306"))>
+									<li><a class="${(iconMap[(operLottery.icon?string)!])!}" style="color: ${operLottery.color!"#000000"};" href="${formatUrl(operLottery.typeUrl)!}" target="${(operLottery.target==1)?string('_self', '_blank')}">${operLottery.typeAlias!}</a></li>
+								</#if>
+							</#list>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="${webCpUrl}/sfc.html" target="_blank">胜负彩&gt;</a></dt>
+					<dd>
+						<ul>
+							<#list operLotteryList as operLottery>
+								<#if (operLottery.categoryId==3 && operLottery.typeId!=300 && operLottery.typeId!=301 && operLottery.typeId!=306)>
+									<li><a class="${(iconMap[(operLottery.icon?string)!])!}" style="color: ${operLottery.color!"#000000"};" href="${formatUrl(operLottery.typeUrl)!}" target="${(operLottery.target==1)?string('_self', '_blank')}">${operLottery.typeAlias!}</a></li>
+								</#if>
+							</#list>
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			<div class="navLi_content" style="vertical-align: middle; display: none">
+				<ul>
+					<#list operLotteryList as operLottery>
+						<#if (operLottery.categoryId==2)>
+							<li><a class="${(iconMap[(operLottery.icon?string)!])!}" style="color: ${operLottery.color!"#000000"};" href="${formatUrl(operLottery.typeUrl)!}" target="${(operLottery.target==1)?string('_self', '_blank')}">${operLottery.typeAlias!}</a></li>
+						</#if>
+					</#list>
+				</ul>
+			</div>
+			<div class="navLi_content" style="vertical-align: middle; display: none">
+				<ul>
+					<#list operLotteryList as operLottery>
+						<#if (operLottery.categoryId==1)>
+							<li><a class="${(iconMap[(operLottery.icon?string)!])!}" style="color: ${operLottery.color!"#000000"};" href="${formatUrl(operLottery.typeUrl)!}" target="${(operLottery.target==1)?string('_self', '_blank')}">${operLottery.typeAlias!}</a></li>
+						</#if>
+					</#list>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</@compress>

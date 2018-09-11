@@ -1,0 +1,219 @@
+<#include "/h5/common/top.html">
+  <title>彩票开奖结果查询_福利彩票中奖号码查询_体育彩票开奖结果公告-2N彩票触屏版</title>
+  <meta name="keywords" content="彩票开奖，彩票开奖结果" />
+  <meta name="description" content="2N彩票开奖频道：第一时间更新福彩、体彩、足彩和高频彩的开奖结果.包括双色球、超级大乐透、竞彩足球、竞彩篮球、排列三、排列五等多种彩票,买彩票查开奖结果到2N彩票。" />
+</head>
+<body>
+<header class="header">
+  <section class="kj-h-title">
+    <a href="${isYicaiWapDomain?string(wapCpUrl,'/')}" class="icons h-back"></a>
+    <div class="h-tab white">
+      <a class="active" href="${contextPath}/index.html">全国</a>
+      <a href="${contextPath}/index/high.html">高频</a>
+      <a href="${contextPath}/index/local.html">地方</a>
+    </div>
+  </section>
+</header>
+<section class="kj-content">
+  <div class="h-tab-content">
+    <!--全国-->
+    <div class="h-tab-item" >
+      <ul class="kj-list">
+        <#list drawLotteryBOList as drawLottery>
+          <#if drawLottery.lotteryCode! != '305'>
+            <li class="kj-list-item">
+              <a href="${contextPath}/${drawLottery.lotteryKey}/">
+                <div class="lot-logo"><img src="${drawLottery.lotteryLogoUrl}"/></div>
+                <div class="lot-detail">
+                  <p>
+                    <em class="lot-name">${drawLottery.lotteryName}${(drawLottery.lotteryCode! == '304') ? string('(任九)','')}</em>
+                    <em class="lot-issue">${drawLottery.preIssueCode!drawLottery.curIssueCode}期 ${drawLottery.preLotteryTimeText!}</em>
+                  </p>
+                  <div class="lot-ball">
+                    <#assign isExistDrawCode = (drawLottery.preDrawCodeArr??) />
+                    <#assign preDrawCodeArr=drawLottery.preDrawCodeArr/>
+                    <#if drawLottery.lotteryCode! == '100' && isExistDrawCode><#--双色球-->
+                      <div class="ball-list fl">
+                        <i class="i-ball red">${preDrawCodeArr[0]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[1]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[2]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[3]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[4]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[5]!}</i>
+                        <i class="i-ball blue">${preDrawCodeArr[6]!}</i>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '101' && isExistDrawCode><#--七乐彩-->
+                      <div class="ball-list fl">
+                        <i class="i-ball red">${preDrawCodeArr[0]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[1]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[2]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[3]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[4]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[5]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[6]!}</i>
+                        <i class="i-ball blue">${preDrawCodeArr[7]!}</i>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '102' && isExistDrawCode><#--大乐透-->
+                      <div class="ball-list fl">
+                        <i class="i-ball red">${preDrawCodeArr[0]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[1]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[2]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[3]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[4]!}</i>
+                        <i class="i-ball blue">${preDrawCodeArr[5]!}</i>
+                        <i class="i-ball blue">${preDrawCodeArr[6]!}</i>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '103' && isExistDrawCode><#--排列5-->
+                      <div class="ball-list fl">
+                        <i class="i-ball red">${preDrawCodeArr[0]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[1]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[2]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[3]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[4]!}</i>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '104' && isExistDrawCode><#--排列3-->
+                      <div class="ball-list fl">
+                        <i class="i-ball red">${preDrawCodeArr[0]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[1]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[2]!}</i>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '105' && isExistDrawCode><#--福彩3D-->
+                      <div class="ball-list fl">
+                        <i class="i-ball red">${preDrawCodeArr[0]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[1]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[2]!}</i>
+                        <#if drawLottery.preDrawCodeTestArr??>
+  	                      <#assign preDrawCodeTestArr=drawLottery.preDrawCodeTestArr/>
+  	                      <span class="fl c666 ml10 pl10">试机号：${preDrawCodeTestArr[0]} ${preDrawCodeTestArr[1]} ${preDrawCodeTestArr[2]}</span>
+                        </#if>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '107' && isExistDrawCode><#--七星彩-->
+                      <div class="ball-list fl">
+                        <i class="i-ball red">${preDrawCodeArr[0]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[1]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[2]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[3]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[4]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[5]!}</i>
+                        <i class="i-ball red">${preDrawCodeArr[6]!}</i>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '300'><#--竞彩足球-->
+                      <div class="team-group green fl swiper-container team-swiper-container">
+                        <#if (drawLottery.matchList?? && drawLottery.matchList?size>0)>
+                          <ul class="slide-team-list swiper-wrapper">
+                              <#list drawLottery.matchList as match>
+                                <li class="swiper-slide">
+                                  <span class="team-l ellipsis">${match.homeTeamName!}</span>
+                                  <span class="team-c">${match.fullScore!}</span>
+                                  <span class="team-r ellipsis">${match.guestTeamName!}</span>
+                                </li>
+                              </#list>
+                          </ul>
+                        <#else>
+                          <ul class="slide-team-list"><li><span class="ellipsis">暂无数据</span></li></ul>
+                        </#if>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '301'><#--竞彩篮球-->
+                      <div class="team-group blue fl swiper-container team-swiper-container">
+                        <#if (drawLottery.matchList?? && drawLottery.matchList?size>0)>
+                          <ul class="slide-team-list swiper-wrapper">
+                            <#list drawLottery.matchList as match>
+                              <li class="swiper-slide">
+                                <span class="team-l ellipsis">${match.guestTeamName!}</span>
+                                <span class="team-c">${match.fullScore!}</span>
+                                <span class="team-r ellipsis">${match.homeTeamName!}</span>
+                              </li>
+                            </#list>
+                          </ul>
+                        <#else>
+                          <ul class="slide-team-list"><li><span class="ellipsis">暂无数据</span></li></ul>
+                        </#if>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '302' && isExistDrawCode><#--6场半全场-->
+                      <div class="square-list fl">
+                        <i class="i-square">${preDrawCodeArr[0]!}</i>
+                        <i class="i-square">${preDrawCodeArr[1]!}</i>
+                        <i class="i-square">${preDrawCodeArr[2]!}</i>
+                        <i class="i-square">${preDrawCodeArr[3]!}</i>
+                        <i class="i-square">${preDrawCodeArr[4]!}</i>
+                        <i class="i-square">${preDrawCodeArr[5]!}</i>
+                        <i class="i-square">${preDrawCodeArr[6]!}</i>
+                        <i class="i-square">${preDrawCodeArr[7]!}</i>
+                        <i class="i-square">${preDrawCodeArr[8]!}</i>
+                        <i class="i-square">${preDrawCodeArr[9]!}</i>
+                        <i class="i-square">${preDrawCodeArr[10]!}</i>
+                        <i class="i-square">${preDrawCodeArr[11]!}</i>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '303' && isExistDrawCode><#--4场进球-->
+                      <div class="square-list fl">
+                        <i class="i-square">${preDrawCodeArr[0]!}</i>
+                        <i class="i-square">${preDrawCodeArr[1]!}</i>
+                        <i class="i-square">${preDrawCodeArr[2]!}</i>
+                        <i class="i-square">${preDrawCodeArr[3]!}</i>
+                        <i class="i-square">${preDrawCodeArr[4]!}</i>
+                        <i class="i-square">${preDrawCodeArr[5]!}</i>
+                        <i class="i-square">${preDrawCodeArr[6]!}</i>
+                        <i class="i-square">${preDrawCodeArr[7]!}</i>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '304' && isExistDrawCode><#--胜负彩-->
+                      <div class="square-list fl">
+                        <i class="i-square">${preDrawCodeArr[0]!}</i>
+                        <i class="i-square">${preDrawCodeArr[1]!}</i>
+                        <i class="i-square">${preDrawCodeArr[2]!}</i>
+                        <i class="i-square">${preDrawCodeArr[3]!}</i>
+                        <i class="i-square">${preDrawCodeArr[4]!}</i>
+                        <i class="i-square">${preDrawCodeArr[5]!}</i>
+                        <i class="i-square">${preDrawCodeArr[6]!}</i>
+                        <i class="i-square">${preDrawCodeArr[7]!}</i>
+                        <i class="i-square">${preDrawCodeArr[8]!}</i>
+                        <i class="i-square">${preDrawCodeArr[9]!}</i>
+                        <i class="i-square">${preDrawCodeArr[10]!}</i>
+                        <i class="i-square">${preDrawCodeArr[11]!}</i>
+                        <i class="i-square">${preDrawCodeArr[12]!}</i>
+                        <i class="i-square">${preDrawCodeArr[13]!}</i>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '306'><#--北京单场-->
+                      <div class="team-group green fl swiper-container team-swiper-container">
+                        <#if (drawLottery.matchList?? && drawLottery.matchList?size>0)>
+                          <ul class="slide-team-list swiper-wrapper">
+                            <#list drawLottery.matchList as match>
+                              <li class="swiper-slide">
+                                <span class="team-l ellipsis">${match.homeTeamName!}</span>
+                                <span class="team-c">${match.fullScore!}</span>
+                                <span class="team-r ellipsis">${match.guestTeamName!}</span>
+                              </li>
+                            </#list>
+                          </ul>
+                        <#else>
+                          <ul class="slide-team-list"><li><span class="ellipsis">暂无数据</span></li></ul>
+                        </#if>
+                      </div>
+                    <#elseif drawLottery.lotteryCode! == '307'><#--胜负过关-->
+                      <div class="team-group green fl swiper-container team-swiper-container">
+                        <#if (drawLottery.matchList?? && drawLottery.matchList?size>0)>
+                          <ul class="slide-team-list swiper-wrapper">
+                            <#list drawLottery.matchList as match>
+                              <li class="swiper-slide">
+                                <span class="team-l ellipsis">${match.homeTeamName!}</span>
+                                <span class="team-c">${match.fullScore!}</span>
+                                <span class="team-r ellipsis">${match.guestTeamName!}</span>
+                              </li>
+                            </#list>
+                          </ul>
+                        <#else>
+                          <ul class="slide-team-list"><li><span class="ellipsis">暂无数据</span></li></ul>
+                        </#if>
+                      </div>
+                    </#if>
+                    <i class="arrow-r-g fr"></i>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </#if>
+        </#list>
+      </ul>
+    </div>
+  </div>
+</section>
+<#include "/h5/common/footer.html">

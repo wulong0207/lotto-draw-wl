@@ -1,0 +1,28 @@
+<#if (queryDate??)>
+	<#assign queryDateIssue=queryDate?string("yyyyMMdd")/>
+	<#if !(htmlTitle??)>
+		<#assign htmlTitle="${lotteryName1!lotteryType.lotteryName}${queryDateIssue}开奖号码_${queryDateIssue}${lotteryName2!lotteryType.lotteryName}开奖信息丨号码-2N彩票触屏版">
+	</#if>
+	<#if !(htmlKeywords??)>
+		<#assign htmlKeywords="${lotteryName1!lotteryType.lotteryName}${queryDateIssue}开奖号码，${queryDateIssue}期${lotteryName2!lotteryType.lotteryName}开奖信息">
+	</#if>
+	<#if !(htmlDescription??)>
+		<#assign htmlDescription="2N彩票${queryDateIssue}期${lotteryName1!lotteryType.lotteryName}开奖号码，${lotteryName2!lotteryType.lotteryName}${queryDateIssue}期开奖信息，并提供${lotteryName1!lotteryType.lotteryName}走势预测等服务，买彩票查开奖结果到2N彩票。">
+	</#if>
+	<#if !(htmlCanonical??)>
+		<#assign htmlCanonical="${webKjUrl}/cqkl10/${queryDateIssue}.html">
+	</#if>
+<#else>
+	<#if !(htmlTitle??)>
+		<#assign htmlTitle="${lotteryName1!lotteryType.lotteryName}开奖号码_${lotteryName2!lotteryType.lotteryName}开奖信息丨时间丨结果查询-2N彩票触屏版">
+	</#if>
+	<#if !(htmlDescription??)>
+		<#assign htmlDescription="2N彩票${lotteryName1!lotteryType.lotteryName}开奖号码栏目，为您提供准确、全面的中国高频彩票${lotteryName2!lotteryType.lotteryName}开奖信息，开奖时间，开奖公告，数据分析等服务。买彩票查开奖结果到2N彩票。">
+	</#if>
+	<#if !(htmlKeywords??)>
+		<#assign htmlKeywords="${lotteryName1!lotteryType.lotteryName}开奖号码，${lotteryName2!lotteryType.lotteryName}开奖信息">
+	</#if>
+	<#if !(htmlCanonical??)>
+		<#assign htmlCanonical="${webKjUrl}/${lotteryKey}/">
+	</#if>
+</#if>

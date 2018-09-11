@@ -1,0 +1,68 @@
+<#import "/h5/high/common/macro-layout-high-detail.html" as detailLayout/>
+<#if !(htmlTitle??)>
+	<#assign htmlTitle="${lotteryName1!lotteryType.lotteryName}奖金详情_${lotteryName2!lotteryType.lotteryName}中奖规则_玩法_奖金介绍-2N彩票触屏版">
+</#if>
+<#if !(htmlKeywords??)>
+	<#assign htmlKeywords="${lotteryName1!lotteryType.lotteryName}奖金详情，${lotteryName2!lotteryType.lotteryName}中奖规则">
+</#if>
+<#if !(htmlDescription??)>
+	<#assign htmlDescription="2N彩票${lotteryName1!lotteryType.lotteryName}奖金详情，详细介绍${lotteryName2!lotteryType.lotteryName}中奖规则，彩票玩法等内容。买彩票查开奖结果到2N彩票。">
+</#if>
+<@detailLayout.htmlDraw title=htmlTitle keywords=htmlKeywords description=htmlDescription;drawDetailList>
+  <tr>
+    <th width="50%">奖项名称</th>
+    <th width="50%">每注奖金(元)</th>
+  </tr>
+  <tr>
+    <td><em class="c999">前一</em></td>
+    <td><em class="fs16">最高奖金110元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">前二</em></td>
+    <td><em class="fs16">最高奖金5000元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">前三</em></td>
+    <td><em class="fs16">最高奖金50000元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">位置</em></td>
+    <td><em class="fs16">最高奖金36元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">颜前一</em></td>
+    <td><em class="fs16">最高奖金10元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">颜前二</em></td>
+    <td><em class="fs16">最高奖金470元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">颜前三</em></td>
+    <td><em class="fs16">最高奖金3852元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">组前二</em></td>
+    <td><em class="fs16">最高奖金3344元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">组前三</em></td>
+    <td><em class="fs16">最高奖金27774元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">双车位置</em></td>
+    <td><em class="fs16">最高奖金1012元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">大小奇偶</em></td>
+    <td><em class="fs16">最高奖金8元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">过两关</em></td>
+    <td><em class="fs16">最高奖金10000元</em></td>
+  </tr>
+  <tr>
+    <td><em class="c999">过三关</em></td>
+    <td><em class="fs16">最高奖金50万元</em></td>
+  </tr>
+</@detailLayout.htmlDraw>

@@ -1,0 +1,231 @@
+/***公共样式，之后提到common.css**/
+.org-box {
+  padding: 10px 15px;
+  border: 1px solid #f3d995;
+  background: #fefcee;
+  display: inline-block;
+}
+
+/***
+公共弹窗登录、注册、实名认证弹窗样式
+***/
+input {
+  outline: none;
+}
+
+.login-mode a:hover {
+  text-decoration: underline;
+}
+
+/*验证组件公共样式*/
+.login-mode {
+  margin: 0 auto;
+}
+
+.input-form {
+  width: 320px;
+}
+.input-prebox {
+  position: relative;
+}
+.input-normal{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  padding: 10px;
+  color: #666;
+  z-index: 2;
+}
+.input-normal:focus {
+  border-color: #2095f2;
+}
+
+.input-normal.error {
+  border-color: #ed1c24;
+}
+
+.ph-label {
+  position: absolute;
+  width: 100%;
+  line-height: 40px;
+  height: 40px;
+  color: #aaa;
+  opacity: 1;
+  transition: all .2s ease-out;
+  -webkit-transition: all .2s ease-in;
+  -moz-transition: all .2s ease-out;
+  left: 10px;
+  top: 0;
+}
+.btn-valid {
+  width: 110px;
+  line-height: 38px;
+  border: 1px solid #ff8900;
+  background: #fff8e8;
+  text-align: center;
+  color: #333;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.btn-valid.default {
+  background: #f3f3f3;
+  color: #b5b5b5;
+  border-color: #e4e4e4;
+  cursor: default;
+}
+
+.input-tip {
+  color: #999;
+  padding: 10px 0 10px 10px;
+  font-size: 12px;
+  
+}
+.input-tip.error {
+  color: #ed1c24;
+}
+
+.submit {
+  color: #fff;
+  font-size: 18px;
+  width: 100%;
+  line-height: 42px;
+  background: #2095f2;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  
+}
+.login-mode .submit:hover {
+  background: #1e8fe9;
+  text-decoration: none;
+}
+
+.input-form-group {
+  padding-left: 80px;
+  position: relative;
+}
+.input-form-group  .input-label {
+  width: 80px;
+  text-align: right;
+  padding-right: 10px;
+  position: absolute;
+  top: 13px;
+  left: 0;
+  line-height: 14px;
+}
+  
+
+/*********第三方图标列表***********/
+
+.aicon-list a {
+  background: url("../../img/login/login-sprites.png") no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20px;
+  margin-top: -3px;
+}
+
+.aicon-list a.link-QQ {
+  width: 17px;
+  height: 16px;
+  background-position: 0 -52px;
+}
+
+.aicon-list a.link-wechat {
+  width: 20px;
+  height: 16px;
+  background-position: -17px -52px;
+}
+
+.aicon-list a.link-sina {
+  width: 20px;
+  height: 16px;
+  background-position: -37px -52px;
+}
+
+.aicon-list a:hover {
+  opacity: 0.5;
+}
+  
+
+
+/*********************登录***************/
+.login-mode.LoginM {
+  width: 320px;
+}
+
+.input-prebox .input-icon {
+  display: block;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  background: #eee;
+  text-align: center;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  outline: 0;
+}
+.input-prebox .input-icon i{
+  width: 20px;
+  height: 20px;
+  background: url("../../img/login/login-sprites.png") no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  
+}
+.input-prebox .input-icon .username {
+  background-position: 0 -69px;
+}
+
+.input-prebox .input-icon .password {
+  background-position: -20px -69px;
+}
+
+.special .input-prebox .ph-label {
+  left: 50px;
+}
+
+.special .input-prebox  input {
+  padding-left: 50px;
+}
+
+
+.special .input-prebox  .input-tip {
+  padding-left: 50px;
+}
+
+
+/*********************注册***************/
+.RegisterM {
+  width: 400px;
+}
+
+.RealnameM .realname-top b,.RealnameM .realname-top em {
+  vertical-align: middle;
+}
+.RealnameM .realname-form {
+  margin: 35px auto 0;
+  width: 320px;
+}
+  
+
+
+/*************登记手机号*****************/
+.setMobileM {
+  width: 390px;
+}
+.input-form-group {
+  padding-left: 70px;
+}
+
+.input-label {
+  width: 70px;
+}
+  
+

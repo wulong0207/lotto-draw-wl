@@ -1,0 +1,27 @@
+<#import "/h5/high/common/macro-layout-high-list.html" as listLayout/>
+<#if (lotteryType.lotteryName?contains("快3"))>
+	<#assign lotteryName1=lotteryType.lotteryName?replace("快3", "快三") lotteryName2=lotteryType.lotteryName/>
+<#elseif (lotteryType.lotteryName?contains("快三"))>
+	<#assign lotteryName1=lotteryType.lotteryName lotteryName2=lotteryType.lotteryName?replace("快三", "快3")/>
+</#if>
+<#include "/h5/high/common/template-high-list-title.html"/>
+<@listLayout.htmlDraw title=htmlTitle keywords=htmlKeywords description=htmlDescription canonical=htmlCanonical;drawCodeArr,position>
+	<#if position="issueLast">
+		<div class="dice-group">
+		<#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+			<#list drawCodeArr[0] as code>
+				<i class="i-dice dice${code}"></i>
+			</#list>
+		</#if>
+		</div>
+	<#elseif position="issueList">
+		<div class="ball-list">
+		<#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+			<#list drawCodeArr[0] as code>
+				<i class="i-ball red">${code}</i>
+			</#list>
+		</#if>
+		</div>
+	</#if>
+	
+</@listLayout.htmlDraw>

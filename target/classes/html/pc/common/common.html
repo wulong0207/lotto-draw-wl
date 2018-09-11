@@ -1,0 +1,13 @@
+<#assign contextPath = Request["Header-Context-Path"]?default(request.contextPath + "/pc") />
+<#assign httpPath = Request["Request-HTTP-Path"]/>
+<#if Request["Header-Context-Path"]??>
+	<#assign requestURL= httpPath + request.requestUri?replace(request.contextPath + "/pc", "", "f")/>
+<#else>
+	<#assign requestURL= httpPath + request.requestUri/>
+</#if>
+<#if request.queryString?? && (request.queryString?trim) != "">
+	<#assign requestFullURL = requestURL + "?" + request.queryString/>
+<#else>
+	<#assign requestFullURL = requestURL/>
+</#if>
+<#assign _VERSION_= "1.8.0"/>

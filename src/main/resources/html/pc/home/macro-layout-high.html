@@ -1,0 +1,46 @@
+<#include "/pc/common/common.html">
+<#macro drawSection drawLottery cpLotteryMap trendUrl="">
+<div class="list-lottery-box">
+	<div class="col list-wid1">
+			<div class="fl lotto-info">
+			<div class="lottery-name-num">
+				<a href="${contextPath}/${drawLottery.lotteryKey}/" target="_blank"><strong class="lt-name">${drawLottery.lotteryName!}</strong></a>
+			</div>
+			<div class="lotto-open-day">${(drawLottery.lotteryDrawText!)?replace(",","<br/>")}</div>
+		</div>
+	</div>
+	<div class="col list-wid2"><span class="lt-num">${drawLottery.issueCode}期</span></div>
+	<div class="col list-wid3 tac">
+		<#if drawLottery.lotteryTime??>
+			${drawLottery.lotteryTime?string('MM-dd HH:mm')}开奖
+		</#if>
+	</div>
+	<div class="col list-wid4">
+		<#if drawLottery.drawCodeArr??>
+			<div class="opened ml30">
+				<#nested>
+			</div>
+		<#else>
+			<div class="open-loading ml30"  style="display: none;">
+				<em class="fs16 mr10">等待开奖...</em>   
+			</div>
+		</#if>
+		
+	</div>
+	<div class="col list-wid5 tac"><a class="blue" target="_blank" href="${contextPath}/${drawLottery.lotteryKey}/${drawLottery.lotteryTime?string('yyyyMMdd')}.html">详情</a></div>
+	<div class="col list-wid6 tac">
+		<#if (trendUrl != "")>
+			<a class="ui-icon blue-trend" target="_blank" href="${webCpUrl?replace('https', 'http')}/database?url=${urlEncoder(trendUrl)}"></a>
+		<#else>
+			<span class="blue">*</span>
+		</#if>
+	</div>
+	<div class="col list-wid7 tac">
+		<#if (cpLotteryMap[drawLottery.lotteryCode?string]??)>
+			<a class="betting-btn" target="_blank" href="${webCpUrl}/${cpLotteryMap[drawLottery.lotteryCode?string]}">立即投注</a>
+		<#else>
+			<span class="betting-btn bet-not">立即投注</span>
+		</#if>
+	</div>
+</div>
+</#macro>

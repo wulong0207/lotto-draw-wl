@@ -1,0 +1,309 @@
+/*购买大厅*/
+/*黄色背景标签*/
+.tag_orange {
+  background-color: #f90;
+  height: 20px;
+  line-height: 20px;
+  padding: 0px 5px;
+  border-radius: 2px;
+  position: relative;
+  z-index: 10;
+  display: inline-block;
+  vertical-align: middle;
+  
+}
+
+.tag_orange:before {
+  content: "";
+  display: block;
+  _display: inline;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  border-style: solid;
+  _border-style: dashed solid;
+  border-width: 5px 5px 5px 0;
+  border-color: transparent #f90;
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  z-index: 10;
+  zoom: 1;
+}
+
+.tag_orange a {
+  color: #fff;
+  max-width: 72px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.lottery_list > li span.c999.nowrap a {
+  color: #999;
+}
+
+.arrow_blue {
+  width: 7px;
+  height: 13px;
+  background-position: -93px 0;
+}
+
+/*蓝色箭头*/
+a.tag_jiang {
+  position: relative;
+}
+
+a.tag_jiang:after {
+  content: "";
+  width: 15px;
+  height: 18px;
+  background: url("../../img/index_sprites.png") no-repeat 0 -61px;
+  position: absolute;
+  right: -15px;
+  top: -10px;
+}
+
+a.tag_new {
+  position: relative;
+}
+
+a.tag_new:after {
+  content: "";
+  width: 15px;
+  height: 18px;
+  background: url("../../img/index_sprites.png") no-repeat -15px -61px;
+  position: absolute;
+  right: -15px;
+  top: -10px;
+}
+
+a.tag_hot {
+  position: relative;
+}
+
+a.tag_hot:after {
+  content: "";
+  width: 15px;
+  height: 18px;
+  background: url("../../img/index_sprites.png") no-repeat -30px -61px;
+  position: absolute;
+  right: -15px;
+  top: -10px;
+}
+
+/********************浮层导航***************************/
+.lottery_nav_box {
+  width: 240px;
+  border: 1px solid #1e88d2;
+  background: #fff;
+  position: relative;
+  z-index: 9;
+  height: 530px;
+  border-bottom-width: 2px;
+}
+.lottery_nav_box a:hover {
+  text-decoration: underline;
+}
+
+.lottery_list > li {
+  padding: 0 10px;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+  border-bottom: 1px solid #fff;
+}
+
+.lottery_list > li:first-child {
+  border-top: none;
+}
+
+.lottery_list > li .topLi {
+  width: 218px;
+  overflow: hidden;
+  padding: 6px 0;
+  height: 48px;
+  line-height: 1.5;
+}
+
+.lottery_list > li .lottery_icon, .lottery_list > li .lottery_tit, .lottery_list > li .tag_orange, .lottery_list > li .type_key {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.lottery_list > li .lottery_icon {
+  width: 36px;
+  height: 36px;
+}
+
+.lottery_list > li .lottery_icon img {
+  width: 36px;
+  height: 36px;
+  display: block;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+.lottery_list > li .lottery_tit {
+  font-size: 14px;
+  color: #333;
+  margin-left: 10px;
+  padding-right: 20px;
+}
+
+.lottery_list > li .type_key {
+  color: #999;
+  max-width: 80px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.lottery_list > li .type_key:hover {
+  text-decoration: underline;
+}
+
+.lottery_list > li.nav_li {
+  padding: 10px;
+}
+
+.lottery_list > li .nowrap {
+  max-width: 96px;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  float: left;
+}
+
+.nav_li .arrow_blue {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -5px;
+}
+
+.lottery_dl {
+  position: relative;
+}
+
+.lottery_dl dt {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-right: 14px;
+}
+
+.lottery_dl dt span {
+  width: 22px;
+  text-align: center;
+  color: #999;
+  font-weight: bold;
+  padding: 2px 5px;
+  line-height: 1.5;
+  background: #f5f5f5;
+  display: block;
+}
+
+.lottery_dl dd {
+  display: inline-block;
+  vertical-align: middle;
+  width: 170px;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.lottery_dl dd li {
+  margin-right: 10px;
+  display: inline-block;
+  width: 70px;
+}
+
+.navLi_hover {
+  position: absolute;
+  width: 680px;
+  min-height: 226px;
+  line-height: 226px;
+  z-index: 4;
+  left: 239px;
+  bottom: 0px;
+  color: #333;
+  border-right: 1px solid #1e88d2;
+  border-bottom: 1px solid #1e88d2;
+  border-top: 1px solid #1e88d2;
+  background-color: #fff;
+  overflow: hidden;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color='#999', Direction=90, Strength=5); /*for ie6,7,8*/
+  -moz-box-shadow: 0px 3px 5px #999; /*firefox*/
+  -webkit-box-shadow: 0px 3px 5px #999; /*webkit*/
+  box-shadow: 0px 3px 5px #999; /*opera或ie9*/
+  display: none;
+}
+
+.navLi_hover .navLi_content {
+  width: 600px;
+  padding: 10px 30px;
+  display: inline-block;
+  line-height: 24px;
+}
+
+.navLi_hover .navLi_content li {
+  margin-right: 10px;
+  width: 90px;
+  display: inline-block;
+}
+
+.navLi_hover .navLi_content dl {
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.navLi_hover .navLi_content dt {
+  float: left;
+  font-weight: bold;
+  width: 80px;
+  text-align: right;
+  padding-right: 20px;
+}
+
+.navLi_hover .navLi_content dd {
+  float: left;
+  width: 420px;
+}
+
+.lottery_list .nav_li.cur,.lottery_list .nav_li:hover {
+  border-top-color: #1e88d2;
+  border-bottom-color: #1e88d2;
+  border-left: 0;
+  border-right: 0;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color='#999', Direction=90, Strength=5); /*for ie6,7,8*/
+  -moz-box-shadow: 0px 3px 5px #999; /*firefox*/
+  -webkit-box-shadow: 0px 3px 5px #999; /*webkit*/
+  box-shadow: 0px 3px 5px #999; /*opera或ie9*/
+  z-index: 12;
+}
+
+.nav_li.cur .arrow_blue,.nav_li:hover .arrow_blue{
+  display: none;
+}
+
+.nav_li.cur:before,.nav_li:hover:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -5px;
+  height: 100%;
+  width: 10px;
+  background: #fff;
+  z-index: 999;
+}
+.navLi_hover{ display: none}
+
+.listMenu>li:first-child{border-top: 1px solid #e5e5e5;}
+
+.lottery_list .topLi{font-size:0}
+.lottery_list .topLi .tag_orange, .lottery_list .topLi  .type_key{ font-size:12px;}

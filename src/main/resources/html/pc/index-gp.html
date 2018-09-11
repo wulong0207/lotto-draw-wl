@@ -1,0 +1,189 @@
+<#assign pokerMap={"1":"spade", "2":"heart", "3":"club", "4":"diamond"}/>
+<#assign logoMap={"1":"sd11x5", "2":"cqssc", "3":"jsk3", "4":"kl10", "5":"kl12", "99":"sdpk"}/>
+<#include "/pc/common/common.html">
+<#include "/pc/common/data-kj-url.html">
+<#import "/pc/common/macro-layout-html.html" as layout/>
+<#assign htmlTitle="高频彩开奖结果查询_高频彩中奖号码_高频彩开奖公告-2N彩票网">
+<#assign htmlKeywords="高频彩开奖，高频彩开奖结果">
+<#assign htmlDescription="2N彩票高频彩开奖频道，所有高频开奖时间、开奖公告、开奖结果与官方同步，让您第一时间了解最新高频开奖信息，买彩票查开奖结果到2N彩票。">
+<@layout.header title=htmlTitle keywords=htmlKeywords description=htmlDescription>
+	<link rel="alternate" media="only screen and (max-width: 640px)" href="${wapKjUrl}/index/high.html" >
+</@layout.header>
+<@layout.body>
+<div class="layout">
+	<div class="lottery-list-top">
+		<div class="tit-tab fl">
+			<a class="tab-col" href="${contextPath}/index.html">全国开奖彩种</a>
+			<a class="tab-col cur"  href="${contextPath}/index/high.html">高频彩种</a>
+            <a class="tab-col" href="${contextPath}/index/local.html">地方彩种</a>
+		</div>
+		<div class="lottery-list-top-r"><i class="ui-icon ex-grange"></i> 数据来源于彩票中心官方网站，请以彩票中心官方网站公布数据为准</div>
+	</div>
+	<!--高频彩种-->
+	<div class="content-section">
+		<!--彩种快捷入口start-->
+		<div class="fast-map">
+			<!--彩种链接-->
+			<div class="fast-map-link">
+				<ul>
+					<li>
+						<a class="a-link" target="_blank" href="${contextPath}/sd11x5/">山东11选5</a>
+						<a class="a-link" target="_blank" href="${contextPath}/gd11x5/">广东11选5</a>
+						<a class="a-link" target="_blank" href="${contextPath}/jx11x5/">江西11选5</a>
+						<a class="a-link" target="_blank" href="${contextPath}/xj11x5/">新疆11选5</a>
+						<a class="a-link" target="_blank" href="${contextPath}/cqssc/">重庆时时彩</a>
+						<a class="a-link" target="_blank" href="${contextPath}/jsk3/">江苏快3</a>
+						<a class="a-link" target="_blank" href="${contextPath}/jxk3/">江西快3</a>
+					</li>
+					<li>
+						<a class="a-link" target="_blank" href="${contextPath}/cqkl10/">重庆幸运农场</a>
+						<a class="a-link" target="_blank" href="${contextPath}/sdpoker/">山东快乐扑克3</a>
+					</li>
+				</ul>
+			</div>
+			<!--开奖查询-->
+			<div class="search-lotto">
+				<strong>开奖查询</strong>
+				<select id="lotteryTypeSelect">
+					<option value="">选择彩种</option>
+					<#list lotteryList as lottery>
+						<option data-key="${lotteryKeyJson[lottery.lotteryCode?string]}" value="${lottery.lotteryCode}">${lottery.lotteryName}</option>
+					</#list>
+				</select>
+				<select id="issueSelect">
+					<option value="">选择日期</option>
+				</select>
+				<button id="lotterySearchBtn">查询</button>
+			</div>
+		</div>
+		<!--彩种快捷入口end-->
+		<div class="lotto-list-main mt20 gaopin">
+			<div class="list-head">
+				<span class="col list-wid0">类型</span>
+				<span class="col list-wid1">彩种描述</span>
+				<span class="col list-wid2">期号</span>
+				<span class="col list-wid3">开奖时间</span>
+				<span class="col list-wid4">开奖号码</span>
+				<span class="col list-wid5">详情</span>
+				<span class="col list-wid6">走势</span>
+				<span class="col list-wid7">购彩</span>
+			</div>
+			<div class="list-body">
+				<#import "/pc/home/macro-layout-high.html" as homeHighLayout/>
+				<#list homeHighLotteryBOList as homeHighLotteryBO>
+					<div class="lottery-section">
+						<div class="col list-wid0">
+							<#if (homeHighLotteryBO.childCategoryId==99)>
+								${homeHighLotteryBO.childCategoryName}
+							<#else>
+								<img src="${contextPath}/resources/img/notice/lotteryLogo/logo-${logoMap[homeHighLotteryBO.childCategoryId?string]}.png" class="lotto-logo-wh" alt="${homeHighLotteryBO.childCategoryName}" />
+							</#if>
+						</div>
+						<div class="list-wid-box">
+							<#list homeHighLotteryBO.drawLotteryList as drawLottery>
+								<@homeHighLayout.drawSection drawLottery=drawLottery cpLotteryMap=cpLotteryMap trendUrl="${trendUrlMap[drawLottery.lotteryCode?string]}">
+									<#assign drawCodeArr=drawLottery.drawCodeArr/>
+									<#if homeHighLotteryBO.childCategoryId==3>
+										<div class="balls-list">
+											<span class="ui-icon dice30${drawCodeArr[0]!}"></span>
+											<span class="ui-icon dice30${drawCodeArr[1]!}"></span>
+											<span class="ui-icon dice30${drawCodeArr[2]!}"></span>
+											<span class="text-val">和值：<#if drawLottery.other??><#if (drawLottery.other.sum<10)>&nbsp;&nbsp;</#if>${drawLottery.other.sum!}</#if></span>
+											<#if (drawLottery.other && drawLottery.other.bsText == "小")>
+												<span class="sp-icon small">${drawLottery.other.bsText}</span>
+											<#else>
+												<span class="sp-icon big">${drawLottery.other.bsText}</span>
+											</#if>
+											<#if (drawLottery.other && drawLottery.other.sdText == "单")>
+												<span class="sp-icon small">${drawLottery.other.sdText}</span>
+											<#else>
+												<span class="sp-icon even">${drawLottery.other.sdText}</span>
+											</#if>
+										</div>
+									<#elseif drawLottery.lotteryCode == '225'><#--山东快乐扑克3-->
+										<div class="balls-list">
+											<span class="o-card"><i class="${pokerMap[drawCodeArr[0]!]}"></i><i class="tx-w">${drawCodeArr[1]!}</i></span>
+											<span class="o-card"><i class="${pokerMap[drawCodeArr[2]!]}"></i><i class="tx-w">${drawCodeArr[3]!}</i></span>
+											<span class="o-card"><i class="${pokerMap[drawCodeArr[4]!]}"></i><i class="tx-w">${drawCodeArr[5]!}</i></span>
+											<span class="text-val"><#if drawLottery.other??>${drawLottery.other.typeText!}</#if></span>
+										</div>
+									<#elseif drawLottery.lotteryCode == '292'><#--重庆百变王牌-->
+										<div class="balls-list">
+											<#list drawCodeArr as code>
+												<span class="ui-icon ${code?contains('(')?string('bbwpBall','redBall')}-30">${code}</span>
+											</#list>
+										</div>
+									<#elseif (drawLottery.lotteryCode == '224' || drawLottery.lotteryCode == '223')><#--北京快乐8、北京PK拾-->
+										<div class="balls-list">
+											<#list drawCodeArr as code>
+												<span class="ui-icon redBall-24">${code}</span>
+											</#list>
+										</div>
+									<#else>
+										<div class="balls-list">
+											<#list drawCodeArr as code>
+												<span class="ui-icon redBall-30">${code}</span>
+											</#list>
+										</div>
+									</#if>
+								</@homeHighLayout.drawSection>
+							</#list>
+						</div>
+					</div>
+				</#list>
+			</div>
+		</div>
+	</div>
+</div>
+</@layout.body>
+<@layout.footer>
+	<script type="text/javascript">
+		// 彩种彩期下拉联动
+		$(function() {
+			var emptyIssueHtml = $("#issueSelect:first").html();
+			// 彩种查询
+			$("#lotteryTypeSelect").change(function() {
+				$("#issueSelect").empty();
+				var lotteryCode = $(this).val();
+				if(lotteryCode == "") {
+					$("#issueSelect").append(emptyIssueHtml);
+					return
+				}
+				var qryFlag = 2;// 2高频查日期，其它查期号
+				var url = baseData.apiPath + "/pc/v1.0/draw/lottery/issue/list";
+				var data = {"lotteryCode":lotteryCode, "currentIssue" : 2, "qryFlag" : qryFlag};
+				$.ajax({
+					"url" : url,
+					"type" : "GET",
+					"headers" : yicai.CONSTANTS.HEADERS,
+					"data" : data,
+					"dataType" : "json",
+					"success" : function(result) {
+						if(!result || result.success != 1){
+							console.error("彩期查询失败, errorCode:" + result.errorCode +" , message:" + result.message);
+							return;
+						}
+						var $issueSelect = $("#issueSelect");
+						var issueCodeArr = result.data ? result.data : [];
+						for(var i = 0; i < result.data.length; i++) {
+							var issueCode = result.data[i];
+							$issueSelect.append("<option value=\"" + issueCode+"\">" + issueCode + "</option>");
+						}
+					}
+				});
+			});
+			// 查询按钮
+			$("#lotterySearchBtn").click(function() {
+				var lotteryKey = $("#lotteryTypeSelect option:selected").attr("data-key");
+				if($.trim(lotteryKey) == "") {
+					return
+				}
+				var issueCode = $("#issueSelect option:selected").val();
+				if($.trim(issueCode) == "") {
+					return;
+				}
+				window.open(baseData.contextPath + "/" + lotteryKey + "/" + issueCode.replace(/-/g, "") + ".html", "_target");
+			});
+		})
+	</script>
+</@layout.footer>

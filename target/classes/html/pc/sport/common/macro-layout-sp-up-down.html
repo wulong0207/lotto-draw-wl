@@ -1,0 +1,8 @@
+<#macro html data preData spField format="#,###.00">
+	${(data[spField]?string(format))!}
+	<#if (data[spField]?? && preData[spField]?? && data[spField]>preData[spField])>
+		<i class="ui-icon rise"></i>
+	<#elseif (data[spField]?? && preData[spField]?? && data[spField]<preData[spField])>
+		<i class="ui-icon drop"></i>
+	</#if>
+</#macro>

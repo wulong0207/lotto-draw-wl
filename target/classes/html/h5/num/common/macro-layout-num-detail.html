@@ -1,0 +1,49 @@
+<#macro htmlDraw title="" keywords="" description="" canonical="">
+<#include "/h5/common/top.html">
+  <title>${title}</title>
+  <meta name="keywords" content="${keywords}" />
+  <meta name="description" content="${description}" />
+  <link rel="canonical"href="${canonical}" >
+</head>
+<body>
+<header class="header">
+  <section class="kj-h-title">
+    <a href="javascript:history.go(-1);" class="icons h-back"></a>
+    <h1>${lotteryType.lotteryName}开奖详情</h1>
+  </section>
+</header>
+<section class="kj-content">
+  <div class="kj-detail-mode ${lotteryType.lotteryKey}">
+    <div class="kj-issue-item">
+      <div class="date-time"><span class="issue">${issue.issueCode}期</span><em>${(issue.lotteryTime?string('MM-dd'))!}</em><em>${(issue.lotteryTime?string('HH:mm'))!}(${week(issue.lotteryTime)})</em></div>
+      <div class="bottom-result">
+        <#if issue.drawCodeArr2??>
+          <#assign drawCodeArr=issue.drawCodeArr2/>
+          <#local position="issueDrawCode"/>
+          <#nested position drawCodeArr issue>
+        <#else>
+          <em class="fs14 c666">等待开奖</em>
+        </#if>
+      </div>
+    </div>
+    <div class="jackpot-mode">
+      <#local position="jackpot"/>
+      <#nested position>
+    </div>
+    <div class="jackpot-list">
+      <div class="jackpot-list-title">奖金详情</div>
+      <table class="table-primary">
+        <tr><th>奖项</th><th>每注奖金(元)</th><th>中奖注数(注)</th></tr>
+        <#list issue.drawDetailList as drawDetail>
+          <tr>
+            <td>${drawDetail.prize}</td>
+            <td><em class="red">${drawDetail.money?default("-")}</em></td>
+            <td>${drawDetail.num?default("-")}</td>
+          </tr>
+        </#list> 
+      </table>
+    </div>
+  </div>
+</section>
+<#include "/h5/common/footer.html">
+</#macro>

@@ -1,0 +1,39 @@
+<#if (cpLotteryMap[lotteryType.lotteryCode?string]??)>
+	<!--中奖排行-->
+	<div class="whiteBg mt20">
+		<div class="det-sec-head">
+			<strong class="det-title">全站${lotteryType.lotteryName}中奖排行</strong>
+		</div>
+		<div class="det-plan-table">
+			<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+				<thead>
+					<tr>
+						<td>用户名</td>
+						<td class="tar"><span class="mr20">中奖金额</span></td>
+					</tr>
+				</thead>
+				<tbody>
+					<#list userWinInfoList as userWinInfo>
+						<tr class="${(userWinInfo_index%2==0)?string('whiteBg','bgf5')}">
+							<td>
+								<#if userWinInfo_index==0>
+									<i class="plan-style first">
+								<#elseif userWinInfo_index==1>
+									<i class="plan-style second">
+								<#elseif userWinInfo_index==2>
+									<i class="plan-style third">
+								<#else>
+									<i class="plan-style">
+								</#if>
+								${userWinInfo_index+1}</i>${userWinInfo.userName} 
+							</td>
+							<td class="tar">
+								<span class="mr20"><i class="red">${numberformat(userWinInfo.winInfo, "#,###.##", 2, "ROUND_DOWN")[0]}</i>元</span>
+							</td>
+						</tr>
+					</#list>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</#if>

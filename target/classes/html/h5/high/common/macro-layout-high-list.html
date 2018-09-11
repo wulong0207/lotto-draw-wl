@@ -1,0 +1,72 @@
+<#macro htmlDraw title="" keywords="" description="" canonical="">
+<#include "/h5/common/top.html">
+  <title>${title}</title>
+  <meta name="keywords" content="${keywords}" />
+  <meta name="description" content="${description}" />
+  <link rel="canonical"href="${canonical}" >
+</head>
+<body>
+<header class="header">
+  <section class="kj-h-title">
+    <a href="${contextPath}/index/high.html" class="icons h-back"></a>
+    <h1>${lotteryType.lotteryName}</h1>
+    <div class="date-down">
+      <i class="ic-date"></i>
+      <div class="date-down-list">
+        <i></i>
+        <ul>
+          <#list 0..2 as i>
+            <#assign date=(.now?long-i*24*60*60*1000)?number_to_date />
+            <li>
+              <#if (date == queryDateStr)>
+                <a href="${contextPath}/${lotteryType.lotteryKey}/${date?string('yyyyMMdd')}.html" class="blue">${date}期</a>
+              <#else>
+                <a href="${contextPath}/${lotteryType.lotteryKey}/${date?string('yyyyMMdd')}.html">${date}期</a>
+              </#if>
+            </li>
+          </#list>
+        </ul>
+      </div>
+    </div>
+    <a href="${contextPath}/${lotteryType.lotteryKey}/detail.html" class="icons h-jackpot"></a>
+  </section>
+</header>
+<section class="kj-content">
+  <div class="kj-issue-mode ssq">
+    <#if lastIssue.issueCode??>
+      <div class="kj-issue-item">
+        <div class="date-time">
+          <span class="issue">${lastIssue.issueCode!}期</span><em>${(lastIssue.lotteryTime?string('MM-dd'))!}</em><em>${(lastIssue.lotteryTime?string('HH:mm'))!}(${week(lastIssue.lotteryTime)})</em>
+        </div>
+        <div class="bottom-result">
+          <#if lastIssue.drawCodeArr2??>
+            <#assign drawCodeArr=lastIssue.drawCodeArr2/>
+            <#assign position="issueLast"/>
+            <#nested drawCodeArr position>
+          <#else>
+            <em class="fs14 c666">正在获取开奖号码.....</em>
+          </#if>
+        </div>
+      </div>
+    </#if>
+    <#if (issueList?? && issueList?size>0)>
+      <ul class="kj-issue-list">
+        <#list issueList as issue>
+          <li class="kj-issue-item">
+            <div class="date-time"><span class="issue">${issue.issueCode}期</span><em>${(issue.lotteryTime?string('MM-dd'))!}</em><em>${(issue.lotteryTime?string('HH:mm'))!}(${week(issue.lotteryTime)})</em></div>
+            <div class="bottom-result">
+              <#if issue.drawCodeArr2??>
+                <#assign drawCodeArr=issue.drawCodeArr2/>
+                <#assign position="issueList"/>
+            	<#nested drawCodeArr position>
+              </#if>
+            </div>
+          </li>
+        </#list>
+      </ul>
+    </#if>
+    <p class="pt10 pb10 fs14 c999 tac">已经到底了，没有更多数据加载</p>
+  </div>
+</section>
+<#include "/h5/common/footer.html">
+</#macro>

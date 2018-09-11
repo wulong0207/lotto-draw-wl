@@ -1,0 +1,98 @@
+<#include "/h5/common/top.html">
+<#if (queryVO.issueCode??)>
+  <title>${queryIssueCode}期胜负过关开奖结果查询_${queryIssueCode}期体彩胜负过关中奖信息-2N彩票触屏版</title>
+  <meta name="keywords" content="${queryIssueCode}期胜负过关，体彩胜负过关${queryIssueCode}期" />
+  <meta name="description" content="2N彩票网为您提供体彩胜负过关${queryIssueCode}期开奖结果,中国体育彩票胜负过关${queryIssueCode}期开奖结果、时间、中奖查询、开奖公告、数据分析等服务，买彩票查开奖结果到2N彩票。" />
+  <link rel="canonical"href="${webKjUrl}/bj/${queryIssueCode}.html" >
+<#else>
+  <title>胜负过关开奖结果查询_体彩胜负过关开奖信息丨时间丨公告-2N彩票触屏版</title>
+  <meta name="keywords" content="胜负过关开奖结果，胜负过关开奖信息" />
+  <meta name="description" content="2N彩票胜负过关开奖结果栏目，为您提供最新体彩胜负过关开奖信息查询，包括中国体育彩票胜负过关开奖结果，胜负过关开奖时间，开奖公告，开奖信息，买彩票查开奖结果到2N彩票。" />
+  <link rel="canonical"href="${webKjUrl}/bj/" >
+</#if>
+</head>
+<body>
+<header class="header">
+  <section class="kj-h-title">
+    <a href="${contextPath}/index.html" class="icons h-back"></a>
+    <h1>胜负过关</h1>
+    <div class="date-down">
+      <span class="cur"><em>${queryIssueCode}</em><i></i></span>
+      <div class="date-down-list">
+        <i></i>
+        <ul>
+          <#list issueCodeList as issueCode>
+            <li><a href="${contextPath}/wf/${issueCode}.html">${issueCode}</a></li>
+          </#list>
+        </ul>
+      </div>
+    </div>
+  </section>
+</header>
+<section class="kj-content">
+  <div class="kj-issue-mode sfgg">
+    <p class="pt10 pb10 c999 tac">本页赔率仅供参考，请以出票时赔率为准</p>
+    <div class="search-mode">
+      <span class="search-input">
+        <form action="javascript:search();">
+          <label for="search"><i class="ic-search"></i><em>输入球队名称</em></label>
+          <input id="search" type="search"/>
+          <i class="ic-delete"></i>
+        </form>
+      </span>
+    </div>
+    <#if (matchList?? && matchList?size>0)>
+      <ul class="kj-sport-list">
+        <#list matchList as match>
+          <#if (match.matchStatus?? && match.matchStatus != 14)>
+            <li class="kj-sport-item">
+              <div class="kj-sport-bottom">
+                <ul>
+                  <li class="m-date"><em class="c666">${match.num!}<br/>${match.raceName!}<br/>${match.week!} ${match.matchTime?string("HH:mm")}</em></li>
+                  <li class="m-type"><em>${match.matchTypeText!}</em></li>
+                  <li class="m-name">
+                    <em class="match-team">${match.homeTeamName!}</em>
+                    <em class="c666">
+                      <#if (match.letNum>0)>
+                        (+${match.letNum})球
+                      <#elseif (match.letNum<=0)>
+                        (${match.letNum})球
+                      </#if>
+                    </em>
+                  </li>
+                  <li class="m-result"><em class="red">${match.letWdfText!}<br/>(${match.spLetWdf?string("#,###.00")!})<br/>${match.fullScore!}</em></li>
+                  <li class="m-name"><em class="match-team">${match.guestTeamName!}</em></li>
+                </ul>
+              </div>
+            </li>
+          <#else>
+            <li class="kj-sport-item">
+              <div class="kj-sport-bottom">
+                <ul>
+                  <li class="m-date"><em class="c666">${match.num!}<br/>${match.raceName!}<br/>${match.week!} ${match.matchTime?string("HH:mm")}</em></li>
+                  <li class="m-type"><em>${match.matchTypeText!}</em></li>
+                  <li class="m-name">
+                    <em class="match-team">${match.homeTeamName!}</em>
+                    <em class="c666">
+                      <#if (match.letNum>0)>
+                        (+${match.letNum})球
+                      <#elseif (match.letNum<=0)>
+                        (${match.letNum})球
+                      </#if>
+                    </em>
+                  </li>
+                  <li class="m-result"><em class="red">${match.matchStatusText}</em></li>
+                  <li class="m-name"><em class="match-team">${match.guestTeamName!}</em></li>
+                </ul>
+              </div>
+            </li>
+          </#if>
+        </#list>
+      </ul>
+      <p class="pt10 pb10 fs14 c999 tac">已经到底了，没有更多数据加载</p>
+    <#else>
+      <div class="kj-sport-list no-result">暂无开奖数据</div>
+    </#if>    
+  </div>
+</section>
+<#include "/h5/common/footer.html">

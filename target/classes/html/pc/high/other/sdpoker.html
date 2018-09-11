@@ -1,0 +1,56 @@
+<#import "/pc/high/common/macro-layout-high-detail.html" as detailLayout>
+<#import "/pc/high/common/macro-layout-high-list.html" as highListLayout/>
+<#if (queryDate??)>
+	<#assign queryDateIssue=queryDate?string("yyyyMMdd")/>
+	<#assign htmlTitle="山东快乐扑克三${queryDateIssue}期开奖号码_${queryDateIssue}期快乐扑克3开奖信息丨号码-2N彩票">
+	<#assign htmlKeywords="山东快乐扑克三${queryDateIssue}期开奖号码，${queryDateIssue}期山东快乐扑克3开奖信息">
+	<#assign htmlDescription="2N彩票${queryDateIssue}期山东快乐扑克3开奖号码，山东快乐扑克三${queryDateIssue}期开奖信息，并提供快乐扑克三走势预测等服务，买彩票查开奖结果到2N彩票。">
+	<#assign htmlAlternate="${wapKjUrl}/${lotteryType.lotteryKey}/${queryDateIssue}.html">
+<#else>
+	<#assign htmlTitle="山东快乐扑克3开奖号码_快乐扑克三开奖信息丨时间丨结果查询-2N彩票">
+	<#assign htmlKeywords="快乐扑克3开奖号码，快乐扑克三开奖信息">
+	<#assign htmlDescription="2N彩票山东快乐扑克3开奖号码栏目，为您提供准确、全面的中国高频彩票快乐扑克三开奖信息，开奖时间，开奖公告，数据分析等服务。买彩票查开奖结果到2N彩票。">
+	<#assign htmlAlternate="${wapKjUrl}/${lotteryType.lotteryKey}/">
+</#if>
+<#assign fastMessage="2元最高可中8000"/>
+<@detailLayout.htmlDraw cssKey="pk3" title=htmlTitle keywords=htmlKeywords description=htmlDescription alternate=htmlAlternate fastMessage=fastMessage;position,drawCodeArr>
+	<#if position=="last">
+		<#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+			<span class="card-item card-t${drawCodeArr[0][0]}">
+				<i class="ui-icon"></i><em>${drawCodeArr[0][1]}</em>
+			</span>
+			<span class="card-item card-t${drawCodeArr[1][0]}">
+				<i class="ui-icon"></i><em>${drawCodeArr[1][1]}</em>
+			</span>
+			<span class="card-item card-t${drawCodeArr[2][0]}">
+				<i class="ui-icon"></i><em>${drawCodeArr[2][1]}</em>
+			</span>
+			<span class="text-val">${(lastIssue.drawCodeType.typeText)!}</span>
+		</#if>
+	<#elseif position="list">
+		<@highListLayout.head>
+			<ul class="data-item">
+				<li>彩期</li>
+				<li class="w2">开奖号码</li>
+				<li>形态</li>
+			</ul>
+		</@highListLayout.head>
+		<@highListLayout.body ;drawIssue,drawCodeArr,issueDisplayNum>
+			<ul class="data-item">
+				<li>${drawIssue.issueCode?substring(drawIssue.issueCode?length-issueDisplayNum)}</li>
+				<li class="w2">
+					<span class="card-item card-t${drawCodeArr[0][0]}">
+						<i class="ui-icon"></i><em>${drawCodeArr[0][1]}</em>
+					</span>
+					<span class="card-item card-t${drawCodeArr[1][0]}">
+						<i class="ui-icon"></i><em>${drawCodeArr[1][1]}</em>
+					</span>
+					<span class="card-item card-t${drawCodeArr[2][0]}">
+						<i class="ui-icon"></i><em>${drawCodeArr[2][1]}</em>
+					</span>
+				</li>
+				<li>${(drawIssue.drawCodeType.typeText)!}</li>
+			</ul>
+		</@highListLayout.body>
+	</#if>
+</@detailLayout.htmlDraw>

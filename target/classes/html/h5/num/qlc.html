@@ -1,0 +1,41 @@
+<#assign htmlTitle="七乐彩开奖结果查询_七乐彩中奖号码_福彩七乐彩开奖时间与公告-2N彩票触屏版"/>
+<#assign htmlKeywords="七乐彩开奖结果，福彩七乐彩中奖号码"/>
+<#assign htmlDescription="2N彩票七乐彩开奖结果栏目，为您提供七乐彩开奖结果查询、七乐彩开奖时间、七乐彩开奖号码、中奖号码、开奖公告、奖池、奖金计算器等服务！买彩票查开奖结果到2N彩票。"/>
+<#import "/h5/num/common/macro-layout-num-list.html" as listLayout/>
+<#assign htmlCanonical="${webKjUrl}/${lotteryType.lotteryKey}/"/>
+<@listLayout.htmlDraw title=htmlTitle keywords=htmlKeywords description=htmlDescription canonical=htmlCanonical;position,drawCodeArr>
+  <#if (position=="issueLast" ||  position=="issueList")>
+    <div class="ball-list">
+      <#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+        <#assign codeArr = drawCodeArr[0]/>
+        <i class="i-ball red">${codeArr[0]}</i>
+        <i class="i-ball red">${codeArr[1]}</i>
+        <i class="i-ball red">${codeArr[2]}</i>
+        <i class="i-ball red">${codeArr[3]}</i>
+        <i class="i-ball red">${codeArr[4]}</i>
+        <i class="i-ball red">${codeArr[5]}</i>
+        <i class="i-ball red">${codeArr[6]}</i>
+        <i class="i-ball blue">${codeArr[7]}</i>
+      </#if>
+    </div>
+  <#elseif position=="jackpot">
+    <div class="jackpot-main">
+      <ul class="jackpot-money">
+        <li>
+          <span>本期销量(元)</span>
+          <b>${lastIssue.salesAmount!}</b>
+        </li>
+        <li>
+          <span>奖池滚存(元)</span>
+          <b>${lastIssue.jackpotAmount!}</b>
+        </li>
+      </ul>
+      <#if !(lastIssue.salesAmount??) && !(lastIssue.jackpotAmount??)>
+        <p class="c666">等待官方公布数据</p>
+       </#if>
+    </div>
+    <#if lastIssue.drawDetailView??>
+      <p class="jackpot-info"><span class="fl">${lastIssue.drawDetailView.prize!}：${lastIssue.drawDetailView.money!}(元)</span><span class="fr">中奖注数：${lastIssue.drawDetailView.num!}(注)</span></p>
+    </#if>
+  </#if>
+</@listLayout.htmlDraw>

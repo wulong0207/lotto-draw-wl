@@ -1,0 +1,1 @@
+${r'<#'}include "/pc/local/common/template-local-detail.html"/>

@@ -1,0 +1,1 @@
+${r'<#'}include "/pc/high/common/template-high-${childType}.html">

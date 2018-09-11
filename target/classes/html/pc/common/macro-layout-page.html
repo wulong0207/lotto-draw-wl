@@ -1,0 +1,69 @@
+<#macro page total=0 pageIndex=0 pageSize=10 url="">
+	<#if (total > 0)>
+		<#local pageIndex=pageIndex + 1 />
+		<#local space=2 />
+		<#local totalPage=(((total-1)/pageSize)?int+1) />
+		<#if ((pageIndex - space-2) <= 1)>
+			<#local startPage = 1/>
+		<#elseif (pageIndex >= (totalPage - space -2))>
+			<#local startPage = (totalPage - 2 * space - 2)/>
+		<#else>
+			<#local startPage = (pageIndex - space)/>
+		</#if>
+		<#if (startPage > 1 && startPage <= 3)>
+			<#local startPage = 1/>
+		</#if>
+		<#if (startPage < 1)>
+			<#local startPage = 1/>
+		</#if>
+		<#if ((pageIndex + space + 2) >= totalPage)>
+			<#local endPage = totalPage/>
+		<#elseif (pageIndex <= (1 + space + 2))>
+			<#local endPage = (1 + 2 * space + 2)/>
+		<#else>
+			<#local endPage=(pageIndex + space)/>
+		</#if>
+		<#if (endPage >= totalPage - 2 && endPage < totalPage)>
+			<#local endPage=totalPage/>
+		</#if>
+		<#if (endPage > totalPage)>
+			<#local endPage=totalPage/>
+		</#if>
+		<#if (totalPage > 1)>
+			<div class="pagebox">
+				<div class="page-mode fr clearfix">
+					<ul class="page-list clearfix">
+						<#if (pageIndex>1)>
+							<li class="prev"><a href="${url?replace('{pageIndex}', pageIndex-2)}">上一页</a></li>
+						<#else>
+							<li class="prev no-click">上一页</li>
+						</#if>
+						<#if (startPage > 1)>
+							<li><a href="${url?replace('{pageIndex}', 0)}">1</a></li>
+							<li class="no-click">…</li>
+						</#if>
+						<#list startPage..endPage as i>
+							<#if pageIndex == i>
+								<li class="on">${i}</li>
+							<#else>
+								<li><a href="${url?replace('{pageIndex}', i-1)}">${i}</a></li>
+							</#if>
+						</#list>
+						<#if (endPage < totalPage)>
+							<li class="no-click">…</li>
+							<li><a href="${url?replace('{pageIndex}', totalPage-1)}">${totalPage}</a></li>
+						</#if>
+						<#if (pageIndex<totalPage)>
+							<li class="next"><a href="${url?replace('{pageIndex}', pageIndex)}">下一页</a></li>
+						<#else>
+							<li class="next no-click">下一页</li>
+						</#if>
+						
+					</ul>
+					<div class="to"><span>到第</span><input class="totxt" type="text"><span>页</span><a class="btn_submit">确定</a></div>
+					<div class="intotal">共<span>${total}</span>条，每页<span>${pageSize}</span>条</div>
+				</div>
+			</div>
+		</#if>
+	</#if>
+</#macro>

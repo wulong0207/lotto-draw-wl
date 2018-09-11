@@ -1,0 +1,57 @@
+<script type="text/javascript">
+	var theDay = {
+		elem: '#theDay',
+		format: 'YYYY-MM-DD',
+		min: "${(lotteryType.minDrawDate?string('yyyy-MM-dd'))!'2010-01-01'}", //设定最小日期为当前日期
+		max: laydate.now(), //最大日期
+		istime: false,
+		istoday: true,
+		choose: function(date) {
+			window.location.href="${contextPath}/${lotteryType.lotteryKey}/"+date.replace(/-/g, "")+".html";
+		}
+	};
+	laydate(theDay);
+	<#if (curIssue?? && curIssue.saleEndTime??)>
+		<#assign duration = ((curIssue.saleEndTime?long-curIssue.currentDateTime?long)/1000)?long />
+	</#if>
+	<#if (duration?? && duration > 0)>
+		$(function() {
+			var duration = ${duration?c};
+			var timer;
+			function showDuration () {
+				var hour = Math.floor(duration/3600);
+				var minute = Math.floor((duration-hour*3600)/60);
+				var second = duration-hour*3600-minute*60;
+				var text = "";
+				if(hour > 0) {
+					text += yicai.lpad(hour) + ":";
+				}
+				text += yicai.lpad(minute) + ":";
+				text += yicai.lpad(second);
+				$("#curIssueEndTime").text(text);
+				if(duration <= 0) {
+					window.clearInterval(timer);
+					window.setTimeout(function() {
+						window.location.reload();
+					}, 1500);
+				}
+			};
+			timer = window.setInterval(function() {
+				duration--;
+				showDuration();
+			}, 1000);
+			showDuration();
+		});
+	<#else>
+		$(function() {
+			window.setTimeout(function() {
+				window.location.reload();
+			}, 60*1000);
+		});
+	</#if>
+	<#if (cpLotteryMap[lotteryType.lotteryCode?string]??)>
+		$(function(){
+			yicai.fastbet({lotteryCode: ${lotteryType.lotteryCode}});
+		});
+	</#if>
+</script>

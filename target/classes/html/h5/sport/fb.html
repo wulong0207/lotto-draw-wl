@@ -1,0 +1,105 @@
+  <#include "/h5/common/top.html">
+<#if (queryVO.startTime??)>
+  <title>竞彩足球${queryVO.startTime?string('yyyyMMdd')}号开奖结果丨赛果丨时间丨公告查询-2N彩票触屏版</title>
+  <meta name="keywords" content="竞彩足球${queryVO.startTime?string('yyyyMMdd')}号开奖结果查询" />
+  <meta name="description" content="2N彩票网为您提供体彩竞彩足球${queryVO.startTime?string('yyyyMMdd')}号开奖结果查询,中国体育彩票竞彩足球${queryVO.startTime?string('yyyyMMdd')}号开奖结果、时间、中奖查询、开奖公告、数据分析等服务，买彩票查开奖结果到2N彩票。" />
+  <link rel="canonical"href="${webKjUrl}/fb/s${queryVO.startTime?string('yyyyMMdd')}.html" >
+<#else>
+  <title>竞彩足球开奖结果_竞彩足球赛程赛果_竞彩足球开奖信息丨时间丨公告查询-2N彩票触屏版</title>
+  <meta name="keywords" content="竞彩足球开奖结果，竞彩足球赛果" />
+  <meta name="description" content="2N彩票竞彩足球开奖结果栏目，为您提供最新、最准确、最全面的体彩竞彩足球开奖信息查询，与彩票官方网站开奖结果。包括中国体育彩票竞彩足球开奖结果，竞彩足球开奖时间，开奖公告，开奖信息，买彩票查开奖结果到2N彩票。" />
+  <link rel="canonical"href="${webKjUrl}/fb/" >
+</#if>
+</head>
+<body>
+<header class="header">
+  <section class="kj-h-title">
+    <a href="${contextPath}/index.html" class="icons h-back"></a>
+    <h1>竞彩足球</h1>
+    <div class="date-down">
+      <span class="cur"><em>${queryDate}</em><i></i></span>
+      <div class="date-down-list">
+        <i></i>
+        <ul>
+          <#list 0..6 as i>
+            <#assign date=(.now?long-i*24*60*60*1000)?number_to_date />
+            <li><a href="${contextPath}/fb/s${date?string('yyyyMMdd')}.html">${date}</a></li>
+          </#list>
+        </ul>
+      </div>
+    </div>
+  </section>
+</header>
+<section class="kj-content">
+  <div class="kj-issue-mode jczq">
+    <p class="pt10 pb10 c999 tac">本页赔率仅供参考，请以出票时赔率为准</p>
+    <div class="search-mode">
+      <span class="search-input">
+        <form action="javascript:search();">
+          <label for="search"><i class="ic-search"></i><em>输入球队名称</em></label>
+          <input id="search" type="search"  />
+          <i class="ic-delete"></i>
+        </form>
+      </span>
+    </div>
+    <#if (matchList?? && matchList?size>0)>
+      <ul class="kj-sport-list">
+        <#list matchList as match>
+          <#if (match.matchStatus?? && match.matchStatus != 14)>
+            <li class="kj-sport-item">
+              <a href="${contextPath}/fb/${match.matchTime?string('yyyyMMdd')}_${match.matchId?c}.html">
+                <div class="kj-sport-top">
+                  <span class="match-info"><em class="block">${match.raceName!}</em><em>${match.num!}   ${match.week!}</em></span>
+                  <span class="match-team">${match.homeTeamName!}</span>
+                  <span class="match-result">
+                    <b class="block">${match.fullScore}</b>
+                    <em>半${match.halfScore}</em>
+                  </span>
+                  <span class="match-team">${match.guestTeamName!}</span>
+                </div>
+                <div class="kj-sport-bottom">
+                  <ul>
+                    <li><em>${match.fullWdfText!}</em><em class="c666"><#if match.spFullWdf??>${match.spFullWdf?string("#,###.00")!}</#if></em></li>
+                    <li>
+                      <em>(<#if (match.letNum?? && match.letNum >0)>+${match.letNum}<#else>${match.letNum}</#if>)让球${match.letWdfText!}</em>
+                      <em class="c666">${match.spLetWdf?string("#,###.00")!}</em>
+                    </li>
+                    <li><em>${match.scoreText!}</em><em class="c666"><#if match.spScore??>${match.spScore?string("#,###.00")!}</#if></em></li>
+                    <li><em>${match.goalNum!}球</em><em class="c666"><#if match.spGoalNum??>${match.spGoalNum?string("#,###.00")!}</#if></em></li>
+                    <li><em>${match.hfWdfText!}</em><em class="c666"><#if match.spHfWdf??>${match.spHfWdf?string("#,###.00")!}</#if></em></li>
+                  </ul>
+                </div>
+              </a>
+            </li>
+          <#else>
+            <li class="kj-sport-item">
+              <a href="${contextPath}/fb/${match.matchTime?string('yyyyMMdd')}_${match.matchId?c}.html">
+                <div class="kj-sport-top">
+                  <span class="match-info"><em class="block">${match.raceName!}</em><em>${match.num!}   ${match.week!}</em></span>
+                  <span class="match-team">${match.homeTeamName!}</span>
+                  <span class="match-result">
+                    <b class="block">${match.matchStatusText}</b>
+                  </span>
+                  <span class="match-team">${match.guestTeamName!}</span>
+                </div>
+                <div class="kj-sport-bottom">
+                  <ul>
+                    <li><em>*</em></li>
+                    <li><em>*</em></li>
+                    <li><em>*</em></li>
+                    <li><em>*</em></li>
+                    <li><em>*</em></li>
+                  </ul>
+                </div>
+              </a>
+            </li>
+          </#if>
+        </#list>
+      </ul>
+      <p class="pt10 pb10 fs14 c999 tac">已经到底了，没有更多数据加载</p>
+    <#else>
+      <div class="kj-sport-list no-result">暂无开奖数据</div>
+    </#if>
+  </div>
+</section>
+<#include "/h5/common/footer.html">

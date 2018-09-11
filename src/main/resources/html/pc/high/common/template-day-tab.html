@@ -1,0 +1,20 @@
+<div class="day-tab">
+	<#assign toDate = (.now) />
+	<#if queryDateStr==toDate?string('yyyy-MM-dd')>
+		<a class="cur">今天</a>
+	<#else>
+		<a href="${contextPath}/${lotteryType.lotteryKey}/${toDate?string('yyyyMMdd')}.html">今天</a>
+	</#if>
+	<#assign toDate = (((.now?long-1*24*60*60*1000)?number_to_date)) />
+	<#if queryDateStr==toDate?string('yyyy-MM-dd')>
+		<a class="cur">昨天</a>
+	<#else>
+		<a href="${contextPath}/${lotteryType.lotteryKey}/${toDate?string('yyyyMMdd')}.html">昨天</a>
+	</#if>
+	<#assign toDate = (((.now?long-2*24*60*60*1000)?number_to_date)) />
+	<#if queryDateStr==toDate?string('yyyy-MM-dd')>
+		<a class="cur">前天</a>
+	<#else>
+		<a href="${contextPath}/${lotteryType.lotteryKey}/${toDate?string('yyyyMMdd')}.html">前天</a>
+	</#if>
+</div>

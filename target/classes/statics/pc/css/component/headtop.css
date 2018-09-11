@@ -1,0 +1,726 @@
+
+.layout {
+  width: 1200px;
+  margin: auto;
+}
+
+.greenPhone {
+  background-position: 0 0;
+  width: 10px;
+  height: 18px;
+}
+
+.font12 {
+  font-size: 12px;
+}
+
+.grey {
+  color: #999;
+}
+
+.header-toptray {
+  font-size: 12px;
+
+}
+
+/*common*/
+.deg {
+  -webkit-transition: transform .2s ease-in;
+  -moz-transition: -moz-transform .2s ease-in;
+  -ms-transition: -ms-transform .2s ease-in;
+  -o-transition: -o-transform .2s ease-in;
+}
+
+/*三角箭头*/
+.afterArrow:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 5px solid #999;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.afterArrow:after {
+  -webkit-transition: transform .2s ease-in;
+  -moz-transition: -moz-transform .2s ease-in;
+  -ms-transition: -ms-transform .2s ease-in;
+  -o-transition: -o-transform .2s ease-in;
+}
+
+.afterArrow:hover:after {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
+/*下拉框*/
+.header-toptray .down-hover {
+  position: relative;
+  float: left;
+  zoom: 1;
+}
+
+.header-toptray .down-hover > a {
+  display: inline-block;
+  position: relative;
+  height: 35px;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  padding: 0 10px;
+}
+
+.header-toptray .down-hover .down-box {
+  line-height: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  position: absolute;
+  top: 34px;
+  left: 0;
+  display: none;
+  z-index: 999;
+}
+.header-toptray .down-hover.my-lotto .down-box{
+  left: auto;
+  right:0;
+}
+
+.header-toptray .down-hover:hover > a {
+  color: red;
+  text-decoration: none;
+  background: #fff;
+  border-color: #ddd;
+  z-index: 9999;
+}
+
+.header-toptray .down-hover:hover .down-box {
+  display: block;
+}
+
+.header-toptray .down-hover:hover .afterArrow:after {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
+/*icon*/
+.ico_msg {
+  width: 18px;
+  height: 12px;
+  background-position: -60px 0;
+  margin-right: 5px;
+}
+
+.btn_set {
+  width: 16px;
+  height: 16px;
+  background-position: -60px -14px;
+}
+
+/*右向箭头*/
+.btn_arrowR {
+  width: 7px;
+  height: 13px;
+  background: url(../../img/index_sprites.png) no-repeat -79px 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn_arrowR:hover {
+  background-position: -86px 0;
+}
+
+/*header开始*/
+.header-toptray-box {
+  height: 36px;
+}
+
+.header-toptray {
+  color: #333;
+  height: 36px;
+  line-height: 35px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #eee;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.header-toptray .num {
+  font-family: Tahoma;
+}
+
+/*左侧列表*/
+/*未登录*/
+.header-toptray .toptray-left > ul > li {
+  float: left;
+  margin-right: 10px;
+}
+
+.header-toptray .toptray-not-login > a {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.header-toptray .greenPhone {
+  margin-right: 5px;
+}
+
+/*手机购彩*/
+.header-toptray .mobile-text {
+  font-size: 14px;
+}
+
+.header-toptray .mobile-code {
+  margin-top: 10px;
+}
+
+.header-toptray .mobile-code img {
+  width: 90px;
+  height: 90px;
+  border: 1px solid #eee;
+  padding: 2px;
+  float: left;
+}
+
+.header-toptray .mobile-code .txt {
+  width: 197px;
+  padding: 1px 0 1px 100px;
+}
+
+.header-toptray .mobile-code a {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+  margin: 10px 0;
+}
+
+.header-toptray .mobile-code a:hover {
+  text-decoration: underline;
+}
+
+.header-toptray .mobile-code a:before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background: url(../../img/index_sprites.png) no-repeat 0 0;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.header-toptray .mobile-code a.a_iphone:before {
+  background-position: 0 0;
+}
+
+.header-toptray .mobile-code a.a_android:before {
+  background-position: -30px 0;
+}
+
+/*登录后*/
+/*我的账户*/
+.account-box {
+  position: relative;
+}
+
+.account-box:hover a.afterArrow {
+  color: #333;
+}
+
+.account-box .money {
+  padding: 10px;
+  background: #f5f5f5;
+  width: 194px;
+  height: 70px;
+  position: relative;
+}
+
+.account-box .money a.hideMoney {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  color: #666;
+}
+
+.account-box .money a.showMoney {
+  display: block;
+  text-align: center;
+  line-height: 50px;
+}
+
+.account-box .safe {
+  padding: 10px;
+  line-height: 1;
+}
+
+.safe-bar-bg {
+  width: 140px;
+  height: 14px;
+  background: #e5e5e5;
+  text-align: center;
+  position: relative;
+}
+
+.safe-bar-bg .safe-bar {
+  height: 14px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.safe-bar-bg em {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  margin-left: -20px;
+}
+
+.account-box .bottom {
+  overflow: hidden;
+  padding: 10px 20px;
+  width: 216px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top-style: dotted;
+  position: absolute;
+  bottom: -40px;
+  left: -1px;
+}
+
+/*充值*/
+.header-toptray .btn_topup {
+  padding: 1px 5px;
+  border: 1px solid #ed1c24;
+  border-radius: 3px;
+  color: #ed1c24;
+  margin: 0 5px;
+}
+
+.header-toptray .btn_topup:hover {
+  background-color: #ed1c24;
+  color: #fff;
+}
+
+/*消息*/
+.msg-box {
+  position: relative;
+}
+
+.msg-box:hover a.afterArrow {
+  color: #333;
+}
+
+.msg-box .btn_set {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.noMsg-content {
+  width: 210px;
+  padding: 10px;
+  text-align: center;
+  color: #666;
+}
+
+.noMsg-content img {
+  display: inline-block;
+  margin: 20px 0;
+}
+
+.noMsg-content a.btn {
+  color: #666;
+  padding: 5px 15px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background: #fff9eb;
+  display: inline-block;
+}
+
+.noMsg-content a.btn:hover {
+  color: #666;
+  text-decoration: none;
+}
+
+.msg-content {
+  width: 380px;
+}
+
+.msg-content li {
+  padding: 10px 15px;
+  border-top: 1px dotted #ddd;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.msg-content li:first-child {
+  border-top: 0;
+}
+
+.msg-content li:hover .btn_arrowR {
+  background-position: -86px 0;
+}
+
+.msg-content li > span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.msg-content li .title {
+  width: 62%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #666
+}
+
+.msg-content li .time {
+  width: 30%;
+  color: #999;
+  font-family: tahoma;
+  text-align: right;
+}
+
+.msg-content li .btn {
+  width: 8%;
+  text-align: right;
+}
+
+.msg-content .bottom {
+  border-top: 1px solid #ddd;
+  text-align: right;
+  padding-top: 10px;
+}
+
+.msg-content li:hover .title {
+  color: #333
+}
+
+/*右侧列表*/
+.header-toptray .toptray-right-list > li {
+  float: left;
+}
+
+.header-toptray .toptray-right-list > li:before {
+  content: "";
+  width: 1px;
+  height: 12px;
+  background-color: #ddd;
+  float: left;
+  margin: 12px 0;
+  overflow: hidden;
+}
+
+.header-toptray .toptray-right-list > li:first-child:before {
+  display: none;
+}
+
+.header-toptray .toptray-right-list > li > a {
+  padding: 0 10px;
+}
+
+.header-toptray .toptray-right-list > li .afterArrow:after {
+  margin: 0 0 0 5px;
+}
+
+/*我的彩票*/
+.header-toptray .mylottery_nologin {
+  width: 180px;
+}
+
+.header-toptray .mylottery_nologin .avatar img {
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+}
+
+.header-toptray .mylottery_nologin .txt {
+  width: 236px;
+  padding: 12px 0 12px 90px;
+  color: #999;
+}
+
+.header-toptray .mylottery_nologin .txt a {
+  margin: 6px 10px 0 0;
+  display: inline-block;
+}
+
+.header-toptray .mylottery_nogoods, .header-toptray .mylottery_goods {
+  width: 360px;
+}
+
+.header-toptray .mylottery_nogoods .txt {
+  color: #999
+}
+
+.header-toptray .total_goods {
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  color: #999;
+}
+
+.header-toptray .mylottery_goods .tab {
+  height: 30px;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-toptray .mylottery_goods .tab-a {
+  width: 50%;
+  float: left;
+  height: 30px;
+  border-bottom: 1px solid transparent;
+  color: #666;
+  text-align: center;
+  cursor: pointer;
+}
+
+.header-toptray .mylottery_goods .tab-a:hover {
+  text-decoration: none;
+}
+
+.header-toptray .mylottery_goods .tab-a.cur {
+  font-weight: bold;
+  border-color: #1e88d2;
+  color: #1e88d2
+}
+
+.header-toptray .mylottery_goods .tab_content {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.header-toptray .mylottery_goods .tab_content .noOrder::after {
+  content: "没有订单";
+  color: #666;
+  line-height: 100px;
+  text-align: center;
+  background: #eee;
+  display: block;
+}
+
+.header-toptray .mylottery_goods li {
+  padding: 5px 10px;
+  border-top: 1px dotted #ddd;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.header-toptray .mylottery_goods li:first-child {
+  border-top: 0;
+}
+
+.header-toptray .mylottery_goods li:hover .btn_arrowR {
+  background-position: -86px 0;
+}
+
+.header-toptray .mylottery_goods li > span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header-toptray .mylottery_goods .l_name {
+  width: 32%;
+}
+
+.header-toptray .mylottery_goods .l_money {
+  width: 35%;
+  text-align: right;
+  color: #666;
+}
+
+.header-toptray .mylottery_goods .l_result {
+  width: 25%;
+  text-align: right;
+  color: #666;
+}
+
+.header-toptray .mylottery_goods .l_btn {
+  width: 8%;
+  text-align: right;
+}
+
+/*网站导航*/
+.header-toptray .down-hover .websit-main {
+  right: 0;
+  left: inherit;
+}
+
+.websit-main {
+  width: 1140px;
+}
+
+.websit-box dl {
+  float: left;
+  width: 250px;
+  border-left: 1px solid #eee;
+  padding: 10px;
+}
+
+.websit-box dl:first-child {
+  border-left: none;
+  width: 367px;
+}
+
+.websit-box dt {
+  font-weight: bold;
+  padding-left: 9px;
+  font-size: 14px;
+  height: 30px;
+}
+
+.websit-box dd a {
+  width: 94px;
+  margin: 7px 10px;
+  display: inline-block;
+}
+
+/*分享*/
+.header-toptray .down-hover .share-main {
+  right: 0;
+  left: inherit;
+}
+
+.share-main {
+  width: 204px;
+  padding: 10px;
+}
+
+.share-main a {
+  width: 100px;
+  display: inline-block;
+  margin: 5px 0;
+}
+
+.share-main .jiathis_style .more {
+  width: 70px !important;
+  margin: 5px !important;
+  float: none !important;
+  display: inline-block !important;
+}
+
+/*除首页外公共导航*/
+.header-navbar {
+  height: 48px;
+  line-height: 48px;
+  background-color: #1e88d2;
+}
+
+.header-navbar .navPlus a {
+  color: #fff;
+}
+
+.lotterys {
+  width: 240px;
+  height: 48px;
+  position: relative;
+  background-color: #1b7abd;
+  margin-right: 60px;
+
+}
+.lotterys :hover .arrow {
+    background-position: -118px -2px \0;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg)
+  }
+.lotterys .on-lotter {
+    line-height: 48px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    
+  }
+.lotterys .on-lotter a{
+	color:#fff;
+}
+.lotterys .on-lotter a:hover{
+	text-decoration:none;
+}
+.lotterys .on-lotter .arrow {
+      background-position: -118px -12px;
+      margin: 0 0 0 10px;
+      width: 12px;
+      height: 6px;
+    }
+.lotterys-list-box {
+  border-top: none;
+  position: absolute;
+  left: 0;
+  top: 47px;
+  display: none;
+  z-index: 999;
+}
+
+.lotterys:hover .lotterys-list-box {
+  display: block;
+}
+
+.navPlus > ul > li {
+  float: left;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.navPlus > ul > li > a {
+  color: #fff;
+}
+
+/********/
+
+.section {
+  background-color: #fff;
+  padding: 19px;
+  border: 1px solid #ededed;
+  margin-bottom: 20px;
+}
+
+/*信息浮层*/
+
+.floatDiv {
+  border: 1px solid #f2bf46;
+  background: #fff8e8;
+  width: 220px;
+  padding: 10px;
+  font-size: 12px;
+  text-align: left;
+  color: #333;
+  z-index: 9999;
+}
+
+.floatDiv:after {
+  content: "";
+  background: url(../../img/icons-bg.png) no-repeat -226px 0;
+  width: 9px;
+  height: 6px;
+  display: block;
+  position: absolute;
+  top: -6px;
+  left: 30px;
+}
+
+.tab_content ul li .l_result .green {
+  color: #2eb670
+}
+
+
+
+
+
+

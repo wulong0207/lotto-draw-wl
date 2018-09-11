@@ -1,0 +1,510 @@
+/*公共部分*/
+body{background-color: #f5f5f5;}
+.clear{ clear: both;*zoom: 1;}
+.clearfix:after{
+	content: "";
+	display: block;
+	height: 0;
+	overflow: hidden;
+	clear: both;
+	*zoom: 1;
+}
+.fl{float:left;}
+.fr{float: right;}
+.mt5{ margin-top: 5px;}
+.mt10{ margin-top: 10px;}
+.mt20{ margin-top: 20px;}
+.mt30{ margin-top: 30px;}
+.ml10{ margin-left: 10px;}
+.ml20{ margin-left: 20px;}
+.ml30{ margin-left: 30px;}
+.mr10{ margin-right: 10px;}
+.mr20{ margin-right: 20px;}
+.mr30{ margin-right: 30px;}
+.mb10{ margin-bottom: 10px;}
+.mb20{ margin-bottom: 20px;}
+.mb30{ margin-bottom: 30px;}
+.tal{text-align: left;}
+.tac{text-align: center;}
+.tar{ text-align: right;}
+.fs0{font-size: 0;}
+.fs12{font-size: 12px;}
+.fs14{font-size: 14px;}
+.fs16{font-size: 16px;}
+.fs18{font-size: 18px;}
+.fs20{font-size: 20px;}
+.c999{ color: #999;}
+.c666{ color: #666;}
+.c333{ color: #333;}
+.red{ color: #ed1c24;}
+.blue{ color: #1e88d2;}
+.green{ color: #008000;}
+.bgf5{ background-color: #f5f5f5;}
+.layout{ 
+	width: 1200px;
+	margin: auto;
+}
+.whiteBg{
+	 background-color: #fff;
+}
+/*列表上部-标题选项及快捷入口*/
+.lottery-list-top{
+	margin-top: 30px;
+	height:42px;
+	line-height: 40px;
+	border-bottom:2px solid #1e88d2 ;
+}
+.tit-tab{
+	float: left;
+}
+.tit-tab>.tab-col{
+	width: 138px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-right: 5px;
+	display: inline-block;
+	float: left;
+	background-color: #e5e5e5;
+	border-radius: 2px 2px 0 0;
+	color: #333;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+}
+.tit-tab>.tab-col.cur{
+	background-color: #1e88d2;
+	color: #fff;
+}
+.lottery-list-top-r{
+	float: right;
+	color: #999;
+	font-size: 14px;
+	margin-right: 10px;
+}
+
+.fast-map{ 
+	height: 90px;
+	background-color: #fff;
+}
+.fast-map-link{
+	width: 700px;
+	float: left;
+	line-height: 30px;
+	font-size: 14px;
+	margin: 15px 0 0 10px;
+	font-size: 0;
+}
+.fast-map-link .a-link{
+	font-size: 14px;
+	color: #666;
+	padding:0 12px;
+	height: 30px;
+	position: relative;
+}
+.fast-map-link .a-link:hover{
+	color: #1e88d2;
+	text-decoration: underline;
+}
+.fast-map-link .a-link:after{
+	content: "";
+	position: absolute;
+	height: 12px;
+	width: 1px;
+	top:50%;
+	left: 0;
+	margin-top: -6px;
+	background-color: #ccc;
+}
+.fast-map-link>ul>li{}
+.fast-map-link>ul>li .a-link:first-child:after{
+	display: none;
+}
+
+.search-lotto{
+	font-size: 14px;
+	line-height: 30px;
+	color: #666;
+	float: right;
+	margin: 35px 20px 0 0;
+}
+.search-lotto strong{ 
+	margin-right: 12px;
+	float: left;
+}
+.search-lotto label .menu-blue{
+	vertical-align: middle;
+}
+.search-lotto select{
+	color: #666;
+	min-width: 100px;
+	height: 30px;
+	margin-right: 15px;
+	float: left;
+}
+
+:root .search-lotto select{ border:1px solid #ddd \9; }  /*ie9*/
+@media all and (min-width:0px){
+	.search-lotto select{border:1px solid #ddd \0;} 
+}  /*opera*/
+@media screen and (-webkit-min-device-pixel-ratio:0){ 
+	.search-lotto select{border:1px solid #ddd;} 
+}  /*chrome and safari*/
+
+.search-lotto button{
+	width: 62px; 
+	height: 30px; 
+	background-color: #1e88d2;
+	border: 0;
+	color: #fff;
+	border-radius: 2px;
+	margin-right: 20px;
+	float: left;
+}
+.searchBtn:hover,.search-lotto button:hover{
+  text-decoration: none;
+  color: #fff;
+  background-color: #127ec9;
+}
+
+
+/*立即投注按钮*/
+.betting-btn{
+	width:80px;
+	height:30px; 
+	line-height:28px; 
+	line-height:28px \0; 
+	text-align: center;
+	color:#666;
+	border:1px solid #e1e1e1;
+	border-radius: 3px;
+	cursor:pointer;
+	display: inline-block;
+}
+.betting-btn:hover{ 
+	color: #fff;
+	background-color: #1e88d2;
+	border-color: #1e88d2;
+	text-decoration: none;
+}
+
+.betting-btn.bet-not,.betting-btn.bet-not:hover{
+	border-color:#e1e1e1;
+	color: #ccc;
+	background-color: #fff;
+	cursor: initial;
+}
+/*立即投注按钮 end*/
+
+/*全国彩种*/
+.lotto-list-main .list-head{
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	text-align: center;
+	background-color: #1e88d2;
+	font-size: 0;
+}
+.lotto-list-main .list-body{ 
+	background-color: #fff;
+}
+.lottery-section{
+	min-height: 100px;
+	position: relative;
+	font-size: 0;
+	border-bottom: 1px solid #eee;
+}
+
+ .list-head .col,.list-body .col{
+ 	display: table-cell;
+ 	vertical-align: middle;
+	font-size: 14px;
+}
+ 	
+.list-wid1{ width:300px;}
+.list-wid2{ width:160px;}
+.list-wid3{ width:440px;}
+.list-wid4{ width:90px;}
+.list-wid5{ width:90px;}
+.list-wid6{ width: 120px;}
+
+.lottery-section .today-open{
+	width: 22px;
+	height: 60px;
+	position: absolute;
+	top:50%;
+	left: 0;
+	margin-top: -30px;
+	background-color: #ff6600;
+	line-height: 1.1;
+	padding-top:4px ; 
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	border-radius: 0 3px 3px 0;
+}
+
+.list-body .logo-div{
+	width: 60px;
+	height: 60px;
+	margin: 20px 10px 20px 30px;
+	float: left;
+}
+
+.lotto-logo-wh{ 
+	width: 60px; 
+	height: 60px;
+}
+.list-wid1 .lotto-info{
+	margin-top: 25px;
+	line-height: 1.5;
+}
+.opened .balls-list .ui-icon{
+	margin-right: 8px;
+	vertical-align: middle;
+}
+
+.lottery-name-num{ 
+	color: #666;
+}
+.lt-name{ 
+	font-size: 16px;
+	color: #666;
+	font-weight: bold;
+}
+.lt-name:hover,.lottery-name-num a{
+	color: #1e88d2;
+}
+.lt-num{margin-left: 10px;}
+.lotto-open-day{ color: #999;}
+.balls-list{ font-size: 0;}
+.list-open-info ,.open-loading-info{ 
+	line-height: 1.2;
+	margin-top:10px;
+}
+.open-loading-info{
+	font-size: 16px;
+}	
+
+.sfc-balls{
+	width: 20px;
+	height: 28px;
+	line-height: 28px;
+	display: inline-block;
+	margin-right: 4px;
+	background-color: #00b38a;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+}
+.macth-over-info{
+	font-size: 16px;
+	}
+.macth-over-info .vs-team>strong{
+	margin: 0 6px;
+}
+
+
+/*高频彩种*/
+.gaopin .list-body .lottery-section{ 
+	min-height: 80px;
+	background-color: #e8f3fa;
+	border-bottom:1px solid #dce7ef;
+}
+
+
+.gaopin .list-wid0{ width:100px; text-align: center;}
+.gaopin .list-wid-box{display: table-cell;
+ 	vertical-align: middle;}
+.gaopin .list-lottery-box{
+	min-height: 80px;
+ 	border-top:1px solid #eee;
+}
+.gaopin .list-lottery-box:first-child{
+	border-top:0;
+}
+.gaopin .list-wid1{ width:200px; }
+.gaopin .list-wid2{ width:110px;}
+.gaopin .list-wid3{ width:160px;}
+.gaopin .list-wid4{ width:370px;}
+.gaopin .list-wid5{ width:50px;}
+.gaopin .list-wid6{ width:90px;}
+.gaopin .list-wid7{ width: 120px;}
+
+.gaopin .list-body .list-lottery-box{
+	background-color: #fff;
+}
+.gaopin .list-body .list-lottery-box>.col{
+	height: 80px;
+}
+.gaopin .list-body .logo-div{ margin:0 auto;}
+
+.gaopin .list-wid1 .lotto-info{margin-top: 0; margin-left: 20px;}
+
+.sp-icon{
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 3px;
+	margin:0 4px;
+}
+.sp-icon.big{
+	background-color: #ff3333;
+}
+.sp-icon.small{
+	background-color: #0099ff;
+}
+.sp-icon.odd{
+	background-color: #00b38a;
+}
+.sp-icon.even{
+	background-color: #ff8900;
+}
+.balls-list .text-val{
+	line-height: 30px;
+	margin: 0 10px;
+	font-size: 14px;
+	 display: inline-block;
+	 vertical-align: middle;
+}
+
+.balls-list>.blue.fs14{
+	display: inline-block;
+	 vertical-align: middle;
+}
+
+
+.list-body .lottery-section:hover,.list-body .lottery-section .list-lottery-box:hover{ background-color: #fffcef;}
+.gaopin .list-body .lottery-section:hover{ background-color: #e8f3fa;}
+
+/*地方彩种*/
+.difang .list-body .lottery-section{
+	min-height: 50px;
+	background-color: #e8f3fa;
+	border-bottom:1px solid #dce7ef;
+}
+.difang .list-wid-box{
+	display: table-cell;
+	vertical-align: middle;
+}
+.difang .list-lottery-box{
+	min-height: 50px;
+	border-top:1px solid #eee;
+}
+.difang .list-lottery-box:first-child{
+	border-top:0;
+}
+.difang .list-wid0{ width:120px;text-align: center}
+.difang .list-wid1{ width:160px;}
+.difang .list-wid2{ width:100px;}
+.difang .list-wid3{ width:120px;}
+.difang .list-wid4{ width:370px;}
+.difang .list-wid5{ width:120px;}
+.difang .list-wid6{ width:130px;}
+.difang .list-wid7{ width:80px;}
+
+.difang .list-body .list-lottery-box{
+	background-color: #fff;
+}
+.difang .list-body .list-lottery-box>.col{
+	height: 50px;
+}
+.difang .list-wid1 .lotto-info{margin-top: 0; margin-left: 20px;}
+.difang .lt-name{font-size:14px;}
+
+
+
+/*模拟select*/
+.selectDiv{
+  display: inline-block;
+  position: relative;
+  height: 26px;
+  line-height: 24px;
+  vertical-align: middle;
+}
+.periods,.chaxun .laydateBox .laydate-icon{
+  min-width: 80px;
+  height: 24px;
+  line-height: 24px;
+  color: #333;
+  display: inline-block;
+  padding: 0 20px 0 10px;
+  border:1px solid #ddd;
+  background-color: #fff;
+  position: relative;
+  box-sizing: content-box;
+}
+.down.periods{
+  box-shadow:0px 0px 2px #799bd2;
+  border:1px solid #93b5ec;
+}
+.periods:after,.chaxun .laydateBox .laydate-icon:after{
+  content: "";
+  width: 0;
+  height: 0;
+  border-top:5px solid #333;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+  top:50%;
+  right:5px;
+  margin-top: -2px;
+  /*transition:transform .2s ease-in;*/
+}
+/*.down.periods:after,.chaxun .laydateBox .laydate-icon:after {*/
+  /*transform: rotate(180deg);*/
+/*}*/
+.periodsSelect{
+  position: absolute;
+  left: 0;
+  top:26px;
+  background-color:#fff;
+  font-size: 14px;
+  box-sizing: content-box;
+  border:1px solid #799bd2;
+  max-height: 240px;
+  overflow-y:auto !important;
+  z-index: 10;
+}
+.periodsSelect li{
+  padding-left:10px;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.periodsSelect li:hover,.periodsSelect li:hover a{
+  background-color: #1e90ff;
+  color: #fff;
+}
+.periodsSelect li a,.periodsSelect li a:hover{
+  text-decoration: none;
+  display: block;
+  height: 24px;
+  line-height: 24px;
+}
+.none{
+  display: none
+}
+
+
+
+
+.fast-map .periods{ height: 28px}
+
+.laydate_box,.laydate_box *{box-sizing: content-box;}
+
+.chaxun .laydateBox .laydate-icon{
+  width: 80px;
+  position: relative;
+  vertical-align: middle;
+  margin-top: -3px;
+  padding-right: 30px;
+  cursor: pointer;
+}
+

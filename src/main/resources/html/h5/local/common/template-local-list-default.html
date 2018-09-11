@@ -1,0 +1,23 @@
+<#import "/h5/local/common/macro-layout-local-list.html" as listLayout/>
+<#assign htmlTitle="${lotteryType.lotteryName}开奖结果查询_${lotteryType.lotteryName}中奖号码_${lotteryType.lotteryName}开奖时间与公告-2N彩票触屏版"/>
+<#assign htmlKeywords="${lotteryType.lotteryName}开奖结果，${lotteryType.lotteryName}中奖号码"/>
+<#assign htmlDescription="2N彩票${lotteryType.lotteryName}开奖结果栏目，为您提供${lotteryType.lotteryName}开奖结果查询、${lotteryType.lotteryName}开奖时间、福彩${lotteryType.lotteryName}开奖号码、中奖号码、开奖公告、奖池、奖金计算器等服务！买彩票查开奖结果到2N彩票。"/>
+<#assign htmlCanonical="${webKjUrl}/${lotteryType.lotteryKey}/"/>
+<@listLayout.htmlDraw title=htmlTitle keywords=htmlKeywords description=htmlDescription canonical=htmlCanonical;position,drawCodeArr>
+  <#if (position=="issueLast" ||  position=="issueList")>
+    <div class="ball-list">
+      <#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+        <#list drawCodeArr[0] as code>
+          <i class="i-ball red">${code}</i>
+        </#list>
+      </#if>
+      <#if (drawCodeArr?size>1 && drawCodeArr[1]??)>
+        <#list drawCodeArr[1] as code>
+          <i class="i-ball blue">${code}</i>
+        </#list>
+      </#if>
+    </div>
+  <#elseif position=="jackpot">
+    <#include "/h5/local/common/template-local-jackpot-list.html">
+  </#if>
+</@listLayout.htmlDraw>

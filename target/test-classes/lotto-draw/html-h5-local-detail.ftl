@@ -1,0 +1,1 @@
+${r'<#'}include "/h5/local/common/template-local-detail-default.html" />

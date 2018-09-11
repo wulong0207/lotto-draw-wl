@@ -1,0 +1,59 @@
+<#include "/pc/common/common.html">
+<#macro drawSection drawLottery jczxUrl="">
+<div class="lottery-section">
+	<#if (drawLottery.isAward!0) == 1>
+		<div class="today-open">今日开奖</div>
+	</#if>
+	<div class="col list-wid1">
+		<div class="logo-div">
+			<img src="${drawLottery.lotteryLogoUrl!}" class="lotto-logo-wh" alt="${drawLottery.lotteryName!}" />
+		</div>
+			<div class="fl lotto-info">
+			<div class="lottery-name-num">
+				<a href="${contextPath}/${drawLottery.lotteryKey}/" target="_blank"><strong class="lt-name">${drawLottery.lotteryName!}</strong></a>
+				<span class="lt-num">${drawLottery.preIssueCode}期</span>
+			</div>
+			<div class="lotto-open-day">${drawLottery.lotteryDrawTimeText}</div>
+		</div>
+	</div>
+	<div class="col list-wid2 tac">${drawLottery.preLotteryTimeText!}</div>
+	<div class="col list-wid3">
+		<#if drawLottery.preDrawCodeArr??>
+			<div class="opened ml30">
+				<div class="balls-list">
+					<#list drawLottery.preDrawCodeArr as code>
+						<span class="sfc-balls">${code}</span>
+					</#list>
+					<a class="blue fs14 ml10" target="_blank" href="${contextPath}/${drawLottery.lotteryKey}/${drawLottery.preIssueCode}.html">详情</a>
+				</div>
+				<#if drawLottery.preDrawDetailView??>
+					<div class="list-open-info">
+						${drawLottery.preDrawDetailView.prize!}<span class="red">${drawLottery.preDrawDetailView.num!}</span>注：
+						<#assign moneyFormat=numberformat(drawLottery.preDrawDetailView.money, 2, "ROUND_DOWN") />
+						<span class="red">￥${moneyFormat[1]}</span>${moneyFormat[2]}元 &nbsp;&nbsp;&nbsp;
+						<#assign jackpotFormat=numberformat(drawLottery.preJackpot, 2, "ROUND_DOWN") />
+						奖池滚存：<span class="red">￥${jackpotFormat[1]}</span>${jackpotFormat[2]}元
+					</div>
+				<#else>
+					<div class="open-loading-info">等待公布...</div>
+				</#if>
+			</div>
+		<#else>
+			<div class="open-loading ml30" style="display: none;">
+				<em class="fs16 mr10">等待开奖...</em>   
+				<a class="blue fs14 ml10" target="_blank" href="${contextPath}/${drawLottery.lotteryKey}/">详情</a>
+			</div>
+		</#if>
+	</div>
+	<div class="col list-wid4 tac"><span class="blue">*</span></div>
+	<div class="col list-wid5 tac"><a class="ui-icon blue-search" target="_blank" href="${webCpUrl}/${jczxUrl}"></a></div>
+	<div class="col list-wid6 tac">
+		<#local cpLotteryKey=cpLotteryMap[drawLottery.lotteryCode?string]>
+		<#if cpLotteryKey?? && cpLotteryKey!="">
+			<a class="betting-btn" target="_blank" href="${webCpUrl}/${cpLotteryKey}">立即投注</a>
+		<#else>
+			<span class="betting-btn bet-not">立即投注</span>
+		</#if>
+	</div>
+</div>
+</#macro>

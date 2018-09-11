@@ -1,0 +1,26 @@
+<div class="jackpot-main">
+  <#if (!(issue.salesAmount??) && !(issue.jackpotAmount??)) || (((issue.salesAmount!0) == 0) && ((issue.jackpotAmount!0) == 0))>
+    <ul class="jackpot-money">
+      <li>
+        <span>本期销量(元)</span>
+        <b></b>
+      </li>
+      <li>
+        <span>奖池滚存(元)</span>
+        <b></b>
+      </li>
+    </ul>
+    <p class="c666">等待官方公布数据</p>
+  <#else>
+    <ul class="jackpot-money">
+      <li>
+        <span>本期销量(元)</span>
+        <b>${issue.salesAmount!0}</b>
+      </li>
+      <li>
+        <span>奖池滚存(元)</span>
+        <b>${issue.jackpotAmount!0}</b>
+      </li>
+    </ul>
+  </#if>
+</div>

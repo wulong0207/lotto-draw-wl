@@ -1,0 +1,179 @@
+<#include "/pc/common/common.html">
+<#include "/pc/common/data-kj-url.html">
+<#import "/pc/common/macro-layout-html.html" as layout/>
+<#import "/pc/common/macro-layout-page.html" as pageLayout/>
+<#assign cpLotteryKey=cpLotteryMap[lotteryType.lotteryCode?string]>
+<#if (queryVO.issueCode??)>
+	<#assign htmlTitle="${queryIssueCode}期足球北京单场开奖结果查询_${queryIssueCode}期足彩北京单场中奖信息-2N彩票">
+	<#assign htmlKeywords="${queryIssueCode}期北京单场，足彩北京单场${queryIssueCode}期">
+	<#assign htmlDescription="2N彩票网为您提供足球北京单场${queryIssueCode}期开奖结果,中国体育足球彩票北京单场${queryIssueCode}期开奖结果、时间、中奖查询、开奖公告、数据分析等服务，买彩票查开奖结果到2N彩票。">
+	<#assign htmlAlternate="${wapKjUrl}/${lotteryType.lotteryKey}/${queryIssueCode}.html">
+<#else>
+	<#assign htmlTitle="足球北京单场开奖结果查询_足彩北京单场开奖信息丨时间丨公告-2N彩票">
+	<#assign htmlKeywords="足球北京单场开奖结果，足彩北京单场开奖信息">
+	<#assign htmlDescription="2N彩票北京单场开奖结果栏目，为您提供最新足彩北京单场开奖信息查询，包括中国足球彩票北京单场开奖结果，北京单场开奖时间，开奖公告，开奖信息，买彩票查开奖结果到2N彩票。">
+	<#assign htmlAlternate="${wapKjUrl}/${lotteryType.lotteryKey}/">
+</#if>
+<@layout.header title=htmlTitle keywords=htmlKeywords description=htmlDescription alternate=htmlAlternate>
+	<link rel="stylesheet" href="${contextPath}/resources/css/details/details.css" />
+</@layout.header>
+<@layout.body>
+	<div class="det-body jingjicai">
+		<!--北京单场开奖公告 start-->
+		<div class="whiteBg mt20">
+			<div class="det-sec-head det-menu">
+				<div class="det-menu-box">
+					<strong class="det-title">${lotteryType.lotteryName}开奖公告</strong>、
+					<#include "/pc/common/template-det-lotto-menu.html"/>
+				</div>
+				<div class="fr c333 fs12">
+					<i class="ui-icon ex-gray-s"></i>
+					<span class="ib-va">本开奖数据由${(lotteryType.adminCategory==1)?string("福彩", "体彩")}中心提供</span>
+				</div>
+			</div>
+			<div class="det-section">
+				<!--开奖信息-->
+				<div class="open-award clearfix">
+					<div class="award-src">
+						<div class="award-src-list award-col1">
+							<div class="fl dt">
+								<img class="award-logo" src="${lotteryType.lotteryLogoUrl!}" alt="${lotteryType.lotteryName}"/>
+								<span class="lotto-name ib-va">北京单场</span>
+							</div>
+							<div class="fl"></div>
+						</div>
+						<div class="award-src-list">
+							<div class="handle-btn-div mb30 mt20">
+								<a class="handle-btn redbg" href="${webCpUrl}/${cpLotteryKey}" target="_blank">手动选号</a>
+								<!-- <a class="handle-btn off-btn">去合买</a> -->
+							</div>
+						</div>
+					</div>
+					<div class="chaxun">
+						<label class="ib-va">彩期</label>
+						<div class="selectDiv mr10">
+							<span class="periods">${queryIssueCode}期</span>
+							<ul class="periodsSelect" style="display: none;">
+								<#list issueCodeList as issueCode>
+									<li><a href="${contextPath}/${lotteryType.lotteryKey}/${issueCode}.html">${issueCode}期</a></li>
+								</#list>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!--本期开奖详情-->
+				<div class="award-info mt20">
+					<div class="lotto-award-table jjc-table fs14">
+						<table class="tac award-table c666" width="100%" cellpadding="0" cellspacing="0">
+							<thead>
+								<tr>
+									<td width="60">场次</td>
+									<td width="90">赛事</td>
+									<td width="150">比赛时间</td>
+									<td width="250">
+										<div class="colspan3 fs0 vs-team">
+											<span class="col h-team">主队</span>
+											<span class="col vs">(让球)</span>
+											<span class="col v-team">客队</span>
+										</div>
+									</td>
+									<td width="100">(半场)比分</td>
+									<td width="100">让球胜平负</td>
+									<td width="100">上下单双</td>
+									<td width="100">总进球数</td>
+									<td width="100">全场比分</td>
+									<td width="100">半全场</td>
+								</tr>
+							</thead>
+							<tbody>
+								<#list pageData.data as match>
+									<tr>
+										<td class="c999">${match.num!}</td>
+										<td class="c999">${match.raceName!}</td>
+										<td class="c999">${(match.matchTime?string("yyyy-MM-dd HH:mm"))!}</td>
+										<td>
+											<div class="colspan3 fs0 vs-team">
+												<span class="col h-team">${match.homeTeamName!}</span>
+												<span class="col vs">
+													<i class="green">
+														<#if (match.letNum>0)>
+															+${match.letNum}
+														<#elseif (match.letNum<=0)>
+															${match.letNum}
+														</#if>
+													</i>
+												</span>
+												<span class="col v-team">${match.guestTeamName!}</span>
+											</div>
+										</td>
+										<#if (match.matchStatus?? && match.matchStatus == 14)>
+											<td class="red">${match.matchStatusText}</td>
+											<td>*</td>
+											<td>*</td>
+											<td>*</td>
+											<td>*</td>
+											<td>*</td>
+										<#else>
+											<td class="red">
+												<#if match.fullScore??>
+													<i class="c666">(${match.halfScore!"--"})</i>
+													<b>${match.fullScore!"--"}</b>
+												<#else>
+													--
+												</#if>
+											</td>
+											<td>
+												<#if (match.letWdf?? || match.spLetWdf??)>
+													${match.letWdfText!}_${(match.spLetWdf?string("#,###.00"))!}
+												<#else>
+													--
+												</#if>
+											</td>
+											<td>
+												<#if (match.udSd?? || match.spUdSd??)>
+													${match.udSdText!}_${(match.spUdSd?string("#,###.00"))!}
+												<#else>
+													--
+												</#if>	
+											</td>
+											<td>
+												<#if (match.goalNum?? || match.spGoalNum??)>
+													${match.goalNum!}_${(match.spGoalNum?string("#,###.00"))!}
+												<#else>
+													--
+												</#if>	
+											</td>
+											<td>
+												<#if (match.scoreText?? || match.spScore??)>
+													${match.scoreText!}_${(match.spScore?string("#,###.00"))!}
+												<#else>
+													--
+												</#if>	
+											</td>
+											<td>
+												<#if (match.hfWdfText?? || match.spHfWdf??)>
+													${match.hfWdfText!}_${(match.spHfWdf?string("#,###.00"))!}
+												<#else>
+													--
+												</#if>	
+											</td>
+										</#if>
+									</tr>
+								</#list>
+							</tbody>
+						</table>
+					</div>
+					<@pageLayout.page total=pageData.total pageIndex=queryVO.pageIndex pageSize=queryVO.pageSize url="${contextPath}/${lotteryType.lotteryKey!}${(queryVO.issueCode??)?string('/'+queryIssueCode, '')}.html?pageIndex={pageIndex}"/>
+				</div>
+			</div>
+		</div>
+		<!--北京单场开奖公告end-->
+	</div>
+</@layout.body>
+<@layout.footer>
+	<script type="text/javascript">
+		$(function() {
+			new YiCai.page();
+		})
+	</script>
+</@layout.footer>

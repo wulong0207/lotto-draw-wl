@@ -1,0 +1,8 @@
+<#macro spHtmlDraw data preData spField format="#,###.00">
+  <em><#if data[spField]??>${data[spField]?string(format)!}</#if></em>
+  <#if (data[spField]?? && preData[spField]?? && data[spField]>preData[spField])>
+    <i class="arrow-red"></i>
+  <#elseif (data[spField]?? && preData[spField]?? && data[spField]<preData[spField])>
+    <i class="arrow-green"></i>
+  </#if>
+</#macro>

@@ -1,0 +1,112 @@
+<#include "/h5/common/top.html">
+  <title>${issue.issueCode}期四场进球开奖结果查询_${issue.issueCode}期足彩4场进球中奖信息-2N彩票触屏版</title>
+  <meta name="keywords" content="${issue.issueCode}期四场进球，足彩4场进球${issue.issueCode}期" />
+  <meta name="description" content="2N彩票网为您提供四场进球${issue.issueCode}期开奖结果,中国体育足球彩票4场进球${issue.issueCode}期开奖结果、时间、中奖查询、开奖公告、数据分析等服务，买彩票查开奖结果到2N彩票。" />
+  <link rel="canonical"href="${webKjUrl}/jq4/${issue.issueCode}.html" >
+</head>
+<body>
+<header class="header">
+  <section class="kj-h-title">
+    <a href="javascript:history.go(-1);" class="icons h-back"></a>
+    <h1>4场进球开奖详情</h1>
+  </section>
+</header>
+<section class="kj-content">
+  <div class="kj-detail-mode goals4">
+    <div class="kj-issue-item">
+      <div class="date-time"><span class="issue">${issue.issueCode}期</span><em>${(issue.lotteryTime?string('MM-dd'))!}</em><em>${(issue.lotteryTime?string('HH:mm'))!}(${week(issue.lotteryTime)})</em></div>
+      <div class="bottom-result">
+        <#if issue.drawCodeArr??>
+          <#assign drawCodeArr=issue.drawCodeArr/>
+          <div class="square-list">
+            <i class="i-square">${drawCodeArr[0]!}</i>
+            <i class="i-square">${drawCodeArr[1]!}</i>
+            <i class="i-square">${drawCodeArr[2]!}</i>
+            <i class="i-square">${drawCodeArr[3]!}</i>
+            <i class="i-square">${drawCodeArr[4]!}</i>
+            <i class="i-square">${drawCodeArr[5]!}</i>
+            <i class="i-square">${drawCodeArr[6]!}</i>
+            <i class="i-square">${drawCodeArr[7]!}</i>
+          </div>
+          <#else>
+            <em class="fs14 c666">等待开奖</em>
+        </#if>
+      </div>
+    </div>
+    <div class="jackpot-mode">
+      <div class="jackpot-main">
+        <ul class="jackpot-money">
+          <li>
+            <span>本期销量(元)</span>
+            <b>${issue.salesAmount!}</b>
+          </li>
+          <li>
+            <span>奖池滚存(元)</span>
+            <b>${issue.jackpotAmount!}</b>
+          </li>
+        </ul>
+        <#if !(issue.salesAmount??) && !(issue.jackpotAmount??)>
+          <p class="c666">等待官方公布数据</p>
+        </#if>
+      </div>
+    </div>
+    <div class="jackpot-list">
+      <div class="jackpot-list-title">奖金详情</div>
+      <table class="table-primary">
+        <tr><th>奖项</th><th>单注奖金(元)</th><th>中奖注数(注)</th></tr>
+        <#list issue.drawDetailList as drawDetail>
+          <tr>
+            <td>${drawDetail.prize}</td>
+            <td><em class="red">${drawDetail.money?default("-")}</em></td>
+            <td>${drawDetail.num?default("-")}</td>
+          </tr>
+        </#list>
+      </table>
+    </div>
+    <#if (issue.againsts?? && issue.againsts?size> 0)>
+    <div class="jackpot-list">
+      <div class="jackpot-list-title">对阵详情</div>
+      <table class="table-primary bd-table">
+        <tr><th>场次</th><th>主队</th><th>比分</th><th>客队</th><th>赛果</th></tr>
+        <#list issue.againsts as against>
+        <tr>
+          <td rowspan="2">${against_index+1}</td>
+          <td rowspan="2">${against.homeTeamName}</td>
+          <td rowspan="2">
+            <#if against.fullScore?? && against.fullScore !="" && against.halfScore?? && against.halfScore !="">
+              <em>${against.fullScore}</em><em class="c666 block">(${against.halfScore})</em>
+            <#elseif against.matchStatus == 5>
+              <em class="c999">*</em>
+            <#else>
+              <em class="c999">——</em>
+            </#if>
+          </td>
+          <td rowspan="2">${against.guestTeamName}</td>
+          <td>
+            <#if against.homeGoal??>
+              <em class="c333">${against.homeGoal}</em>
+            <#elseif against.matchStatus == 5>
+              <em class="c999">*</em>
+            <#else>
+              <em class="c999">-</em>
+            </#if>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <#if against.guestGoal??>
+              <em class="c333">${against.guestGoal}</em>
+            <#elseif against.matchStatus == 5>
+              <em class="c999">*</em>
+            <#else>
+              <em class="c999">-</em>
+            </#if>
+          </td>
+        </tr>
+        </#list>
+      </table>
+    </div>
+    </#if>
+  </div>
+</section>
+<#include "/h5/common/footer.html">

@@ -1,0 +1,224 @@
+#zx-footer {
+  margin-top: 34px;
+  line-height: 1;
+}
+
+#zx-footer .my-center {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#zx-footer .part-1 {
+  background-color: #fff;
+  height: 220px;
+}
+
+#zx-footer .part-1 .my-left {
+  float: left;
+  width: 690px;
+  height: 200px;
+  position: relative;
+}
+
+#zx-footer .part-1 .my-left:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 1px;
+  height: 160px;
+  background: #eee;
+}
+
+#zx-footer .part-1 .my-left .div-1 {
+  width: 100%;
+  height: 92px;
+  padding-top: 20px;
+  background: url(../../img/component/zx-footer-1.png) no-repeat left 15px;
+}
+
+#zx-footer .part-1 .my-left > div > div {
+  line-height: 16px;
+}
+
+#zx-footer .part-1 .my-left > div > div:first-child {
+  font-weight: bolder;
+  color: #666;
+  margin: 8px 0;
+}
+
+#zx-footer .part-1 .my-left .div-2 {
+  float: left;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  width: 170px;
+  height: 100px;
+  padding-top: 35px;
+  background: url(../../img/component/zx-footer-2.png) no-repeat 54px 0px;
+}
+
+#zx-footer .part-1 .my-left .div-3 {
+  float: left;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  width: 106px;
+  height: 100px;
+  padding-top: 35px;
+  margin-left: 30px;
+  margin-right: 60px;
+  background: url(../../img/component/zx-footer-2.png) no-repeat -145px 0px;
+}
+
+#zx-footer .part-1 .my-left .div-4 {
+  float: left;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  width: 106px;
+  height: 100px;
+  padding-top: 35px;
+  margin-right: 50px;
+  background: url(../../img/component/zx-footer-2.png) no-repeat -313px 0px;
+
+}
+
+#zx-footer .part-1 .my-left .div-5 {
+  float: left;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  width: 133px;
+  height: 100px;
+  padding-top: 35px;
+  background: url(../../img/component/zx-footer-2.png) no-repeat -470px 0px;
+}
+
+#zx-footer .part-1 .my-right {
+  float: right;
+  padding-top:30px;
+ 
+}
+ .about-list{
+    overflow: hidden;
+    position: relative;
+    
+  }
+
+.about-list li{
+      float: left;
+      margin-left:15px;
+      text-align: center;
+      
+    }
+ .about-list .btnli{
+      position: absolute;
+      right:0;
+      top:0;
+    }
+
+.about-list li a{color:#666;}
+.about-list li img{display: block;margin-bottom:15px;}
+ 
+.about-list li:first-child{margin-left: 0;}
+ 
+#zx-footer .part-2 {
+  background-color: #eaeaea;
+  // height: 206px;
+  padding: 30px 0;
+}
+
+#zx-footer .part-2 .div-1 a {
+  text-decoration: none;
+  color: #666666;
+}
+
+#zx-footer .part-2 .div-1 a:hover {
+  color: #1e88d2;
+}
+
+#zx-footer .part-2 .div-1 span {
+  margin-left: 10px;
+  margin-right: 6px;
+  vertical-align: top;
+  color: #ccc;
+}
+
+#zx-footer .part-2 .div-2 {
+  // margin-top: 18px;
+  //line-height: 1.7em;
+}
+
+#zx-footer .part-2 .div-2 a {
+  text-decoration: none;
+  color: #666666;
+}
+
+#zx-footer .part-2 .div-2 a:hover {
+  text-decoration: underline;
+}
+
+#zx-footer .part-2 .div-2 .zx-shuxian {
+  margin: 0 10px;
+  vertical-align: top;
+  color: #ccc;
+}
+
+#zx-footer .part-2 .div-3 {
+  margin: 20px 0;
+  color: #ed1c24;
+  font-weight: bold;
+}
+
+#zx-footer .part-2 .div-4 {
+  overflow: hidden;
+}
+
+#zx-footer .part-2 .div-4 > div {
+  float: left;
+  width: 108px;
+  height: 40px;
+  margin-right: 10px;
+  background-image: url(../../img/component/siteicon.png);
+  background-repeat: no-repeat;
+}
+
+#zx-footer .part-2 .div-4 > div a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#zx-footer .part-2 .div-4 .d1 {
+  background-position: -590px 0px;
+}
+
+#zx-footer .part-2 .div-4 .d2 {
+  background-position: -708px 0px;
+}
+
+#zx-footer .part-2 .div-4 .d3 {
+  background-position: -826px 0px;
+}
+
+#zx-footer .part-2 .div-4 .d4 {
+  background-position: 0px 0px;
+}
+
+#zx-footer .part-2 .div-4 .d5 {
+  background-position: -118px 0px;
+}
+
+#zx-footer .part-2 .div-4 .d6 {
+  background-position: -236px 0px;
+}
+
+#zx-footer .part-2 .div-4 .d7 {
+  background-position: -472px 0px;
+}
+
+#zx-footer .part-2 .div-4 .d8 {
+  background-position: -944px 0px;
+}

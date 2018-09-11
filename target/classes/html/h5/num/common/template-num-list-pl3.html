@@ -1,0 +1,33 @@
+<#import "/h5/num/common/macro-layout-num-list.html" as listLayout/>
+<#assign htmlCanonical="${webKjUrl}/${lotteryType.lotteryKey}/"/>
+<@listLayout.htmlDraw title=htmlTitle keywords=htmlKeywords description=htmlDescription canonical=htmlCanonical;position,drawCodeArr,thiIssue>
+  <#if (position=="issueLast" ||  position=="issueList")>
+    <div class="ball-list">
+      <#if (drawCodeArr?size>0 && drawCodeArr[0]??)>
+        <#list drawCodeArr[0] as code>
+          <i class="i-ball red">${code}</i>
+        </#list>
+      </#if>
+      <#if (drawCodeArr?size>1 && drawCodeArr[1]??)>
+        <#list drawCodeArr[1] as code>
+          <i class="i-ball blue">${code}</i>
+        </#list>
+      </#if>
+      <#if (lotteryType.lotteryCode==105 && thiIssue.drawCodeTestArr??)>
+        <#assign drawCodeTestArr=thiIssue.drawCodeTestArr/>
+        <span class="fl black ml10 pl10">试机号：${drawCodeTestArr[0]!} ${drawCodeTestArr[1]!} ${drawCodeTestArr[2]!}</span>
+      </#if>
+    </div>
+  <#elseif position=="jackpot">
+    <div class="jackpot-info">
+      <span class="fl">本期销量(元)</span>
+      <span class="fr">
+        <#if lastIssue.salesAmount??>
+          <b class="red">${lastIssue.salesAmount!}</b>
+        <#else>
+          <em class="c666">等待官方公布数据</em>
+        </#if>
+      </span>
+    </div>
+  </#if>
+</@listLayout.htmlDraw>

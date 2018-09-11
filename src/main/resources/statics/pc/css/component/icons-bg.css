@@ -1,0 +1,961 @@
+/*常用公共图标*/
+.icon {
+  background: url(../../img/icons-bg.png) no-repeat 0 0;
+  display: inline-block;
+  vertical-align: middle;
+
+}
+/* // 叹号*/
+.icon.info {
+    width: 50px;
+    height: 50px;
+    background-position: -130px -120px;
+  }
+ .icon.radio {
+    width: 24px;
+    height: 24px;
+    background-position: -74px -200px;
+    
+  }
+.icon.radio.selected {
+      background-position: -49px -200px;
+    }
+/*// 成功图标*/
+ .icon.success {
+    width: 40px;
+    height: 40px;
+    background-position: -3px -118px;
+  }
+
+/* 扫码图标*/
+.icon.scan {
+    width: 50px;
+    height: 50px;
+    background-position: -55px -240px;
+  }
+  
+/*沙漏图标*/
+.icon.hourglass {
+    width: 32px;
+    height: 32px;
+/*    background-position: -260px -200px;*/
+    background: url(../../img/icon-hourglass.gif) no-repeat center;
+  }
+/*  // 加载图标*/
+.icon.loading-90 {
+    width: 90px;
+    height: 90px;
+    background: url(../../img/loading-90.gif) no-repeat center;
+  }
+/* 关闭图标*/
+.icon.close {
+    width: 20px;
+    height: 20px;
+    background-position: -165px -312px;
+  }
+.icon.close:hover {
+	background-position: -187px -312px;
+	}
+
+.greenPhone {
+  background-position: 0 0;
+  width: 10px;
+  height: 18px;
+}
+
+.blackPhone {
+  background-position: -13px 0;
+  width: 10px;
+  height: 14px;
+}
+/*灰色走势图标*/
+.trendIcon {
+  background-position: -26px 0;
+}
+
+/*灰色问题*/
+.grayMask {
+  background-position: -46px 0;
+}
+
+.trendIcon, .grayMask {
+  width: 15px;
+  height: 15px;
+  margin-right: 4px;
+}
+
+.qInfo, .blueInfo, .redInfo {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+/*小叹号图标*/
+.qInfo {
+  background-position: -160px -100px;
+}
+
+.blueInfo {
+  background-position: -100px -100px;
+}
+
+.redInfo {
+  background-position: -120px -100px;
+}
+
+.orgInfo {
+  background-position: -140px -100px;
+  width: 13px;
+  height: 13px;
+  position: relative;
+}
+
+/*橘黄小叹号图标*/
+.greInfo {
+  width: 16px;
+  height: 16px;
+  background-position: -182px -100px;
+  position: relative;
+}
+
+/*灰色小叹号图标*/
+.greQues {
+  width: 16px;
+  height: 16px;
+  background-position: -199px -100px;
+}
+
+/*灰色问号图标*/
+
+.qMask {
+  background-position: -66px 0;
+}
+
+.aMask {
+  background-position: -92px 0;
+}
+
+.qMask, .aMask {
+  width: 18px;
+  height: 18px;
+}
+
+/*问答图标*/
+
+.close1 {
+  background-position: -175px 0px;
+  width: 10px;
+  height: 10px;
+}
+
+/*红色关闭*/
+.close {
+  background-position: -205px 0px;
+  width: 14px;
+  height: 14px;
+}
+
+/*黑色关闭*/
+
+.notData {
+  width: 40PX;
+  height: 40px;
+  background-position: -118px -240px;
+}
+
+.lotterys .mainGame .ssq {
+  background-position: 0 0;
+}
+
+.lotterys .mainGame .dlt {
+  background-position: -30px 0;
+}
+
+/*投注球*/
+.bet_icon {
+  background: url(../../img/bet_icon.png) no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.rb_36 {
+  width: 36px;
+  height: 36px;
+  background-position: 0 0;
+}
+
+.bb_36 {
+  width: 36px;
+  height: 36px;
+  background-position: -36px 0;
+}
+
+.grb_36 {
+  width: 36px;
+  height: 36px;
+  background-position: -72px 0;
+}
+
+/*骰子*/
+.craps {
+  width: 36px;
+  height: 36px;
+  background: url(../../img/craps_icon.png) no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.craps.c1 {
+  background-position: 0 0px;
+}
+
+.craps.c2 {
+  background-position: 0 -36px;
+}
+
+.craps.c3 {
+  background-position: 0 -72px;
+}
+
+.craps.c4 {
+  background-position: -36px 0px;
+}
+
+.craps.c5 {
+  background-position: -36px -36px;
+}
+
+.craps.c6 {
+  background-position: -36px -72px;
+}
+
+.craps.ct {
+  background-position: -72px 0px;
+}
+
+.craps.cs {
+  background-position: -72px -36px;
+}
+
+.craps.ce {
+  background-position: -72px -72px;
+}
+
+.i_yyy {
+  width: 100px;
+  height: 39px;
+  background-position: 0 -37px;
+  margin-top: -3px;
+  cursor: pointer;
+}
+
+/*公共提示图标*/
+.icon-tip {
+  background: url(../../img/icon-tip.png) no-repeat 0 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*16px蓝色i*/
+.blue-tip16 {
+  width: 16px;
+  height: 16px;
+  background-position: 0 0;
+}
+
+/*16px灰色i*/
+.grey-tip16 {
+  width: 16px;
+  height: 16px;
+  background-position: -17px 0;
+}
+
+/*16px红色倒i*/
+.red-tip16 {
+  width: 16px;
+  height: 16px;
+  background-position: -34px 0;
+}
+
+/*16px红色叉*/
+.red2-tip16 {
+  width: 16px;
+  height: 16px;
+  background-position: -51px 0;
+}
+
+/*16px绿色勾*/
+.green-tip16 {
+  width: 16px;
+  height: 16px;
+  background-position: -68px 0;
+}
+
+/*32px蓝色i*/
+.blue-tip32 {
+  width: 32px;
+  height: 32px;
+  background-position: 0 -16px;
+}
+
+/*32px灰色i*/
+.grey-tip32 {
+  width: 32px;
+  height: 32px;
+  background-position: -33px -16px;
+}
+
+/*32px红色倒i*/
+.red-tip32 {
+  width: 32px;
+  height: 32px;
+  background-position: -66px -16px;
+}
+
+/*32px红色叉*/
+.red2-tip32 {
+  width: 32px;
+  height: 32px;
+  background-position: -99px -16px;
+}
+
+/*32px绿色勾*/
+.green-tip32 {
+  width: 32px;
+  height: 32px;
+  background-position: -132px -16px;
+}
+
+/*48px蓝色i*/
+.blue-tip48 {
+  width: 48px;
+  height: 48px;
+  background-position: 0 -48px;
+}
+
+/*48px灰色i*/
+.grey-tip48 {
+  width: 48px;
+  height: 48px;
+  background-position: -49px -48px;
+}
+
+/*48px红色倒i*/
+.red-tip48 {
+  width: 48px;
+  height: 48px;
+  background-position: -98px -48px;
+}
+
+/*48px红色叉*/
+.red2-tip48 {
+  width: 48px;
+  height: 48px;
+  background-position: -147px -48px;
+}
+
+/*48px绿色勾*/
+.green-tip48 {
+  width: 48px;
+  height: 48px;
+  background-position: -196px -48px;
+}
+
+/*选择*/
+.icon-selected {
+  position: relative;
+}
+
+.icon-selected.selected:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 22px;
+  height: 22px;
+  right: 0;
+  bottom: 0;
+  background: url('../../img/icons-bg.png') no-repeat -267px -17px;
+}
+
+/********************************彩种LOGO******************************/
+
+.lotteryLogo {
+  display: inline-block;
+  background: url('../../img/lotteryLogo/lot-logo.png') no-repeat;
+}
+/*双色球*/
+.logo-ssq.logo-90{
+      width: 90px;
+      height: 90px;
+      background-position: -5px -1810px;
+    }
+.logo-ssq.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -1810px;
+    }
+.logo-ssq.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -1810px;
+    }
+.logo-ssq.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -1810px;
+    }
+/*大乐透*/
+.logo-dlt.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -5px;
+    }
+.logo-dlt.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -5px;
+    }
+.logo-dlt.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -5px;
+    }
+.logo-dlt.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -5px;
+    }
+
+
+/*  //山东十一选五*/
+
+.logo-sd11x5.logo-90 {
+  width: 90px;
+  height: 90px;
+  background-position: -5px -195px;
+}
+.logo-sd11x5.logo-70 {
+  width: 70px;
+  height: 70px;
+  background-position: -100px -195px;
+}
+.logo-sd11x5.logo-60 {
+  width: 60px;
+  height: 60px;
+  background-position: -175px -195px;
+}
+.logo-sd11x5.logo-36 {
+  width: 36px;
+  height: 36px;
+  background-position: -240px -195px;
+}
+/* 竞彩足球*/
+.logo-jczq.logo-90 {
+  width: 90px;
+  height: 90px;
+  background-position: -5px -385px;
+}
+.logo-jczq.logo-70 {
+  width: 70px;
+  height: 70px;
+  background-position: -100px -385px;
+}
+.logo-jczq.logo-60 {
+  width: 60px;
+  height: 60px;
+  background-position: -175px -385px;
+}
+.logo-jczq.logo-36 {
+  width: 36px;
+  height: 36px;
+  background-position: -240px -385px;
+}
+
+ /*//竞彩篮球*/
+ .logo-jclq .logo-90 {
+  width: 90px;
+  height: 90px;
+  background-position: -5px -480px;
+}
+.logo-jclq .logo-70 {
+  width: 70px;
+  height: 70px;
+  background-position: -100px -480px;
+}
+.logo-jclq .logo-60 {
+  width: 60px;
+  height: 60px;
+  background-position: -175px -480px;
+}
+.logo-jclq .logo-36 {
+  width: 36px;
+  height: 36px;
+  background-position: -240px -480px;
+}
+  
+/* 胜负彩*/
+
+.logo-sfc.logo-90 {
+  width: 90px;
+  height: 90px;
+  background-position: -5px -1430px;
+}
+.logo-sfc.logo-70 {
+  width: 70px;
+  height: 70px;
+  background-position: -100px -1430px;
+}
+.logo-sfc.logo-60 {
+  width: 60px;
+  height: 60px;
+  background-position: -175px -1430px;
+}
+.logo-sfc.logo-36 {
+  width: 36px;
+  height: 36px;
+  background-position: -240px -1430px;
+}
+/*  //北京单场*/
+
+.logo-bjdc .logo-90 {
+  width: 90px;
+  height: 90px;
+  background-position: -5px -100px;
+}
+.logo-bjdc .logo-70 {
+  width: 70px;
+  height: 70px;
+  background-position: -100px -100px;
+}
+.logo-bjdc .logo-60 {
+  width: 60px;
+  height: 60px;
+  background-position: -175px -100px;
+}
+.logo-bjdc .logo-36 {
+  width: 36px;
+  height: 36px;
+  background-position: -240px -100px;
+}
+/*//十五选五*/
+
+    .logo-15x5.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -290px;
+    }
+    .logo-15x5.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -290px;
+    }
+   .logo-15x5.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -290px;
+    }
+    .logo-15x5.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -290px;
+    }
+    
+/* 快乐扑克3*/
+
+    .logo-sdpk.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -575px;
+    }
+    .logo-sdpk.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -575px;
+    }
+    .logo-sdpk.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -575px;
+    }
+    .logo-sdpk.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -575px;
+    }
+
+/*//江苏快3*/
+
+    .logo-jsk3 .logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -670px;
+    }
+    .logo-jsk3 .logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -670px;
+    }
+    .logo-jsk3 .logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -670px;
+    }
+    .logo-jsk3 .logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -670px;
+    }
+/*    //排列五*/
+
+    .logo-pl5.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -765px;
+    }
+    .logo-pl5.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -765px;
+    }
+    .logo-pl5.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -765px;
+    }
+    .logo-pl5.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -765px;
+    }
+/*//排列3*/
+
+    .logo-pl3 .logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -860px;
+    }
+    .logo-pl3 .logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -860px;
+    }
+    .logo-pl3 .logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -860px;
+    }
+    .logo-pl3 .logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -860px;
+    }
+/*//任选9*/
+
+    .logo-sfcrj.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -955px;
+    }
+    .logo-sfcrj.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -955px;
+    }
+    .logo-sfcrj.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -955px;
+    }
+    .logo-sfcrj.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -955px;
+    }
+/*//福彩3D*/
+
+    .logo-fc3d .logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -1050px;
+    }
+    .logo-fc3d .logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -1050px;
+    }
+    .logo-fc3d .logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -1050px;
+    }
+    .logo-fc3d .logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -1050px;
+    }
+ /*//胜负过关*/
+
+    .logo-sfgg.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -1145px;
+    }
+    .logo-sfgg.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -1145px;
+    }
+    .logo-sfgg.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -1145px;
+    }
+    .logo-sfgg.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -1145px;
+    }
+/* //七乐彩*/
+
+    .logo-qlc.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -1240px;
+    }
+    .logo-qlc.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -1240px;
+    }
+    .logo-qlc.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -1240px;
+    }
+    .logo-qlc.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -1240px;
+    }
+/* //东方6+1*/
+
+    .logo-df6j1.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -1335px;
+    }
+    .logo-df6j1.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -1335px;
+    }
+    .logo-df6j1.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -1335px;
+    }
+    .logo-df6j1.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -1335px;
+    }
+/*//胜负平*/
+
+    .logo-sfp.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -1525px;
+    }
+    .logo-sfp.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -1525px;
+    }
+    .logo-sfp.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -1525px;
+    }
+    .logo-sfp.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -1525px;
+    }
+/*//幸运赛车*/
+
+    .logo-xysc.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -1620px;
+    }
+    .logo-xysc.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -1620px;
+    }
+    .logo-xysc.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -1620px;
+    }
+    .logo-xysc.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -1620px;
+    }
+
+/*  //七星彩*/
+
+    .logo-qxc.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -1715px;
+    }
+    .logo-qxc.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -1715px;
+    }
+    .logo-qxc .logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -1715px;
+    }
+    .logo-qxc.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -1715px;
+    }
+/*//时时彩*/
+
+    .logo-ssc .logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -1905px;
+    }
+    .logo-ssc .logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -1905px;
+    }
+    .logo-ssc .logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -1905px;
+    }
+    .logo-ssc .logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -1905px;
+    }
+/* 广东十一选五*/
+   .logo-gd11x5.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -2000px;
+    }
+    .logo-gd11x5.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -2000px;
+    }
+    .logo-gd11x5.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -2000px;
+    }
+    .logo-gd11x5.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -2000px;
+    }
+
+/*//重庆幸运农场、重庆快乐十分*/
+
+    .logo-cqkl10.logo-90 {
+      width: 90px;
+      height: 90px;
+      background-position: -5px -2095px;
+    }
+    .logo-cqkl10.logo-70 {
+      width: 70px;
+      height: 70px;
+      background-position: -100px -2095px;
+    }
+    .logo-cqkl10.logo-60 {
+      width: 60px;
+      height: 60px;
+      background-position: -175px -2095px;
+    }
+    .logo-cqkl10.logo-36 {
+      width: 36px;
+      height: 36px;
+      background-position: -240px -2095px;
+    }
+
+
+
+
+/*二维码图标*/
+.icon-mobile {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: url('../../img/component/mobile-code-img.png') no-repeat center;
+  background-size: contain;
+}
+
+/*图片默认占位符*/
+.PlaceholderPic {
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: url("../../img/component/Placeholder logo.png") no-repeat center center #e6e6e6;
+}
+
+/*icon*/
+.sprites {
+  background-image: url(../../img/index_sprites.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ico_msg {
+  width: 18px;
+  height: 12px;
+  background-position: -60px 0;
+  margin-right: 5px;
+}
+
+.btn_set {
+  width: 16px;
+  height: 16px;
+  background-position: -60px -14px;
+}
+
+/*右向箭头*/
+.btn_arrowR {
+  width: 7px;
+  height: 13px;
+  background: url(../../img/index_sprites.png) no-repeat -79px 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn_arrowR:hover {
+  background-position: -86px 0;
+}
+
+/*红色向上箭头*/
+.redArrow{
+  width:6px;
+  height:12px;
+  background-position: -182px -80px;
+}
+/*绿色向下箭头*/
+.greenArrow{
+  width:6px;
+  height:12px;
+  background-position: -188px -80px;
+}

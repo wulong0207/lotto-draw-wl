@@ -1,0 +1,29 @@
+<#macro htmlDraw title="" keywords="" description="">
+<#include "/h5/common/top.html">
+  <title>${title}</title>
+  <meta name="keywords" content="${keywords}" />
+  <meta name="description" content="${description}" />
+</head>
+<body>
+<header class="header">
+  <section class="kj-h-title">
+    <a href="javascript:history.go(-1);" class="icons h-back"></a>
+    <h1>${lotteryType.lotteryName}奖金详情</h1>
+  </section>
+</header>
+<section class="kj-content">
+  <div class="kj-detail-mode ${lotteryType.lotteryKey}">
+    <div class="kj-jackpot-page bg-jackpot">
+      <div class="jackpot-table">
+        <table class="table-th-white">
+          <#if issue??>
+            <#local drawDetailList=issue.drawDetailList/>
+          </#if>
+          <#nested drawDetailList>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<#include "/h5/common/footer.html">
+</#macro>
